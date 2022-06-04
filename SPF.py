@@ -23,11 +23,9 @@ G = nx.read_graphml('Rnp.graphml.xml')
 #for i in range(G.number_of_edges(G)):
 Links = nx.get_edge_attributes(G,'LinkLabel').values()
 Speed = nx.get_edge_attributes(G,'LinkSpeed').values()
-pprint(Speed)
 
-path = dict(nx.all_pairs_shortest_path(G))
 
-pprint(path)
+
 cores = []
 
 for key in Links:
@@ -47,7 +45,7 @@ for key in Links:
     cores.append(node_dist_to_color[7])
 
 label_dic = dict(list(G.nodes(data="label")))
-pprint(label_dic)
+#pprint(label_dic)
 Latitude = (list(G.nodes(data="Latitude")))
 Longitude = (list(G.nodes(data="Longitude")))
 
@@ -65,9 +63,7 @@ nx.draw_networkx_labels(G, poslabel)
 nx.draw_networkx_nodes(G, pos, node_size=60, node_color="#210070", alpha=0.9)
 
 
-for value in label_dic.keys():
-    pprint(value)
-    pprint([p for p in nx.all_shortest_paths(G, value, target=2)])
+pprint([p for p in nx.all_shortest_paths(G, 0, 10, weight='LinkSpeed', method='dijkstra')])
 #print ("")
 #centralidade = nx.edge_load_centrality(G)
 #betweenness = nx.edge_betweenness_centrality(Gnew,  weight='capacity')
