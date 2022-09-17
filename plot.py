@@ -67,15 +67,17 @@ for i in range(G.number_of_nodes()):
 
 
 
-nx.draw_networkx_edges(G,pos,edge_color=cores, width=2, alpha = 0.3)
+nx.draw_networkx_edges(G,pos,edge_color=cores, width=2, alpha = 0.9)
 nx.draw_networkx_labels(G,poslabel,label_dic,font_size=8)
-nx.draw_networkx_nodes(G, pos, node_size=5, node_color="#210070", alpha=0.5)
+nx.draw_networkx_nodes(G, pos, node_size=5, node_color="#210070", alpha=0.9)
 
 
 
-m.drawcountries(linewidth = 0.5)
+m.drawcountries(linewidth = 0.3)
 m.drawstates(linewidth = 0.2)
-m.drawcoastlines(linewidth=0.2)
+m.drawcoastlines(linewidth=0.3)
 plt.tight_layout()
+#m.bluemarble()
+m.shadedrelief()
 plt.savefig("./map_1.png", format = "png", dpi = 300)
 plt.show()

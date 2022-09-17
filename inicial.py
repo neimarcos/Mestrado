@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from pulp import *
 import copy
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
 
 # Com base na posição do elemento(no) encontra posições que um elemente(no) ocorre em um lista (rotas)
 # pos = posicao do elemento 
@@ -191,7 +193,7 @@ def exibegrafico(G):
       7: "tab:gray",
   }
 
-  plt.figure(Rede,figsize=(12,12)) 
+  plt.figure(rede,figsize=(12,12)) 
 
   Links = nx.get_edge_attributes(G,'LinkLabel').values()
 
@@ -211,6 +213,10 @@ def exibegrafico(G):
       cores.append(node_dist_to_color[6])
     elif(key=='20Mbps'):
       cores.append(node_dist_to_color[7])
+  # setup Lambert Conformal basemap.
+  # set resolution=None to skip processing of boundary datasets.
+  m = Basemap(width=12000000,height=9000000,projection='lcc',
+            resolution=None,lat_1=45.,lat_2=55,lat_0=-15.9350619,lon_0=-51.8217625)
 
   label_dic = dict(list(G.nodes(data="label")))
   Latitude = (list(G.nodes(data="Latitude")))
@@ -226,6 +232,13 @@ def exibegrafico(G):
   nx.draw_networkx_edges(G, pos,edge_color=cores, width=2)
   nx.draw_networkx_labels(G, poslabel,label_dic,font_size=8)
   nx.draw_networkx_nodes(G, pos, node_size=40, node_color="#210070", alpha=0.9)
+
+  m.drawcountries()
+  m.drawstates()
+  m.bluemarble()
+  plt.title(rede)
+
+
   plt.show()
 
 #spf= carregaExemplo(G)
@@ -233,13 +246,16 @@ def exibegrafico(G):
 #pprint(spf)
     
 
-#G = nx.read_graphml('exemplo.graphml')
-G = nx.read_graphml('Geant2012.graphml')
-#G = nx.read_graphml('Rnp.graphml.graphml')
+#rede = 'Geant2012.graphml'
+rede = 'Rnp.graphml'
+#rede = 'exemplo.graphml'
+#rede = 'exemplo_pequeno.graphml'
+
+G = nx.read_graphml(rede)
 
 spf = nx.shortest_path(G,weight='LinkSpeedRaw')
 #pprint(spf)             
-
+exibegrafico(G)
 rotas=limparotas(spf)
 #pprint(rotas)
 
@@ -331,7 +347,7 @@ for rota in Lista_RotaSimple:
 
 
 
-prob.writeLP("Geant2012.LP")
+prob.writeLP(rede.replace(".graphml", ".LP"))
 prob.solve()
 print("Status:", LpStatus[prob.status])
 for v in prob.variables():

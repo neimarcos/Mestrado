@@ -194,9 +194,14 @@ def encontrapeso(rota):
                 return abs(peso[i])
     return (0)
 
+rede = 'Geant2012.graphml'
+#rede = 'Rnp.graphml.graphml'
+#rede = 'exemplo.graphml'
+#rede = 'exemplo_pequeno.xml'
+
+G = nx.read_graphml(rede)
 
 
-G = nx.read_graphml('exemplo_pequeno.xml')
 spf = nx.shortest_path(G,weight='LinkSpeedRaw')
 routers = G.nodes
 
@@ -239,14 +244,14 @@ probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
 probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
 
 
-probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
+probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 20,"Max_Probes",)
 
 
 for router in routers:
     probes_model += ( pulp.lpSum([x[probe] for probe in possible_probes if router in probe]) <= 8, "Max_Probes_no_Router%s" % router,
     )
 
-probes_model.writeLP("Probes-Sondas")
+probes_model.writeLP(rede+'.pl')
 probes_model.solve()
 print("Os probes ativo são de um total de  %s:" % len(possible_probes))
 #pprint(possible_probes)
