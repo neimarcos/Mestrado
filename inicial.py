@@ -191,7 +191,7 @@ def exibegrafico(G):
       7: "tab:gray",
   }
 
-  plt.figure(3,figsize=(12,12)) 
+  plt.figure(Rede,figsize=(12,12)) 
 
   Links = nx.get_edge_attributes(G,'LinkLabel').values()
 
@@ -233,8 +233,9 @@ def exibegrafico(G):
 #pprint(spf)
     
 
-G = nx.read_graphml('exemplo.xml')
-#G = nx.read_graphml('Rnp.graphml.xml')
+#G = nx.read_graphml('exemplo.graphml')
+G = nx.read_graphml('Geant2012.graphml')
+#G = nx.read_graphml('Rnp.graphml.graphml')
 
 spf = nx.shortest_path(G,weight='LinkSpeedRaw')
 #pprint(spf)             
@@ -262,15 +263,8 @@ caminhopesobidirecional=EncontraRotasCompostas(caminhopeso)
 
 rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
 #pprint(rotascompostas)
-
-
-
-
-
-           
+          
 pesorotascompostas(df, rotascompostas)    
-
-
 
 
 
@@ -295,10 +289,9 @@ prob += (
 
 routers = G.nodes
 
-max_sondas = [3,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5]     
+max_sondas = [3,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5]     
 
     
-
 # Maximo de sondas em um roteador
 for router in routers:
     Lista_Inicio_Fim = []
@@ -338,7 +331,7 @@ for rota in Lista_RotaSimple:
 
 
 
-prob.writeLP("Probes")
+prob.writeLP("Geant2012.LP")
 prob.solve()
 print("Status:", LpStatus[prob.status])
 for v in prob.variables():

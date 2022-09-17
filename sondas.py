@@ -194,8 +194,7 @@ def encontrapeso(rota):
                 return abs(peso[i])
     return (0)
 
-max_probes = 5
-max_probe_size = 4
+
 
 G = nx.read_graphml('exemplo_pequeno.xml')
 spf = nx.shortest_path(G,weight='LinkSpeedRaw')
@@ -226,34 +225,32 @@ rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
 pesorotascompostas(df, rotascompostas) 
 
 pprint(caminho)
-'''
+
 possible_probes = [tuple(c) for c in caminho ]
 
 x = pulp.LpVariable.dicts(
     "probe", possible_probes, lowBound=0, upBound=1, cat=pulp.LpInteger
 )
 
-probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMinimize)
+
+probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
+
 
 probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
 
-probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) == 20,"Max_Route_Com_Probes",
-)
+
+probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
+
 
 for router in routers:
-    probes_model += ( pulp.lpSum([x[probe] for probe in possible_probes if router in probe]) <= 5, "Max_Probes_no_Router%s" % router,
+    probes_model += ( pulp.lpSum([x[probe] for probe in possible_probes if router in probe]) <= 8, "Max_Probes_no_Router%s" % router,
     )
 
-probes_model.solve()
 probes_model.writeLP("Probes-Sondas")
-#print("The choosen tables are out of a total of %s:" % len(possible_probes))
+probes_model.solve()
+print("Os probes ativo são de um total de  %s:" % len(possible_probes))
 #pprint(possible_probes)
 
-for rota in rotas:
-    if x[tuple(rota)].value() == 1.0:
-        print(rota)
-        
-#Colocar as rotas compostas junto
-
-
-'''
+for probe in possible_probes:
+    if x[probe].value() == 1:
+        pprint(probe)
