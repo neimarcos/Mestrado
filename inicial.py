@@ -1,4 +1,3 @@
-
 import networkx as nx
 from pprint import pprint
 import operator
@@ -215,8 +214,6 @@ def exibegrafico(G):
       cores.append(node_dist_to_color[7])
   # setup Lambert Conformal basemap.
   # set resolution=None to skip processing of boundary datasets.
-  m = Basemap(width=12000000,height=9000000,projection='lcc',
-            resolution=None,lat_1=45.,lat_2=55,lat_0=-15.9350619,lon_0=-51.8217625)
 
   label_dic = dict(list(G.nodes(data="label")))
   Latitude = (list(G.nodes(data="Latitude")))
@@ -233,9 +230,6 @@ def exibegrafico(G):
   nx.draw_networkx_labels(G, poslabel,label_dic,font_size=8)
   nx.draw_networkx_nodes(G, pos, node_size=40, node_color="#210070", alpha=0.9)
 
-  m.drawcountries()
-  m.drawstates()
-  m.bluemarble()
   plt.title(rede)
 
 
@@ -247,15 +241,15 @@ def exibegrafico(G):
     
 
 #rede = 'Geant2012.graphml'
-rede = 'Rnp.graphml'
-#rede = 'exemplo.graphml'
+#rede = 'Rnp.graphml'
+rede = 'exemplo.graphml'
 #rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 
 spf = nx.shortest_path(G,weight='LinkSpeedRaw')
 #pprint(spf)             
-exibegrafico(G)
+
 rotas=limparotas(spf)
 #pprint(rotas)
 
@@ -294,7 +288,7 @@ Dic_Custo = dict(zip(Lista_Rota,[int(x) for x in Lista_Custo]))
 # Create the 'prob' variable to contain the problem data
 prob = LpProblem("Proble Problem", LpMaximize)
 
-# A dictionary called 'Custo_var' is created to contain the referenced Variables
+# 
 rota_var = LpVariable.dicts("R", Lista_Rota, 0, 1, LpInteger)
 
 # The objective function is added to 'prob' first
@@ -323,6 +317,23 @@ for router in routers:
     if Lista_Inicio_Fim:
         #pprint(Lista_Inicio_Fim)
         prob += (lpSum([rota_var[i] for i in Lista_Inicio_Fim]) <= max_sondas[int(router)], "Origem_Destino" + str(router))    
+
+
+for router in routers:
+    Lista_Inicio_Fim = []
+    pprint(f'Router: {router}')
+    for rota in Lista_Rota:
+        #pprint(rota[0:rota.find('-')])
+        #pprint(rota[rota.rfind('-')+1:])
+        #pprint(rota.find(router+'+'+router))
+        if rota.find(router+'+'+router)>0:
+           pprint (f'Duas sondas no router {router} na rota {rota}')
+           for router_aux in routers:
+                for rota_aux in Lista_Rota:
+                    if rota_aux.find(router+'+'+router_aux)>0 or rota_aux.find(router_aux+'+'+router)>0 :
+                        pprint (f'rota_aux {rota_aux}')
+                 
+    
 
 # Evita medição duplicada - Rota reversa
 for rota in Lista_RotaSimple:
@@ -355,4 +366,4 @@ for v in prob.variables():
         print(v.name, "=", v.varValue)
 print("Custo = ", value(prob.objective))
 
-exibegrafico(G)
+#exibegrafico(G)
