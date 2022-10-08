@@ -75,8 +75,8 @@ def pesorotascompostas(df, rotascompostas):
                     #print(f'Count {len(salto)}')
                     df2=df[df['caminho_str'].astype(str)== str(salto)]
                     if df2.empty:
-                       reverso =list(reversed(salto))               
-                       df2=df[df['caminho_str'].astype(str)== str(reverso)]
+                        reverso =list(reversed(salto))               
+                        df2=df[df['caminho_str'].astype(str)== str(reverso)]
                     val = 2 *(df2.iloc[0]['peso'])
                     custo_rota += val
                     composicao += extractlabel(salto) + '+'
@@ -235,21 +235,20 @@ df['caminho_str'] = df['caminho'].astype(str)
 
 
 
-#caminhopesobidirecional=EncontraRotasCompostas(caminhopeso)
+caminhopesobidirecional=EncontraRotasCompostas(caminhopeso)
 #pprint(caminhopesobidirecional)
 
-#rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
+rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
 #pprint(rotascompostas)
 
-#pesorotascompostas(df, rotascompostas) 
+pesorotascompostas(df, rotascompostas) 
 
-#pprint(caminho)
+pprint(caminho)
 
 possible_probes = [tuple(c) for c in caminho ]
 pprint(possible_probes)
 
-
-x = pulp.LpVariable.dicts(
+'''x = pulp.LpVariable.dicts(
     "probe", possible_probes, lowBound=0, upBound=1, cat=pulp.LpInteger
 )
 
@@ -275,3 +274,4 @@ print("Os probes ativo são de um total de  %s:" % len(possible_probes))
 for probe in possible_probes:
     if x[probe].value() == 1:
         pprint(probe)
+'''
