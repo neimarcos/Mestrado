@@ -1,9 +1,9 @@
-import pulp
 from pprint import pprint
 import networkx as nx
 import operator
 import pandas as pd
 import copy
+from pulp import *
 
 
 
@@ -70,7 +70,8 @@ def pesorotascompostas(df, rotascompostas):
             #print(f'Count {len(rota)}')
             if len(rota) >  1 :
                 custo_rota = 0;
-                composicao = ''
+                composicao = []
+                comp = ''
                 for salto in rota:
                     #print(f'Count {len(salto)}')
                     df2=df[df['caminho_str'].astype(str)== str(salto)]
@@ -79,11 +80,11 @@ def pesorotascompostas(df, rotascompostas):
                         df2=df[df['caminho_str'].astype(str)== str(reverso)]
                     val = 2 *(df2.iloc[0]['peso'])
                     custo_rota += val
-                    composicao += extractlabel(salto) + '+'
-                    pprint(f'{salto} - {val}')
-                composicao = composicao[:-1]
-                caminho.append(str(composicao))
-                peso.append(str(custo_rota))
+                    comp = extractlabel(salto) 
+                    #pprint(f'{salto} - {val}')
+                    composicao.append (comp)
+            caminho.append(composicao)
+            peso.append(custo_rota)
 
 
 def extractlabel(salto):
@@ -137,7 +138,7 @@ def ContaOcorrencias(chunks):
                     count += 1
             except ValueError:
                 pass
-        #pprint(f" Total: {count}")
+        #pprint(f"V: {v} Total: {count}")
         caminho.append (v)
         peso.append(count)
         caminhopeso.append((count,len(v), v))
@@ -145,6 +146,7 @@ def ContaOcorrencias(chunks):
     return(caminho, peso, caminhopeso) 
 
 def EncontraComposicoesPosiveis(caminhopesobidirecional):
+    global max_sum_caminhos 
     df_caminhos = pd.DataFrame(caminhopesobidirecional)
     caminhos = tuple(df_caminhos[2])
     pesos = tuple(df_caminhos[0])
@@ -181,7 +183,9 @@ def EncontraComposicoesPosiveis(caminhopesobidirecional):
                 #print(f'SubRotas: {subcaminhos}')
                 #pprint(compoe_subrotas(0,caminhos_par))
                 rotascompostas.append(compoe_subrotas(0,caminhos_par,v,subcaminhos,pesos_subcaminhos))
-                #pprint(rotascompostas)
+                if (len(subcaminhos) > max_sum_caminhos):
+                    max_sum_caminhos = len(subcaminhos)
+                    pprint(max_sum_caminhos)
     return(rotascompostas)
   
 
@@ -215,15 +219,10 @@ for i in spf:
             v_reverso.reverse()
             if v_reverso not in rotas:
                 rotas.append(v)
-'''
-for rota in rotas:
-    reverso = copy.deepcopy(rota)
-    reverso.reverse()
-    pprint(f'rota: {rota}')
-    pprint(f'reverso: {reverso}')
-    if reverso in rotas:
-        rotas.remove(reverso) 
-'''
+
+Medicao = [tuple(c) for c in rotas ]
+
+
 
 caminho, peso, caminhopeso = (ContaOcorrencias(rotas))
 #pprint(caminhopeso)
@@ -233,10 +232,12 @@ df.columns = ['peso', 'tamanho', 'caminho']
 df['caminho_str'] = df['caminho'].astype(str)
 
 
+#pprint(caminho)
 
 
 caminhopesobidirecional=EncontraRotasCompostas(caminhopeso)
 #pprint(caminhopesobidirecional)
+max_sum_caminhos = 0
 
 rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
 #pprint(rotascompostas)
@@ -245,21 +246,23 @@ pesorotascompostas(df, rotascompostas)
 
 pprint(caminho)
 
-possible_probes = [tuple(c) for c in caminho ]
-pprint(possible_probes)
+#possible_probes = [tuple(c) for c in caminho ]
 
 '''x = pulp.LpVariable.dicts(
     "probe", possible_probes, lowBound=0, upBound=1, cat=pulp.LpInteger
 )
 
 
-probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
+
+#pprint(x)
+
+
 
 
 probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
 
 
-probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
+#probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
 
 
 for router in routers:
