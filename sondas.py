@@ -70,7 +70,7 @@ def pesorotascompostas(df, rotascompostas):
             #print(f'Count {len(rota)}')
             if len(rota) >  1 :
                 custo_rota = 0;
-                composicao = ''
+                composicao = []
                 for salto in rota:
                     #print(f'Count {len(salto)}')
                     df2=df[df['caminho_str'].astype(str)== str(salto)]
@@ -79,11 +79,11 @@ def pesorotascompostas(df, rotascompostas):
                        df2=df[df['caminho_str'].astype(str)== str(reverso)]
                     val = 2 *(df2.iloc[0]['peso'])
                     custo_rota += val
-                    composicao += extractlabel(salto) + '+'
-                    pprint(f'{salto} - {val}')
-                composicao = composicao[:-1]
-                caminho.append(str(composicao))
-                peso.append(str(custo_rota))
+                    composicao.extend(salto) 
+                    #pprint(f'composicao - {composicao}')
+                caminho.append(composicao)
+                peso.append(int(custo_rota))
+                caminhopeso.append((len(caminhopeso),int(custo_rota), composicao))
 
 
 def extractlabel(salto):
@@ -235,18 +235,54 @@ df['caminho_str'] = df['caminho'].astype(str)
 
 
 
-#caminhopesobidirecional=EncontraRotasCompostas(caminhopeso)
+caminhopesobidirecional=EncontraRotasCompostas(caminhopeso)
 #pprint(caminhopesobidirecional)
 
-#rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
+rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
 #pprint(rotascompostas)
 
-#pesorotascompostas(df, rotascompostas) 
+pesorotascompostas(df, rotascompostas) 
 
-#pprint(caminho)
+MaxSondas = 0;
+for rt in rotascompostas:
+    if len(rt) > MaxSondas:
+        MaxSondas=len(rt)
+pprint(MaxSondas)
 
-possible_probes = [tuple(c) for c in caminho ]
-pprint(possible_probes)
+rota = [tuple(r) for r in rotas ]
+#pprint(rota)
+
+sondas = range(1, MaxSondas)
+
+
+DictRota_Sondas = pulp.LpVariable.dicts("Rota_Sondas", (rota, sondas), cat="Binary")
+
+pprint(DictRota_Sondas)
+
+probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
+
+# A constraint ensuring that only one value can be in each square is created
+for r in rota:
+        probes_model += pulp.lpSum([DictRota_Sondas[r][s] for s in sondas]) 
+
+pprint(probes_model)
+
+
+for r in rota:
+    probes_model += (pulp.lpSum([DictRota_Sondas[r][s] for s in sondas]) == 1 , "Maximo_Sondas_Rota%s" % r,)
+
+
+probes_model.writeLP(rede+'.pl')
+probes_model.solve()
+
+
+
+'''
+# A constraint ensuring that only one value can be in each square is created
+for r in rota:
+    for c in COLS:
+        prob += lpSum([choices[v][r][c] for v in VALS]) == 1
+
 
 
 x = pulp.LpVariable.dicts(
@@ -254,7 +290,6 @@ x = pulp.LpVariable.dicts(
 )
 
 
-probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
 
 
 probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
@@ -267,11 +302,11 @@ for router in routers:
     probes_model += ( pulp.lpSum([x[probe] for probe in possible_probes if router in probe]) <= 5, "Max_Probes_no_Router%s" % router,
     )
 
-probes_model.writeLP(rede+'.pl')
-probes_model.solve()
+
 print("Os probes ativo são de um total de  %s:" % len(possible_probes))
 #pprint(possible_probes)
 
 for probe in possible_probes:
     if x[probe].value() == 1:
         pprint(probe)
+'''
