@@ -1,9 +1,9 @@
+import pulp
 from pprint import pprint
 import networkx as nx
 import operator
 import pandas as pd
 import copy
-from pulp import *
 
 
 def EncontraRotasCompostas(caminhopeso):
@@ -68,6 +68,7 @@ def compoe_subrotas(pos, par_rota_composta, rota, subrotas, pesos):
 
 
 def pesorotascompostas(df, rotascompostas):
+<<<<<<< HEAD
     for r, rotascomp in enumerate(rotascompostas):
         print(f'Essas rotas {rotascomp}, indice da rota {r}')
         print(f'Count {len(rotascomp)}')
@@ -78,6 +79,17 @@ def pesorotascompostas(df, rotascompostas):
                 custo_rota = 0
                 composicao = []
                 comp = ''
+=======
+    for rotascomp in rotascompostas: 
+        #print(f'Essas rotas {rotascomp}')
+        #print(f'Count {len(rotascomp)}')    
+        for rota in rotascomp:
+            #print(f'Essa rota {rota}')
+            #print(f'Count {len(rota)}')
+            if len(rota) >  1 :
+                custo_rota = 0;
+                composicao = ''
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
                 for salto in rota:
                     #print(f'Count {len(salto)}')
                     df2 = df[df['caminho_str'].astype(str) == str(salto)]
@@ -86,12 +98,21 @@ def pesorotascompostas(df, rotascompostas):
                         df2 = df[df['caminho_str'].astype(str) == str(reverso)]
                     val = 2 * (df2.iloc[0]['peso'])
                     custo_rota += val
+<<<<<<< HEAD
                     comp = extractlabel(salto)
                     #pprint(f'{salto} - {val}')
                     composicao.append(comp)
                 caminho.append(composicao)
                 peso.append(int(custo_rota))
             #PesoSonda [r][s+1]=custo_rota
+=======
+                    composicao += extractlabel(salto) + '+'
+                    pprint(f'{salto} - {val}')
+                composicao = composicao[:-1]
+                caminho.append(str(composicao))
+                peso.append(str(custo_rota))
+
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
 
 def extractlabel(salto):
     caminho_string = ''
@@ -144,8 +165,13 @@ def ContaOcorrencias(chunks):
                     count += 1
             except ValueError:
                 pass
+<<<<<<< HEAD
         #pprint(f"V: {v} Total: {count}")
         caminho.append(v)
+=======
+        #pprint(f" Total: {count}")
+        caminho.append (v)
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
         peso.append(count)
         caminhopeso.append((count, len(v), v))
         #pprint(f" Total de Sequências diferentes: {count_sequencias}")
@@ -191,6 +217,7 @@ def EncontraComposicoesPosiveis(caminhopesobidirecional):
                                 pprint("Subcaminho não existente")
                 caminhos_par = []
                 #print(f'SubRotas: {subcaminhos}')
+<<<<<<< HEAD
                 # pprint(compoe_subrotas(0,caminhos_par))
                 rotascompostas.append(compoe_subrotas(0, caminhos_par, v, subcaminhos, pesos_subcaminhos))
             elif len(v) > 1:
@@ -200,6 +227,13 @@ def EncontraComposicoesPosiveis(caminhopesobidirecional):
         pprint(f'IDX {i} - rota {nome} - comp {rotascompostas[i]}')
     return (rotascompostas)
 
+=======
+                #pprint(compoe_subrotas(0,caminhos_par))
+                rotascompostas.append(compoe_subrotas(0,caminhos_par,v,subcaminhos,pesos_subcaminhos))
+                #pprint(rotascompostas)
+    return(rotascompostas)
+  
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
 
 def encontrapeso(rota):
     if (len(rota) > 1):
@@ -232,9 +266,21 @@ for i in spf:
             v_reverso.reverse()
             if v_reverso not in rotas:
                 rotas.append(v)
+<<<<<<< HEAD
 
 Medicao = [tuple(c) for c in rotas]
 
+=======
+'''
+for rota in rotas:
+    reverso = copy.deepcopy(rota)
+    reverso.reverse()
+    pprint(f'rota: {rota}')
+    pprint(f'reverso: {reverso}')
+    if reverso in rotas:
+        rotas.remove(reverso) 
+'''
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
 
 caminho, peso, caminhopeso = (ContaOcorrencias(rotas))
 # pprint(caminhopeso)
@@ -246,12 +292,16 @@ df['caminho_str'] = df['caminho'].astype(str)
 Lista_Rota_Sonda = rotas.copy()
 Lista_Composicao_Sonda = rotas.copy()
 
+<<<<<<< HEAD
 caminhopesobidirecional = EncontraRotasCompostas(caminhopeso)
 # pprint(caminhopesobidirecional)
+=======
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
 
 rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
 # pprint(rotascompostas)
 
+<<<<<<< HEAD
 #possible_probes = [tuple(c) for c in caminho ]
 MaxSondas = 0;
 for rt in rotascompostas:
@@ -263,10 +313,20 @@ PesoSonda = [ [ 0 for i in range(MaxSondas+1) ] for j in range(len(rotas)) ]
 
 for i, p in enumerate(peso):
     PesoSonda[i][0] = p
+=======
+#caminhopesobidirecional=EncontraRotasCompostas(caminhopeso)
+#pprint(caminhopesobidirecional)
+
+#rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
+#pprint(rotascompostas)
+
+#pesorotascompostas(df, rotascompostas) 
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
 
 #pprint(PesoSonda)
 pesorotascompostas(df, rotascompostas)
 
+<<<<<<< HEAD
 
 #pprint(Lista_Composicao_Sonda)
 #pprint(Lista_Rota_Sonda)
@@ -339,21 +399,24 @@ for m in Medicao:
 prob.writeLP(rede+'.pl')
 
 
+=======
+possible_probes = [tuple(c) for c in caminho ]
+pprint(possible_probes)
+
+
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
 x = pulp.LpVariable.dicts(
     "probe", possible_probes, lowBound=0, upBound=1, cat=pulp.LpInteger
 )
 
 
-
-#pprint(x)
-
-
+probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
 
 
 probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
 
 
-#probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
+probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
 
 
 for router in routers:
@@ -368,4 +431,7 @@ print("Os probes ativo são de um total de  %s:" % len(possible_probes))
 for probe in possible_probes:
     if x[probe].value() == 1:
         pprint(probe)
+<<<<<<< HEAD
 '''
+=======
+>>>>>>> c8aa902a9fdf436da401940fec0d2ba5c97e5f5e
