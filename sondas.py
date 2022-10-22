@@ -345,7 +345,7 @@ prob += (pulp.lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for (m, s) in z
 
 #pprint(caminho)
 
-prob.writeLP(rede+'.pl')
+#prob.writeLP(rede+'.pl')
 
 
 # x = pulp.LpVariable.dicts(
@@ -353,7 +353,7 @@ prob.writeLP(rede+'.pl')
 # )
 
 
-probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
+#probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
 
 
 # probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
@@ -366,12 +366,12 @@ probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
 #     probes_model += ( pulp.lpSum([x[probe] for probe in possible_probes if router in probe]) <= 5, "Max_Probes_no_Router%s" % router,
 #     )
 
-probes_model.writeLP(rede+'.pl')
-probes_model.solve()
-print("Os probes ativo são de um total de  %s:" % len(possible_probes))
+#probes_model.writeLP(rede+'.pl')
+#probes_model.solve()
+#print("Os probes ativo são de um total de  %s:" % len(possible_probes))
 #pprint(possible_probes)
 
-for probe in possible_probes:
-    if x[probe].value() == 1:
-        pprint(probe)
-'''
+#for probe in possible_probes:
+#    if x[probe].value() == 1:
+#        pprint(probe)
+
