@@ -4,7 +4,7 @@ import networkx as nx
 import operator
 import pandas as pd
 import copy
-
+import numpy as np
 
 def EncontraRotasCompostas(caminhopeso):
     caminho_unidirecional = []
@@ -47,13 +47,9 @@ def encontraposicoes(pos, rota, subrotas):
 def compoe_subrotas(pos, par_rota_composta, rota, subrotas, pesos):
     posicoes = encontraposicoes(pos, rota, subrotas)
     saida = []
-    global Lista_Rota_Sonda
-    global Lista_Composicao_Sonda
     if posicoes == []:
-        pprint(f'Rota {rota} - Composta: {par_rota_composta}  ')
+        #pprint(f'Rota {rota} - Composta: {par_rota_composta}  ')
         saida.append(par_rota_composta)
-        Lista_Rota_Sonda.append(rota)
-        Lista_Composicao_Sonda.append(saida)
         return (saida)
     else:
         rota_composta = []
@@ -68,30 +64,22 @@ def compoe_subrotas(pos, par_rota_composta, rota, subrotas, pesos):
 
 
 def pesorotascompostas(df, rotascompostas):
-    for r, rotascomp in enumerate(rotascompostas):
-        print(f'Essas rotas {rotascomp}, indice da rota {r}')
-        print(f'Count {len(rotascomp)}')
-        for s, rota in enumerate(rotascomp):
-            print(f'Essa soda {rota} com indece {s}')
-            print(f'Count {len(rota)}')
-            if len(rota) > 1:
-                custo_rota = 0
-                composicao = []
-                comp = ''
-                for salto in rota:
-                    #print(f'Count {len(salto)}')
-                    df2 = df[df['caminho_str'].astype(str) == str(salto)]
-                    if df2.empty:
-                        reverso = list(reversed(salto))
-                        df2 = df[df['caminho_str'].astype(str) == str(reverso)]
-                    val = 2 * (df2.iloc[0]['peso'])
-                    custo_rota += val
-                    comp = extractlabel(salto)
-                    #pprint(f'{salto} - {val}')
-                    composicao.append(comp)
-                caminho.append(composicao)
-                peso.append(int(custo_rota))
-            #PesoSonda [r][s+1]=custo_rota
+    def encontrapeso(salto):
+        df2 = df[df['caminho_str'].astype(str) == str(salto)]
+        if df2.empty:
+            reverso = list(reversed(salto))
+            df2 = df[df['caminho_str'].astype(str) == str(reverso)]
+        return (2 * (df2.iloc[0]['peso']))
+    global Lista_Sonda_Medicao_Peso
+    for rotascomp in rotascompostas:
+        val = 0
+        for composicao in rotascomp:
+            if type(composicao) is str:
+                val = encontrapeso(rotascomp)
+                break
+            else:
+                val += encontrapeso(composicao)
+        Lista_Sonda_Medicao_Peso.append(val)
 
 def extractlabel(salto):
     caminho_string = ''
@@ -156,14 +144,12 @@ def EncontraComposicoesPosiveis(caminhopesobidirecional):
     df_caminhos = pd.DataFrame(caminhopesobidirecional)
     caminhos = tuple(df_caminhos[2])
     pesos = tuple(df_caminhos[0])
-    global Lista_Rota_Sonda
     rotascompostas = []
-    neimar = []
+    global Lista_Medicoes
+    global Lista_Sonda_Medicao
     for i in spf:
-        for k, v in spf[i].items():
-            
+        for k, v in spf[i].items():          
             if len(v) > 2:
-                neimar.append(v)
                 #pprint(f"Origem: {i}, destino: {k}, rota spf: {v} ")
                 test_str = v
                 subcaminhos = []
@@ -192,12 +178,22 @@ def EncontraComposicoesPosiveis(caminhopesobidirecional):
                 caminhos_par = []
                 #print(f'SubRotas: {subcaminhos}')
                 # pprint(compoe_subrotas(0,caminhos_par))
-                rotascompostas.append(compoe_subrotas(0, caminhos_par, v, subcaminhos, pesos_subcaminhos))
+                retorno = (compoe_subrotas(0, caminhos_par, v, subcaminhos, pesos_subcaminhos))
+                rotascompostas.append (retorno)
+                for comp in retorno:
+                    Lista_Medicoes.append(v)
+                    Lista_Sonda_Medicao.append(comp)
             elif len(v) > 1:
-                neimar.append(v)
-                rotascompostas.append(v)
-    for i, nome in enumerate(neimar):
-        pprint(f'IDX {i} - rota {nome} - comp {rotascompostas[i]}')
+                Lista_Medicoes.append(v)
+                Lista_Sonda_Medicao.append(v)
+    # for i, nome in enumerate(neimar):
+    #     pprint(f'IDX {i} - rota {nome}')
+    #     for compos in rotascompostas[i]:
+    #         if type(compos) is str:
+    #             pprint(rotascompostas[i])
+    #             break
+    #         else:
+    #             pprint (compos)
     return (rotascompostas)
 
 
@@ -246,81 +242,90 @@ df['caminho_str'] = df['caminho'].astype(str)
 Lista_Rota_Sonda = rotas.copy()
 Lista_Composicao_Sonda = rotas.copy()
 
+Lista_Medicoes = []
+Lista_Sonda_Medicao = []
+Lista_Sonda_Medicao_Peso = []
+
+
 caminhopesobidirecional = EncontraRotasCompostas(caminhopeso)
 # pprint(caminhopesobidirecional)
 
 rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
 # pprint(rotascompostas)
 
-#possible_probes = [tuple(c) for c in caminho ]
-MaxSondas = 0;
-for rt in rotascompostas:
-    if len(rt) > MaxSondas:
-        MaxSondas=len(rt)
-pprint(MaxSondas)
-
-PesoSonda = [ [ 0 for i in range(MaxSondas+1) ] for j in range(len(rotas)) ]
-
-for i, p in enumerate(peso):
-    PesoSonda[i][0] = p
-
-#pprint(PesoSonda)
-pesorotascompostas(df, rotascompostas)
+pesorotascompostas(df, Lista_Sonda_Medicao)
 
 
-#pprint(Lista_Composicao_Sonda)
-#pprint(Lista_Rota_Sonda)
-#pprint(peso)
-
-MedidasSondas= {'Medida': Lista_Rota_Sonda,
-           'Sondas': Lista_Composicao_Sonda,
-           'Peso': peso}
-
+MedidasSondas= {'Medida': Lista_Medicoes,
+           'Sondas': Lista_Sonda_Medicao,
+           'Pesos': Lista_Sonda_Medicao_Peso,
+           }
 
 dfMedidasSondas = pd.DataFrame(MedidasSondas)
 
+pprint(dfMedidasSondas)
+
+sonda_medico, num_sonda_medicao = np.unique(Lista_Medicoes, return_counts=True)
+#PesoSonda = [ [0 for i in range(max(num_sonda_medicao))] for j in range(len(sonda_medico)) ]
+
+
+Medicoes_Pesos = []
+dictMedicoes_Pesos = {}
+
+for idMedicao, Medicao in enumerate(Lista_Medicoes):
+    df_medicao = dfMedidasSondas[dfMedidasSondas['Medida'].astype(str) == str(Medicao)]
+    #pprint(Medicao)
+    #pprint(df_medicao)
+    Medicao_Peso = []
+    for sonda in range (len(df_medicao)):
+        Medicao_Peso.append(df_medicao.iloc[sonda]['Pesos'])
+        
+    for x in range(sonda,(max(num_sonda_medicao)-1)):
+        Medicao_Peso.append(0)
+    dictMedicoes_Pesos[str(Medicao)] = Medicao_Peso
+    Medicoes_Pesos.append(Medicao_Peso)
+
+pprint(dictMedicoes_Pesos)
 #pprint(dfMedidasSondas)
 
-Sondas = range(1, MaxSondas)
-Medicao = [tuple(c) for c in rotas]
+Sondas = range(1, max(num_sonda_medicao))
+Medicao = [tuple(m) for m in Lista_Medicoes]
+
+SondasDict = pulp.LpVariable.dicts("combinacoes", (Medicao, Sondas), 0, None, pulp.LpInteger)
+pprint(SondasDict)
+
+prob = pulp.LpProblem("Proble Problem", pulp.LpMaximize)
+
+prob += (pulp.lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for (m, s) in zip(sonda_medico,range(0,max(num_sonda_medicao)))]),"Peso_total",)
 
 
-combinacoes  = [(m, s) for m in Medicao for s in Sondas]
-
-SondasDict = LpVariable.dicts("combinacoes", (Medicao, Sondas), 0, None, LpInteger)
-#pprint(SondasDict)
-
-prob = LpProblem("Proble Problem", LpMaximize)
-
-# The objective function is added to 'prob' first
-#prob += (
-#    lpSum([SondasDict[m][s] * peso[m][s] for (m, s) in combinacoes]),
-#    "Sum_of_Transporting_Costs",
-#)
+# #commit
+# # The objective function is added to 'prob' first
+# 
 
 
-# The objective function is added to 'prob' first
-#prob += (
-#    lpSum(caminho[C] * rotascompostas[S] * peso[P] for P, S, C in caminhopeso),"Peso Total ",
-#)
+# # The objective function is added to 'prob' first
+# #prob += (
+# #    lpSum(caminho[C] * rotascompostas[S] * peso[P] for P, S, C in caminhopeso),"Peso Total ",
+# #)
 
-#testey = LpVariable.dicts('y',  peso, cat='Integer')
+# #testey = LpVariable.dicts('y',  peso, cat='Integer')
 
 
-'''
+# '''
 
-MedicaoDict = LpVariable.dicts('M',  Medicao, cat='Integer')
-pprint(MedicaoDict)
+# MedicaoDict = LpVariable.dicts('M',  Medicao, cat='Integer')
+# pprint(MedicaoDict)
 
-pesoDict = LpVariable.dicts('P',  peso, cat='Integer')
-pprint(pesoDict)
+# pesoDict = LpVariable.dicts('P',  peso, cat='Integer')
+# pprint(pesoDict)
 
-ComposicaoDict = LpVariable.dicts('C', sondas, cat='Integer')
-pprint(ComposicaoDict)
+# ComposicaoDict = LpVariable.dicts('C', sondas, cat='Integer')
+# pprint(ComposicaoDict)
 
-Sondas = LpVariable.dicts("Sonda", (Medicao, Composicao), cat="Binary")
+# Sondas = LpVariable.dicts("Sonda", (Medicao, Composicao), cat="Binary")
 
-pprint(Sondas)
+# pprint(Sondas)
 
 
 
@@ -328,41 +333,41 @@ pprint(Sondas)
 
 
 
-# Cada medição pode ter uma unica composição
-for m in Medicao:
-    prob += lpSum([Sondas[m] [c] for c in Composicao]) <= 1
+# # Cada medição pode ter uma unica composição
+# for m in Medicao:
+#     prob += lpSum([Sondas[m] [c] for c in Composicao]) <= 1
 
 
 
 
 
-prob.writeLP(rede+'.pl')
+# prob.writeLP(rede+'.pl')
 
 
-x = pulp.LpVariable.dicts(
-    "probe", possible_probes, lowBound=0, upBound=1, cat=pulp.LpInteger
-)
+# x = pulp.LpVariable.dicts(
+#     "probe", possible_probes, lowBound=0, upBound=1, cat=pulp.LpInteger
+# )
 
 
-probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
+# probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
 
 
-probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
+# probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
 
 
-probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
+# probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
 
 
-for router in routers:
-    probes_model += ( pulp.lpSum([x[probe] for probe in possible_probes if router in probe]) <= 5, "Max_Probes_no_Router%s" % router,
-    )
+# for router in routers:
+#     probes_model += ( pulp.lpSum([x[probe] for probe in possible_probes if router in probe]) <= 5, "Max_Probes_no_Router%s" % router,
+#     )
 
-probes_model.writeLP(rede+'.pl')
-probes_model.solve()
-print("Os probes ativo são de um total de  %s:" % len(possible_probes))
-#pprint(possible_probes)
+# probes_model.writeLP(rede+'.pl')
+# probes_model.solve()
+# print("Os probes ativo são de um total de  %s:" % len(possible_probes))
+# #pprint(possible_probes)
 
-for probe in possible_probes:
-    if x[probe].value() == 1:
-        pprint(probe)
-'''
+# for probe in possible_probes:
+#     if x[probe].value() == 1:
+#         pprint(probe)
+# '''
