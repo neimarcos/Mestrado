@@ -1,10 +1,11 @@
-import pulp
+
 from pprint import pprint
 import networkx as nx
 import operator
 import pandas as pd
 import copy
 import numpy as np
+from pulp import *
 
 def EncontraRotasCompostas(caminhopeso):
     caminho_unidirecional = []
@@ -265,12 +266,15 @@ dfMedidasSondas = pd.DataFrame(MedidasSondas)
 
 pprint(dfMedidasSondas)
 
-sonda_medico, num_sonda_medicao = np.unique(Lista_Medicoes, return_counts=True)
-#PesoSonda = [ [0 for i in range(max(num_sonda_medicao))] for j in range(len(sonda_medico)) ]
-
+lista_medicao, num_sonda_medicao = np.unique(Lista_Medicoes, return_counts=True)
 
 Medicoes_Pesos = []
 dictMedicoes_Pesos = {}
+
+#Medicao = [tuple(m) for m in Lista_Medicoes]
+str_medicao = []
+for medicao in lista_medicao.tolist():
+    str_medicao.append(extractlabel(medicao))
 
 for idMedicao, Medicao in enumerate(Lista_Medicoes):
     df_medicao = dfMedidasSondas[dfMedidasSondas['Medida'].astype(str) == str(Medicao)]
@@ -279,99 +283,29 @@ for idMedicao, Medicao in enumerate(Lista_Medicoes):
     Medicao_Peso = []
     for sonda in range (len(df_medicao)):
         Medicao_Peso.append(df_medicao.iloc[sonda]['Pesos'])
-        
     for x in range(sonda,(max(num_sonda_medicao)-1)):
         Medicao_Peso.append(0)
-    dictMedicoes_Pesos[str(Medicao)] = Medicao_Peso
+    dictMedicoes_Pesos[extractlabel(Medicao)] = Medicao_Peso
     Medicoes_Pesos.append(Medicao_Peso)
 
-pprint(dictMedicoes_Pesos)
-#pprint(dfMedidasSondas)
+Sondas = [*range(1, max(num_sonda_medicao),1)]
 
-Sondas = range(1, max(num_sonda_medicao))
-Medicao = [tuple(m) for m in Lista_Medicoes]
+SondasDict = LpVariable.dicts("combinacoes", (str_medicao, Sondas), 0, 1, LpInteger)
 
-SondasDict = pulp.LpVariable.dicts("combinacoes", (Medicao, Sondas), 0, None, pulp.LpInteger)
-pprint(SondasDict)
+modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
+    
+modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for m in str_medicao for s in Sondas]),"Peso_total",)
 
-prob = pulp.LpProblem("Proble Problem", pulp.LpMaximize)
+for m in str_medicao:
+        modelo_colocacao += (lpSum([dictMedicoes_Pesos[m][s] for s in Sondas]) <= 1, "Max_Uma_Sonda_Por_MEdicao" + str(m))
 
-prob += (pulp.lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for (m, s) in zip(sonda_medico,range(0,max(num_sonda_medicao)))]),"Peso_total",)
+ 
+modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
+modelo_colocacao.solve()
+print("Status:", LpStatus[modelo_colocacao.status])
+for v in modelo_colocacao.variables():
+    #if v.varValue > 0:
+        print(v.name, "=", v.varValue)
+print("Custo = ", value(modelo_colocacao.objective))
 
-
-# #commit
-# # The objective function is added to 'prob' first
-# 
-
-
-# # The objective function is added to 'prob' first
-# #prob += (
-# #    lpSum(caminho[C] * rotascompostas[S] * peso[P] for P, S, C in caminhopeso),"Peso Total ",
-# #)
-
-# #testey = LpVariable.dicts('y',  peso, cat='Integer')
-
-
-# '''
-
-# MedicaoDict = LpVariable.dicts('M',  Medicao, cat='Integer')
-# pprint(MedicaoDict)
-
-# pesoDict = LpVariable.dicts('P',  peso, cat='Integer')
-# pprint(pesoDict)
-
-# ComposicaoDict = LpVariable.dicts('C', sondas, cat='Integer')
-# pprint(ComposicaoDict)
-
-# Sondas = LpVariable.dicts("Sonda", (Medicao, Composicao), cat="Binary")
-
-# pprint(Sondas)
-
-
-
-
-
-
-
-# # Cada medição pode ter uma unica composição
-# for m in Medicao:
-#     prob += lpSum([Sondas[m] [c] for c in Composicao]) <= 1
-
-
-#rotascompostas = EncontraComposicoesPosiveis(caminhopesobidirecional)
-#pprint(rotascompostas)
-
-#pesorotascompostas(df, rotascompostas) 
-
-#pprint(caminho)
-
-#prob.writeLP(rede+'.pl')
-
-
-# x = pulp.LpVariable.dicts(
-#     "probe", possible_probes, lowBound=0, upBound=1, cat=pulp.LpInteger
-# )
-
-
-#probes_model = pulp.LpProblem("Probes Placement Model", pulp.LpMaximize)
-
-
-# probes_model += pulp.lpSum([encontrapeso(probe) * x[probe] for probe in possible_probes])
-
-
-# probes_model += (pulp.lpSum([x[probe] for probe in possible_probes]) <= 10,"Max_Probes",)
-
-
-# for router in routers:
-#     probes_model += ( pulp.lpSum([x[probe] for probe in possible_probes if router in probe]) <= 5, "Max_Probes_no_Router%s" % router,
-#     )
-
-#probes_model.writeLP(rede+'.pl')
-#probes_model.solve()
-#print("Os probes ativo são de um total de  %s:" % len(possible_probes))
-#pprint(possible_probes)
-
-#for probe in possible_probes:
-#    if x[probe].value() == 1:
-#        pprint(probe)
-
+#exibegrafico(G)

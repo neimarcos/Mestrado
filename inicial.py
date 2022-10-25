@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from pulp import *
 import copy
-from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 
 # Com base na posição do elemento(no) encontra posições que um elemente(no) ocorre em um lista (rotas)
