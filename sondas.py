@@ -108,6 +108,9 @@ def EncontraRotasCompostas(caminhopeso):
             caminho_unidirecional.append(i)
     # ordena as rotas pelo peso (número de ocorrência)
     rotas_pesos = sorted(caminho_unidirecional, key=operator.itemgetter(0))
+    caminhopeso_order = sorted(caminhopeso, key=operator.itemgetter(0))
+    if (rotas_pesos == caminhopeso_order):
+        pprint("MMMMMMMMMM")
     # Filtra rota com mais de 2 soltos, pois podem ser alcaçandas através da agregação
     #rota_compor = list(filter(lambda rota: rota[1] >= 3, rotas_pesos))
     return (rotas_pesos)
