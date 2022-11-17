@@ -2,7 +2,8 @@ import copy
 from pprint import pprint
 import networkx as nx
 import pandas as pd
-
+import numpy as np
+from pulp import *
 
 def ClearRoutes(spf):
     """
@@ -55,54 +56,51 @@ def Count_Subsegment_Occurrences(routes):
         Path_Count_Occurrences.append((route, count, len(route)))
     return (Path_Count_Occurrences)
 
-def encontraposicoes(pos, route, subrotas):
+def Nexts_Paths(pos, paths, subpaths):
     """
-    Finds  
+    Finds the next possible subpaths for composing the route
 
     ### Parameters:
-        pos (int): current position on the route to start checking
-        route (list): _description_
-        subrotas (list): _description_
+        pos (int): current position on the route to start the scan
+        route(list): route to analyze possible compositions of subpaths
+        (list): possible subpaths of the route
 
     ### Returns:
-        list: _description_
+        list:list of next possible subpaths in the composition
     """    
-    posicoes = []
-    if route[pos] != route[len(route)-1]:
-        for subrota in range(len(subrotas)):
-            if route[pos] == subrotas[subrota][0]:
-                posicoes.append(subrota)
-    return (posicoes)
+    Nexts = []
+    if paths[pos] != paths[len(paths)-1]:
+        for subpath in range(len(subpaths)):
+            if paths[pos] == subpaths[subpath][0]:
+                Nexts.append(subpath)
+    return (Nexts)
 
-
-
-def compoe_subrotas(par_rota_composta, rota, subrotas, pos = 0):
+def Compose_Subpaths(Path, SubPaths, pos = 0 , path_segment = []):
     """
     Finds all possible subpath compositions of a path    
     
     ### Parameters:
-        par_rota_composta (list): _description_
+        path_segment (list): current segment of path
         rota (list): path to finds possible compositions
         subrotas (list): all possibles subpaths 
-        pos (int): initial position to find 
+        pos (int): initial position to find, default 0
         
     ### Returns:
         list: List of all possible subpath compositions of a path
     """    
-    posicoes = encontraposicoes(pos, rota, subrotas)
-    saida = []
-    if posicoes == []:
-        #pprint(f'Rota {rota} - Composta: {par_rota_composta}  ')
-        saida.append(par_rota_composta)
-        return (saida)
+    positions = Nexts_Paths(pos, Path, SubPaths)
+    compose = []
+    if positions == []:
+        compose.append(path_segment)
+        return (compose)
     else:
-        rota_composta = []
-    for posicao in posicoes:
-        rota_composta = copy.deepcopy(par_rota_composta)
-        rota_composta.append(subrotas[posicao])
-        saltos = compoe_subrotas( rota_composta, rota, subrotas, rota.index(subrotas[posicao][(len(subrotas[posicao])-1)]))
-        saida.extend(saltos)
-    return (saida)
+        compose_path = []
+    for pos in positions:
+        compose_path = copy.deepcopy(path_segment)
+        compose_path.append(SubPaths[pos])
+        saltos = Compose_Subpaths( Path, SubPaths, Path.index(SubPaths[pos][(len(SubPaths[pos])-1)]), compose_path)
+        compose.extend(saltos)
+    return (compose)
 
 def Find_Compose_Paths(path_count):
     """ 
@@ -114,9 +112,9 @@ def Find_Compose_Paths(path_count):
         list: all possible possible combinations of subpaths for all paths
     """
     paths=tuple([k[0] for k in path_count])
-    rotascompostas = []
-    global Lista_Medicoes
-    global Lista_Sonda_Medicao
+    ComposePaths = []
+    global Measurements_List
+    global Probes_List
     for path in paths:
         if len(path) > 2:
             #pprint(f"Origem: {i}, destino: {k}, rota spf: {v} ")
@@ -129,18 +127,17 @@ def Find_Compose_Paths(path_count):
                             subpaths.append(subpath)
                         except ValueError as e:
                             pprint("Subcaminho não existente")
-            caminhos_par = []
-            retorno = (compoe_subrotas(caminhos_par, path, subpaths))
-            rotascompostas.append (retorno)
+            retorno = (Compose_Subpaths(path, subpaths))
+            ComposePaths.append (retorno)
             for comp in retorno:
-                Lista_Medicoes.append(path)
-                Lista_Sonda_Medicao.append(comp)
-        elif len(path) > 1:
-            Lista_Medicoes.append(path)
-            Lista_Sonda_Medicao.append(path)
-    return (rotascompostas)
+                Measurements_List.append(path)
+                Probes_List.append(comp)
+        #elif len(path) > 1:
+        #    Measurements_List.append(path)
+        #    Probes_List.append(path)
+    return (ComposePaths)
 
-def Composite_Route_Cost(df, rotascompostas):
+def Compose_Route_Cost(df, rotascompostas):
     """
     Calculate cost based composition of subpaths
     
@@ -156,7 +153,7 @@ def Composite_Route_Cost(df, rotascompostas):
             reverso = list(reversed(salto))
             df2 = df[df['path_str'].astype(str) == str(reverso)]
         return (2 * (df2.iloc[0]['count']))
-    global Lista_Sonda_Medicao_Peso
+    global Cost_List
     
     for rotascomp in rotascompostas:
         val = 0
@@ -166,37 +163,112 @@ def Composite_Route_Cost(df, rotascompostas):
                 break
             else:
                 val += encontrapeso(composicao)
-        Lista_Sonda_Medicao_Peso.append(val)
+        Cost_List.append(val)
+
+def extractlabel(salto):
+    caminho_string = ''
+    for no in salto:
+        caminho_string += str(no) + '-'
+    return caminho_string[:-1]
 
 
 #rede = 'Geant2012.graphml'
-#rede = 'Rnp.graphml.graphml'
+rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
-rede = 'exemplo_pequeno.graphml'
+#rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')
 
+# Clear routes
+paths = ClearRoutes (spf)
 
-routes = ClearRoutes (spf)
-
-path_count = Count_Subsegment_Occurrences(routes)
+# counts how many times a subsegment/subpath occurs in the spf 
+path_count = Count_Subsegment_Occurrences(paths)
 
 df = pd.DataFrame(path_count)
 df.columns = ['path', 'count', 'length']
 df['path_str'] = df['path'].astype(str)
 
-List_Routes_Probes = routes.copy()
-List_Routes_Compose_Probes = routes.copy()
-
-Lista_Medicoes = []
-Lista_Sonda_Medicao = []
-Lista_Sonda_Medicao_Peso = []
+Measurements_List = []
+Probes_List = []
+Cost_List = []
 
 compose_paths = Find_Compose_Paths(path_count)
 
-Composite_Route_Cost(df, Lista_Sonda_Medicao)
+Compose_Route_Cost(df, Probes_List)
+
+MedidasSondas= {'Measurements': Measurements_List,
+           'Probes': Probes_List,
+           'Cost': Cost_List,
+           }
+
+dfMedidasSondas = pd.DataFrame(MedidasSondas)
 
 
+lista_medicao, num_sonda_medicao = np.unique(Measurements_List, return_counts=True)
 
-pprint(Lista_Sonda_Medicao_Peso)
+Medicoes_Pesos = []
+dictMedicoes_Pesos = {}
+
+#Medicao = [tuple(m) for m in Measurements_List]
+str_medicao = []
+for medicao in lista_medicao.tolist():
+    str_medicao.append(extractlabel(medicao))
+
+for idMedicao, Medicao in enumerate(Measurements_List):
+    df_medicao = dfMedidasSondas[dfMedidasSondas['Measurements'].astype(str) == str(Medicao)]
+    #pprint(Medicao)
+    #pprint(df_medicao)
+    Medicao_Peso = []
+    for sonda in range (len(df_medicao)):
+        Medicao_Peso.append(df_medicao.iloc[sonda]['Cost'])
+    for x in range(sonda,(max(num_sonda_medicao))):
+        Medicao_Peso.append(0)
+    dictMedicoes_Pesos[extractlabel(Medicao)] = Medicao_Peso
+    Medicoes_Pesos.append(Medicao_Peso)
+
+Sondas = [*range(1, max(num_sonda_medicao)+1,1)]
+
+SondasDict = LpVariable.dicts("combinacoes", (str_medicao, Sondas), 0, 1, LpInteger)
+
+modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
+    
+modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for m in str_medicao for s in Sondas]),"Peso_total",)
+
+for m in str_medicao:
+        modelo_colocacao += (lpSum([SondasDict[m][s] for s in Sondas]) <= 1, "Max_Uma_Sonda_Por_MEdicao" + str(m))
+
+routers = G.nodes
+
+max_sondas = [3,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5]     
+
+#pprint(dfMedidasSondas)
+for router in routers:
+    list_probes = []
+    Measurement = ''
+    for index, row in dfMedidasSondas.iterrows():
+        if (Measurement != row['Measurements']):
+            Measurement = row['Measurements']
+            idprobe = 1
+        else:
+            idprobe += 1
+        if router in Measurement:
+            probes = row['Probes']
+            #pprint(probes)
+            for probe in probes:
+                # se o probe tem inicio ou fim no router
+                if (probe[0] == router) or (probe[len(probe)-1]== router):
+                    list_probes.append([extractlabel(Measurement),idprobe])              
+    modelo_colocacao += (lpSum([SondasDict[M][S] for M, S in list_probes]) <= max_sondas[int(router)], "Max_Probes_Router" + router)    
+
+
+ 
+modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
+modelo_colocacao.solve()
+print("Status:", LpStatus[modelo_colocacao.status])
+for v in modelo_colocacao.variables():
+    if v.varValue > 0:
+        print(v.name, "=", v.varValue)
+print("Custo = ", value(modelo_colocacao.objective))
+
