@@ -4,6 +4,8 @@ import networkx as nx
 import pandas as pd
 import numpy as np
 from pulp import *
+import time
+
 
 def ClearRoutes(spf):
     """
@@ -129,12 +131,15 @@ def Find_Compose_Paths(path_count):
                             pprint("Subcaminho não existente")
             retorno = (Compose_Subpaths(path, subpaths))
             ComposePaths.append (retorno)
+            # Medicao da propia sonda
+            Measurements_List.append(path)
+            Probes_List.append(path)
             for comp in retorno:
                 Measurements_List.append(path)
                 Probes_List.append(comp)
-        #elif len(path) > 1:
-        #    Measurements_List.append(path)
-        #    Probes_List.append(path)
+        elif len(path) > 1:
+            Measurements_List.append(path)
+            Probes_List.append(path)
     return (ComposePaths)
 
 def Compose_Route_Cost(df, rotascompostas):
@@ -171,7 +176,15 @@ def extractlabel(salto):
         caminho_string += str(no) + '-'
     return caminho_string[:-1]
 
+def Start(funcao):
+    inicio = time.time()
+    pprint(f'Iniciando a função {funcao}')
+    return(inicio)
 
+def End(funcao):
+    fim = time.time()
+    pprint(f'Concluiu a função {funcao}, em {fim - inicio} segundos')
+    
 #rede = 'Geant2012.graphml'
 rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
@@ -181,10 +194,17 @@ G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')
 
 # Clear routes
-paths = ClearRoutes (spf)
 
+inicio=time.time()
+
+Start('ClearRoutes')
+paths = ClearRoutes (spf)
+End('ClearRoutes')
+
+Start('Count_Subsegment_Occurrences')
 # counts how many times a subsegment/subpath occurs in the spf 
 path_count = Count_Subsegment_Occurrences(paths)
+End('Count_Subsegment_Occurrences')
 
 df = pd.DataFrame(path_count)
 df.columns = ['path', 'count', 'length']
@@ -194,9 +214,16 @@ Measurements_List = []
 Probes_List = []
 Cost_List = []
 
+Start('Find_Compose_Paths')
 compose_paths = Find_Compose_Paths(path_count)
+End('Find_Compose_Paths')
 
+Start('Compose_Route_Cost')
 Compose_Route_Cost(df, Probes_List)
+End('Compose_Route_Cost')
+
+
+Start('Preparacao de dados')
 
 MedidasSondas= {'Measurements': Measurements_List,
            'Probes': Probes_List,
@@ -205,6 +232,8 @@ MedidasSondas= {'Measurements': Measurements_List,
 
 dfMedidasSondas = pd.DataFrame(MedidasSondas)
 
+
+#pprint(dfMedidasSondas)
 
 lista_medicao, num_sonda_medicao = np.unique(Measurements_List, return_counts=True)
 
@@ -240,10 +269,12 @@ for m in str_medicao:
         modelo_colocacao += (lpSum([SondasDict[m][s] for s in Sondas]) <= 1, "Max_Uma_Sonda_Por_MEdicao" + str(m))
 
 routers = G.nodes
+max_sondas = {n: (len(list(nx.all_neighbors(G, n)))//2)for n in G.nodes}
 
-max_sondas = [3,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5,5,4,5,6,8,2,3,6,7,3,6,3,5,1,0,1,3,2,2,3,4,1,3,1,3,2,4,2,5,3,1,2,3,5]     
+#pprint(max_sondas.keys()[max_sondas.values().index(18)])
 
-#pprint(dfMedidasSondas)
+
+pprint(max_sondas)
 for router in routers:
     list_probes = []
     Measurement = ''
@@ -260,12 +291,17 @@ for router in routers:
                 # se o probe tem inicio ou fim no router
                 if (probe[0] == router) or (probe[len(probe)-1]== router):
                     list_probes.append([extractlabel(Measurement),idprobe])              
-    modelo_colocacao += (lpSum([SondasDict[M][S] for M, S in list_probes]) <= max_sondas[int(router)], "Max_Probes_Router" + router)    
+    modelo_colocacao += (lpSum([SondasDict[M][S] for M, S in list_probes]) <= max_sondas.get(router), "Max_Probes_Router" + router)    
 
 
- 
+End('Preparacao de dados')
+
 modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
+
+Start('Pulp Solve')
 modelo_colocacao.solve()
+End('Pulp Solve')
+
 print("Status:", LpStatus[modelo_colocacao.status])
 for v in modelo_colocacao.variables():
     if v.varValue > 0:
