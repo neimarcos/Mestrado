@@ -1,7 +1,6 @@
 import copy
 from pprint import pprint
 import networkx as nx
-import pandas as pd
 import numpy as np
 from pulp import *
 import time
@@ -44,6 +43,7 @@ def Count_Subsegment_Occurrences(routes):
     routes_aux = routes.copy()
     index = 0
     Path_Count_Occurrences = []
+    Path_Cost = []
     for route in routes:
         count = 0
         #print(f"Route: {route}")
@@ -56,7 +56,8 @@ def Count_Subsegment_Occurrences(routes):
             except ValueError:
                 pass
         Path_Count_Occurrences.append((route, count, len(route)))
-    return (Path_Count_Occurrences)
+        Path_Cost.append(count)
+    return (Path_Count_Occurrences,Path_Cost)
 
 def Nexts_Paths(pos, paths, subpaths):
     """
@@ -142,22 +143,21 @@ def Find_Compose_Paths(path_count):
             Probes_List.append(path)
     return (ComposePaths)
 
-def Compose_Route_Cost(df, rotascompostas):
+def Compose_Route_Cost(rotascompostas):
     """
     Calculate cost based composition of subpaths
     
     ### Parameters:
-        df (dataframe): dataframe with all paths
         rotascompostas (list): all possible possible compositon of subpaths for all paths
         
-        
     """
+    
     def encontrapeso(salto):
-        df2 = df[df['path_str'].astype(str) == str(salto)]
-        if df2.empty:
-            reverso = list(reversed(salto))
-            df2 = df[df['path_str'].astype(str) == str(reverso)]
-        return (df2.iloc[0]['count'])
+        if salto in paths:
+            index = paths.index(salto)
+        else:
+            index = paths.index(list(reversed(salto)))
+        return (path_cost[index])
     global Cost_List
     
     for rotascomp in rotascompostas:
@@ -203,12 +203,8 @@ End('ClearRoutes')
 
 Start('Count_Subsegment_Occurrences')
 # counts how many times a subsegment/subpath occurs in the spf 
-path_count = Count_Subsegment_Occurrences(paths)
+path_count, path_cost = Count_Subsegment_Occurrences(paths)
 End('Count_Subsegment_Occurrences')
-
-df = pd.DataFrame(path_count)
-df.columns = ['path', 'count', 'length']
-df['path_str'] = df['path'].astype(str)
 
 Measurements_List = []
 Probes_List = []
@@ -219,27 +215,15 @@ compose_paths = Find_Compose_Paths(path_count)
 End('Find_Compose_Paths')
 
 Start('Compose_Route_Cost')
-Compose_Route_Cost(df, Probes_List)
+Compose_Route_Cost(Probes_List)
 End('Compose_Route_Cost')
 
 
-Start('Preparacao de dados')
-
-MedidasSondas= {'Measurements': Measurements_List,
-           'Probes': Probes_List,
-           'Cost': Cost_List,
-           }
-
-dfMedidasSondas = pd.DataFrame(MedidasSondas)
-
-End('Preparacao de dados')
 Start('Preparacao de dados1')
 
-#pprint(dfMedidasSondas)
 
 lista_medicao, num_sonda_medicao = np.unique(Measurements_List, return_counts=True)
 
-Medicoes_Pesos = []
 dictMedicoes_Pesos = {}
 
 #Medicao = [tuple(m) for m in Measurements_List]
@@ -249,17 +233,23 @@ for medicao in lista_medicao.tolist():
 
 End('Preparacao de dados1')
 Start('Preparacao de dados2')
+
+
+medicao_anterior = ''
+Medicao_Peso = []
 for idMedicao, Medicao in enumerate(Measurements_List):
-    df_medicao = dfMedidasSondas[dfMedidasSondas['Measurements'].astype(str) == str(Medicao)]
-    #pprint(Medicao)
-    #pprint(df_medicao)
-    Medicao_Peso = []
-    for sonda in range (len(df_medicao)):
-        Medicao_Peso.append(df_medicao.iloc[sonda]['Cost'])
-    for x in range(sonda,(max(num_sonda_medicao))):
-        Medicao_Peso.append(0)
-    dictMedicoes_Pesos[extractlabel(Medicao)] = Medicao_Peso
-    Medicoes_Pesos.append(Medicao_Peso)
+    if (str(medicao_anterior)!=str(Medicao)) and (len(Medicao_Peso) > 0):
+        for x in range(len(Medicao_Peso),(max(num_sonda_medicao))):
+            Medicao_Peso.append(0)        
+        dictMedicoes_Pesos[extractlabel(medicao_anterior)] = Medicao_Peso
+        Medicao_Peso = []
+    Medicao_Peso.append(Cost_List[idMedicao])
+    medicao_anterior = Medicao   
+for x in range(len(Medicao_Peso),(max(num_sonda_medicao))):
+    Medicao_Peso.append(0)        
+dictMedicoes_Pesos[extractlabel(Medicao)] = Medicao_Peso
+
+     
 End('Preparacao de dados2')
 Start('Preparacao de dados3')
 Sondas = [*range(1, max(num_sonda_medicao)+1,1)]
@@ -268,7 +258,7 @@ SondasDict = LpVariable.dicts("combinacoes", (str_medicao, Sondas), 0, 1, LpInte
 
 modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
     
-modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for m in str_medicao for s in Sondas]),"Peso_total",)
+modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s-1] for m in str_medicao for s in Sondas]),"Peso_total",)
 End('Preparacao de dados3')
 Start('Preparacao de dados4')
 for m in str_medicao:
@@ -281,18 +271,18 @@ Start('Preparacao de dados5')
 #pprint(max_sondas.keys()[max_sondas.values().index(18)])
 
 
-pprint(max_sondas)
+#pprint(max_sondas)
 for router in routers:
     list_probes = []
     Measurement = ''
-    for index, row in dfMedidasSondas.iterrows():
-        if (Measurement != row['Measurements']):
-            Measurement = row['Measurements']
+    for idMedicao, Medicao in enumerate(Measurements_List):
+        if (Measurement != Medicao):
+            Measurement = Medicao
             idprobe = 1
         else:
             idprobe += 1
         if router in Measurement:
-            probes = row['Probes']
+            probes = Probes_List[idMedicao]
             #pprint(probes)
             for probe in probes:
                 # se o probe tem inicio ou fim no router
