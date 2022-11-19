@@ -157,7 +157,7 @@ def Compose_Route_Cost(df, rotascompostas):
         if df2.empty:
             reverso = list(reversed(salto))
             df2 = df[df['path_str'].astype(str) == str(reverso)]
-        return (2 * (df2.iloc[0]['count']))
+        return (df2.iloc[0]['count'])
     global Cost_List
     
     for rotascomp in rotascompostas:
@@ -177,14 +177,14 @@ def extractlabel(salto):
     return caminho_string[:-1]
 
 def Start(funcao):
-    inicio = time.time()
+    inicio = time.process_time()
     pprint(f'Iniciando a função {funcao}')
     return(inicio)
 
 def End(funcao):
-    fim = time.time()
-    pprint(f'Concluiu a função {funcao}, em {fim - inicio} segundos')
-    
+    pprint(f'Concluiu a função {funcao}, em {time.process_time() - inicio:.2f} segundos')
+    pprint(f'#################################################################################')
+
 #rede = 'Geant2012.graphml'
 rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
@@ -195,7 +195,7 @@ spf = nx.shortest_path(G, weight='LinkSpeedRaw')
 
 # Clear routes
 
-inicio=time.time()
+inicio=time.process_time()
 
 Start('ClearRoutes')
 paths = ClearRoutes (spf)
@@ -232,6 +232,8 @@ MedidasSondas= {'Measurements': Measurements_List,
 
 dfMedidasSondas = pd.DataFrame(MedidasSondas)
 
+End('Preparacao de dados')
+Start('Preparacao de dados1')
 
 #pprint(dfMedidasSondas)
 
@@ -245,6 +247,8 @@ str_medicao = []
 for medicao in lista_medicao.tolist():
     str_medicao.append(extractlabel(medicao))
 
+End('Preparacao de dados1')
+Start('Preparacao de dados2')
 for idMedicao, Medicao in enumerate(Measurements_List):
     df_medicao = dfMedidasSondas[dfMedidasSondas['Measurements'].astype(str) == str(Medicao)]
     #pprint(Medicao)
@@ -256,7 +260,8 @@ for idMedicao, Medicao in enumerate(Measurements_List):
         Medicao_Peso.append(0)
     dictMedicoes_Pesos[extractlabel(Medicao)] = Medicao_Peso
     Medicoes_Pesos.append(Medicao_Peso)
-
+End('Preparacao de dados2')
+Start('Preparacao de dados3')
 Sondas = [*range(1, max(num_sonda_medicao)+1,1)]
 
 SondasDict = LpVariable.dicts("combinacoes", (str_medicao, Sondas), 0, 1, LpInteger)
@@ -264,13 +269,15 @@ SondasDict = LpVariable.dicts("combinacoes", (str_medicao, Sondas), 0, 1, LpInte
 modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
     
 modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for m in str_medicao for s in Sondas]),"Peso_total",)
-
+End('Preparacao de dados3')
+Start('Preparacao de dados4')
 for m in str_medicao:
         modelo_colocacao += (lpSum([SondasDict[m][s] for s in Sondas]) <= 1, "Max_Uma_Sonda_Por_MEdicao" + str(m))
 
 routers = G.nodes
 max_sondas = {n: (len(list(nx.all_neighbors(G, n)))//2)for n in G.nodes}
-
+End('Preparacao de dados4')
+Start('Preparacao de dados5')
 #pprint(max_sondas.keys()[max_sondas.values().index(18)])
 
 
@@ -293,8 +300,7 @@ for router in routers:
                     list_probes.append([extractlabel(Measurement),idprobe])              
     modelo_colocacao += (lpSum([SondasDict[M][S] for M, S in list_probes]) <= max_sondas.get(router), "Max_Probes_Router" + router)    
 
-
-End('Preparacao de dados')
+End('Preparacao de dados5')
 
 modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
 
