@@ -252,13 +252,13 @@ dictMedicoes_Pesos[extractlabel(Medicao)] = Medicao_Peso
      
 End('Preparacao de dados2')
 Start('Preparacao de dados3')
-Sondas = [*range(1, max(num_sonda_medicao)+1,1)]
+Sondas = [*range(0, max(num_sonda_medicao),1)]
 
 SondasDict = LpVariable.dicts("combinacoes", (str_medicao, Sondas), 0, 1, LpInteger)
 
 modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
     
-modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s-1] for m in str_medicao for s in Sondas]),"Peso_total",)
+modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for m in str_medicao for s in Sondas]),"Peso_total",)
 End('Preparacao de dados3')
 Start('Preparacao de dados4')
 for m in str_medicao:
@@ -278,7 +278,7 @@ for router in routers:
     for idMedicao, Medicao in enumerate(Measurements_List):
         if (Measurement != Medicao):
             Measurement = Medicao
-            idprobe = 1
+            idprobe = 0
         else:
             idprobe += 1
         if router in Measurement:
@@ -286,7 +286,10 @@ for router in routers:
             #pprint(probes)
             for probe in probes:
                 # se o probe tem inicio ou fim no router
-                if (probe[0] == router) or (probe[len(probe)-1]== router):
+                if type(probe) is str and (probe == router):
+                    list_probes.append([extractlabel(Measurement),idprobe])
+                    break
+                elif (probe[0] == router) or (probe[len(probe)-1]== router):
                     list_probes.append([extractlabel(Measurement),idprobe])              
     modelo_colocacao += (lpSum([SondasDict[M][S] for M, S in list_probes]) <= max_sondas.get(router), "Max_Probes_Router" + router)    
 
