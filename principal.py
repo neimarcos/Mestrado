@@ -186,9 +186,9 @@ def End(funcao):
     pprint(f'#################################################################################')
 
 #rede = 'Geant2012.graphml'
-rede = 'Rnp.graphml'
+#rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
-#rede = 'exemplo_pequeno.graphml'
+rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')
@@ -218,11 +218,11 @@ Start('Compose_Route_Cost')
 Compose_Route_Cost(Probes_List)
 End('Compose_Route_Cost')
 
-
 Start('Preparacao de dados1')
 
 
 lista_medicao, num_sonda_medicao = np.unique(Measurements_List, return_counts=True)
+
 
 dictMedicoes_Pesos = {}
 
@@ -249,6 +249,49 @@ for x in range(len(Medicao_Peso),(max(num_sonda_medicao))):
     Medicao_Peso.append(0)        
 dictMedicoes_Pesos[extractlabel(Medicao)] = Medicao_Peso
 
+dictProbes_Compose = {}
+dif_probes=len(Probes_List)
+for idProbe, Probes in enumerate(Probes_List):
+    Composose = []
+    if Probes == Measurements_List [idProbe]:
+        for x in range(0,idProbe):
+            Composose.append(0)
+        Composose.append(1)
+        for x in range(idProbe,dif_probes):
+            Composose.append(0)
+    else:
+        lista_ids = []
+        for Probe in Probes:
+            if Probe in Probes_List:
+                lista_ids.append (list(Probes_List).index(Probe))
+            else:
+                reverso = list(reversed(Probe))
+                if Probe in Probes_List:
+                    lista_ids.append (list(Probes_List).index(reverso))
+        for x in range(0,dif_probes):
+            if x in lista_ids:
+                Composose.append(1)
+            else:
+                Composose.append(0)
+    dictProbes_Compose[idProbe] = Composose   
+pprint(dictProbes_Compose)
+
+for idProbe, Probe in enumerate(Probes_List):
+    Composose = []
+    if Probe == Measurements_List [idProbe]:
+        Composose.append(idProbe)
+        for x in range(1,dif_probes):
+            Composose.append(0)    
+    else:
+        for path in Probes_List:
+            
+            Composose.append(list(Probes_List).index(path))
+        for x in range(len(path),dif_probes):
+            Composose.append(0)
+    dictProbes_Compose[idProbe] = Composose
+
+pprint(dictProbes_Compose)
+
      
 End('Preparacao de dados2')
 Start('Preparacao de dados3')
@@ -257,6 +300,9 @@ Sondas = [*range(0, max(num_sonda_medicao),1)]
 SondasDict = LpVariable.dicts("combinacoes", (str_medicao, Sondas), 0, 1, LpInteger)
 
 modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
+
+
+
     
 modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for m in str_medicao for s in Sondas]),"Peso_total",)
 End('Preparacao de dados3')
@@ -300,6 +346,7 @@ modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
 Start('Pulp Solve')
 modelo_colocacao.solve()
 End('Pulp Solve')
+
 
 print("Status:", LpStatus[modelo_colocacao.status])
 for v in modelo_colocacao.variables():
