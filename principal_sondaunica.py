@@ -186,9 +186,9 @@ def End(funcao):
     pprint(f'#################################################################################')
 
 #rede = 'Geant2012.graphml'
-#rede = 'Rnp.graphml'
+rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
-rede = 'exemplo_pequeno.graphml'
+#rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')
@@ -241,6 +241,10 @@ Medicao_Sonda = []
 Sonda = []
 dictRoteador_Medicao= {}
 
+i_medicao = 0
+i_sonda = 0
+id_medicao_sonda = []
+
 for idMedicao, Medicao in enumerate(Measurements_List):
     if (str(medicao_anterior)!=str(Medicao)) and (len(Medicao_Peso) > 0):
         for x in range(len(Medicao_Peso),(max(num_sonda_medicao))):
@@ -248,11 +252,17 @@ for idMedicao, Medicao in enumerate(Measurements_List):
             #Sonda.append(0)        
         dictMedicoes_Pesos[extractlabel(medicao_anterior)] = Medicao_Peso
         dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
+        id_medicao_sonda.append([extractlabel(Medicao),i_sonda])
         Medicao_Peso = []
         Sonda = []
+        i_medicao +=1
+        i_sonda = 0
     Medicao_Peso.append(Cost_List[idMedicao])
     Sonda.append(idMedicao)
-    medicao_anterior = Medicao   
+    medicao_anterior = Medicao  
+    id_medicao_sonda.append([extractlabel(Medicao),i_sonda])
+    i_sonda += 1 
+    
 for x in range(len(Medicao_Peso),(max(num_sonda_medicao))):
     Medicao_Peso.append(0) 
     #Sonda.append(0)     
@@ -268,8 +278,8 @@ dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
 #pprint(dictMedicoes_Pesos)
 
 dictProbes_Compose = {}
-dictProbes_Cost = {}
 dif_probes=len(Probes_List)
+dictProbes_Cost = {}
 for idProbe, Probes in enumerate(Probes_List):
     Composose = []
     if Probes == Measurements_List [idProbe]:
@@ -303,14 +313,14 @@ for idProbe, Probes in enumerate(Probes_List):
         else:
             Cost.append(0)
     dictProbes_Cost[idProbe] = Cost
-#pprint(dictProbes_Compose)
-#pprint(dictProbes_Cost)
+pprint(dictProbes_Compose)
+pprint(dictProbes_Cost)
 
-#for key, valor in dictProbes_Compose.items():
-#    pprint(f'Composicao {Probes_List[key]} {valor}')
-#    for id_probe in range(0,dif_probes):
-#        if valor[id_probe] == 1:
-#            pprint(f'Probe ativo id: {id_probe}  -> {Probes_List[id_probe]}')
+for key, valor in dictProbes_Compose.items():
+    pprint(f'Composicao {Probes_List[key]} {valor}')
+    for id_probe in range(0,dif_probes):
+        if valor[id_probe] == 1:
+            pprint(f'Probe ativo id: {id_probe}  -> {Probes_List[id_probe]}')
 
 
 
@@ -332,22 +342,32 @@ for m in str_medicao:
 for m in str_medicao:
     for s in Sondas:
         if dictMedicoes_Pesos [m][s] !=0:
-            pprint(f' ID: {dictRoteador_Medicao[m][s]} - Sonda {Probes_List[dictRoteador_Medicao[m][s]]}')
+            #pprint(f' ID: {dictRoteador_Medicao[m][s]} - Sonda {Probes_List[dictRoteador_Medicao[m][s]]}')
             if Probes_List[dictRoteador_Medicao[m][s]] == Measurements_List [dictRoteador_Medicao[m][s]]:
-                pprint('não é composicao')
-            else:
+                #pprint(f'não é composicao, sonda {dictRoteador_Medicao[m][s]}')
                 lista_ids = []
-                for composicao in Probes_List[dictRoteador_Medicao[m][s]]:    
-                    if list(composicao) in Probes_List:
-                        lista_ids.append (list(Probes_List).index(composicao))
-                    else:
-                        reverso = list(reversed(composicao))
-                        if reverso in Probes_List:
-                            lista_ids.append (list(Probes_List).index(reverso))                 
-                    pprint(lista_ids)
-                    
-                    modelo_colocacao += (lpSum([SondasDict[m][s] for s in Sondas]) <= 1, "Sonda" + str(s) + "composta com" )
-                    pprint(composicao)
+                for m_aux in str_medicao:
+                    for s_aux in Sondas: 
+                        if (dictMedicoes_Pesos [m_aux][s_aux] !=0) and (Probes_List[dictRoteador_Medicao[m_aux][s_aux]] != Measurements_List[dictRoteador_Medicao[m_aux][s_aux]]):
+                            for composicao in Probes_List[dictRoteador_Medicao[m_aux][s_aux]]:    
+                                if list(composicao) in Probes_List and not list(Probes_List).index(composicao) in lista_ids:
+                                    lista_ids.append (list(Probes_List).index(composicao))
+                                else:
+                                    
+                                    reverso = list(reversed(composicao))
+                                    if reverso in Probes_List and not list(Probes_List).index(reverso) in lista_ids:
+                                        lista_ids.append (list(Probes_List).index(reverso))
+                #pprint(lista_ids)
+                Medicao_Lista = []
+                Sondas_Lista = []
+                for id in lista_ids:
+                    Medicao_Lista.append((id_medicao_sonda[id])[0])
+                    Sondas_Lista.append((id_medicao_sonda[id])[1])
+                #pprint(Medicao_Lista)
+                #pprint(Sondas_Lista)
+                #pprint(composicao)
+                #pprint(str(m))
+                modelo_colocacao += (lpSum([SondasDict[m_for][s_for] for m_for in Medicao_Lista for s_for in Sondas_Lista]) == len(Sondas_Lista), "Rep" + str(m))                         
 
 
 routers = G.nodes
