@@ -276,21 +276,7 @@ for idProbe, Probes in enumerate(Probes_List):
     dictProbes_Compose[idProbe] = Composose   
 pprint(dictProbes_Compose)
 
-for idProbe, Probe in enumerate(Probes_List):
-    Composose = []
-    if Probe == Measurements_List [idProbe]:
-        Composose.append(idProbe)
-        for x in range(1,dif_probes):
-            Composose.append(0)    
-    else:
-        for path in Probes_List:
-            
-            Composose.append(list(Probes_List).index(path))
-        for x in range(len(path),dif_probes):
-            Composose.append(0)
-    dictProbes_Compose[idProbe] = Composose
 
-pprint(dictProbes_Compose)
 
      
 End('Preparacao de dados2')
