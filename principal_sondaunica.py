@@ -277,45 +277,45 @@ dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
 #pprint(dictRoteador_Medicao)
 #pprint(dictMedicoes_Pesos)
 
-dictProbes_Compose = {}
-dif_probes=len(Probes_List)
-dictProbes_Cost = {}
-for idProbe, Probes in enumerate(Probes_List):
-    Composose = []
-    if Probes == Measurements_List [idProbe]:
-        for x in range(0,idProbe):
-            Composose.append(0)
-        Composose.append(1)
-        for x in range(idProbe,dif_probes):
-            Composose.append(0)
-    else:
-        lista_ids = []
-        for Probe in Probes:
-            if list(Probe) in Probes_List:
-                lista_ids.append (list(Probes_List).index(Probe))
-            else:
-                reverso = list(reversed(Probe))
-                if reverso in Probes_List:
-                    lista_ids.append (list(Probes_List).index(reverso))
-        # -1 pq começa em 0
-        for x in range(0,dif_probes):
-            if x in lista_ids:
-                Composose.append(1)
-            else:
-                Composose.append(0)
-    dictProbes_Compose[idProbe] = Composose 
-    Cost = []
-    #print(f"Medicao: {Measurements_List[idProbe]} - COmposicao {Probes_List[idProbe]} ")  
-    for comp_id, comp in enumerate(Composose):
-        if comp != 0:
-            Cost.append(Cost_List[comp_id])
-            #pprint(f'Item da composicao {Measurements_List[comp_id]} custo {Cost_List[comp_id]}')
-        else:
-            Cost.append(0)
-    dictProbes_Cost[idProbe] = Cost
-    pprint(idProbe)
-pprint(dictProbes_Compose)
-pprint(dictProbes_Cost)
+#dictProbes_Compose = {}
+#dif_probes=len(Probes_List)
+#dictProbes_Cost = {}
+#for idProbe, Probes in enumerate(Probes_List):
+#    Composose = []
+#    if Probes == Measurements_List [idProbe]:
+#        for x in range(0,idProbe):
+#            Composose.append(0)
+#        Composose.append(1)
+#        for x in range(idProbe,dif_probes):
+#            Composose.append(0)
+#    else:
+#        lista_ids = []
+#        for Probe in Probes:
+#            if list(Probe) in Probes_List:
+#                lista_ids.append (list(Probes_List).index(Probe))
+#            else:
+#                reverso = list(reversed(Probe))
+#                if reverso in Probes_List:
+#                    lista_ids.append (list(Probes_List).index(reverso))
+#        # -1 pq começa em 0
+#        for x in range(0,dif_probes):
+#            if x in lista_ids:
+#                Composose.append(1)
+#            else:
+#                Composose.append(0)
+#    dictProbes_Compose[idProbe] = Composose 
+#    Cost = []
+#    #print(f"Medicao: {Measurements_List[idProbe]} - COmposicao {Probes_List[idProbe]} ")  
+#    for comp_id, comp in enumerate(Composose):
+#        if comp != 0:
+#            Cost.append(Cost_List[comp_id])
+#            #pprint(f'Item da composicao {Measurements_List[comp_id]} custo {Cost_List[comp_id]}')
+#        else:
+#            Cost.append(0)
+#    dictProbes_Cost[idProbe] = Cost
+    #pprint(idProbe)
+#pprint(dictProbes_Compose)
+#pprint(dictProbes_Cost)
 
 for key, valor in dictProbes_Compose.items():
     pprint(f'Composicao {Probes_List[key]} {valor}')
@@ -340,7 +340,7 @@ Start('Preparacao de dados4')
 for m in str_medicao:
     modelo_colocacao += (lpSum([SondasDict[m][s] for s in Sondas]) <= 1, "Max_Uma_Sonda_Por_MEdicao" + str(m))
 
-for m in str_medicao:
+for id_m, m in enumerate(str_medicao):
     for s in Sondas:
         if dictMedicoes_Pesos [m][s] !=0:
             #pprint(f' ID: {dictRoteador_Medicao[m][s]} - Sonda {Probes_List[dictRoteador_Medicao[m][s]]}')
@@ -369,7 +369,7 @@ for m in str_medicao:
                 #pprint(composicao)
                 #pprint(str(m))
                 modelo_colocacao += (lpSum([SondasDict[m_for][s_for] for m_for in Medicao_Lista for s_for in Sondas_Lista]) == len(Sondas_Lista), "Rep" + str(m))                         
-
+    pprint(f'Medicao atual: {m} - {id_m}')
 
 routers = G.nodes
 
