@@ -317,11 +317,11 @@ dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
 #pprint(dictProbes_Compose)
 #pprint(dictProbes_Cost)
 
-for key, valor in dictProbes_Compose.items():
-    pprint(f'Composicao {Probes_List[key]} {valor}')
-    for id_probe in range(0,dif_probes):
-        if valor[id_probe] == 1:
-            pprint(f'Probe ativo id: {id_probe}  -> {Probes_List[id_probe]}')
+#for key, valor in dictProbes_Compose.items():
+#    pprint(f'Composicao {Probes_List[key]} {valor}')
+#    for id_probe in range(0,dif_probes):
+#        if valor[id_probe] == 1:
+#            pprint(f'Probe ativo id: {id_probe}  -> {Probes_List[id_probe]}')
 
 
 
