@@ -313,6 +313,7 @@ for idProbe, Probes in enumerate(Probes_List):
         else:
             Cost.append(0)
     dictProbes_Cost[idProbe] = Cost
+    pprint(idProbe)
 pprint(dictProbes_Compose)
 pprint(dictProbes_Cost)
 
