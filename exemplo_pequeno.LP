@@ -94,7 +94,7 @@ Max_Probes_Router10: combinacoes_10_11_0 + combinacoes_10_11_18_0
  + combinacoes_9_10_11_18_21_0 + 2 combinacoes_9_10_11_18_21_1
  + 2 combinacoes_9_10_11_18_21_2 + 2 combinacoes_9_10_11_18_21_3
  + 2 combinacoes_9_10_11_18_21_4 + combinacoes_9_10_12_0
- + 2 combinacoes_9_10_12_1 <= 1
+ + 2 combinacoes_9_10_12_1 <= 3
 Max_Probes_Router11: combinacoes_10_11_0 + combinacoes_10_11_18_0
  + 2 combinacoes_10_11_18_1 + combinacoes_10_11_18_19_0
  + 2 combinacoes_10_11_18_19_1 + 2 combinacoes_10_11_18_19_2
@@ -128,7 +128,7 @@ Max_Probes_Router11: combinacoes_10_11_0 + combinacoes_10_11_18_0
  + 2 combinacoes_9_10_11_18_19_6 + combinacoes_9_10_11_18_21_0
  + 2 combinacoes_9_10_11_18_21_1 + 2 combinacoes_9_10_11_18_21_2
  + 2 combinacoes_9_10_11_18_21_5 + 2 combinacoes_9_10_11_18_21_6
- + 2 combinacoes_9_10_11_18_3 <= 1
+ + 2 combinacoes_9_10_11_18_3 <= 2
 Max_Probes_Router12: combinacoes_10_12_0 + combinacoes_11_10_12_0
  + combinacoes_11_10_12_1 + combinacoes_12_10_11_18_0
  + combinacoes_12_10_11_18_1 + combinacoes_12_10_11_18_19_0
@@ -149,7 +149,7 @@ Max_Probes_Router12: combinacoes_10_12_0 + combinacoes_11_10_12_0
  + combinacoes_12_10_11_18_21_4 + combinacoes_12_10_11_18_21_5
  + combinacoes_12_10_11_18_21_6 + combinacoes_12_10_11_18_21_7
  + combinacoes_12_10_11_18_3 + combinacoes_9_10_12_0 + combinacoes_9_10_12_1
- <= 0
+ <= 1
 Max_Probes_Router18: combinacoes_10_11_18_0 + combinacoes_10_11_18_1
  + combinacoes_10_11_18_19_0 + 2 combinacoes_10_11_18_19_1
  + combinacoes_10_11_18_19_20_0 + 2 combinacoes_10_11_18_19_20_1
@@ -186,7 +186,7 @@ Max_Probes_Router18: combinacoes_10_11_18_0 + combinacoes_10_11_18_1
  + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_21_0
  + 2 combinacoes_9_10_11_18_21_1 + 2 combinacoes_9_10_11_18_21_3
  + 2 combinacoes_9_10_11_18_21_5 + 2 combinacoes_9_10_11_18_21_7
- + combinacoes_9_10_11_18_3 <= 1
+ + combinacoes_9_10_11_18_3 <= 3
 Max_Probes_Router19: combinacoes_10_11_18_19_0 + combinacoes_10_11_18_19_1
  + combinacoes_10_11_18_19_2 + combinacoes_10_11_18_19_20_0
  + 2 combinacoes_10_11_18_19_20_1 + 2 combinacoes_10_11_18_19_20_3
@@ -213,7 +213,7 @@ Max_Probes_Router19: combinacoes_10_11_18_19_0 + combinacoes_10_11_18_19_1
  + 2 combinacoes_9_10_11_18_19_20_5 + 2 combinacoes_9_10_11_18_19_20_7
  + 2 combinacoes_9_10_11_18_19_20_9 + combinacoes_9_10_11_18_19_3
  + combinacoes_9_10_11_18_19_4 + combinacoes_9_10_11_18_19_5
- + combinacoes_9_10_11_18_19_6 + combinacoes_9_10_11_18_19_7 <= 1
+ + combinacoes_9_10_11_18_19_6 + combinacoes_9_10_11_18_19_7 <= 2
 Max_Probes_Router20: combinacoes_10_11_18_19_20_0
  + combinacoes_10_11_18_19_20_1 + combinacoes_10_11_18_19_20_2
  + combinacoes_10_11_18_19_20_3 + combinacoes_10_11_18_19_20_4
@@ -239,7 +239,7 @@ Max_Probes_Router20: combinacoes_10_11_18_19_20_0
  + combinacoes_9_10_11_18_19_20_3 + combinacoes_9_10_11_18_19_20_4
  + combinacoes_9_10_11_18_19_20_5 + combinacoes_9_10_11_18_19_20_6
  + combinacoes_9_10_11_18_19_20_7 + combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_19_20_9 <= 0
+ + combinacoes_9_10_11_18_19_20_9 <= 1
 Max_Probes_Router21: combinacoes_10_11_18_21_0 + combinacoes_10_11_18_21_1
  + combinacoes_10_11_18_21_2 + combinacoes_10_11_18_21_3
  + combinacoes_11_18_21_0 + combinacoes_11_18_21_1
@@ -253,7 +253,7 @@ Max_Probes_Router21: combinacoes_10_11_18_21_0 + combinacoes_10_11_18_21_1
  + combinacoes_9_10_11_18_21_0 + combinacoes_9_10_11_18_21_1
  + combinacoes_9_10_11_18_21_2 + combinacoes_9_10_11_18_21_3
  + combinacoes_9_10_11_18_21_4 + combinacoes_9_10_11_18_21_5
- + combinacoes_9_10_11_18_21_6 + combinacoes_9_10_11_18_21_7 <= 0
+ + combinacoes_9_10_11_18_21_6 + combinacoes_9_10_11_18_21_7 <= 1
 Max_Probes_Router9: combinacoes_9_10_0 + combinacoes_9_10_11_0
  + combinacoes_9_10_11_1 + combinacoes_9_10_11_18_0 + combinacoes_9_10_11_18_1
  + combinacoes_9_10_11_18_19_0 + combinacoes_9_10_11_18_19_1
@@ -273,7 +273,7 @@ Max_Probes_Router9: combinacoes_9_10_0 + combinacoes_9_10_11_0
  + combinacoes_9_10_11_18_21_3 + combinacoes_9_10_11_18_21_4
  + combinacoes_9_10_11_18_21_5 + combinacoes_9_10_11_18_21_6
  + combinacoes_9_10_11_18_21_7 + combinacoes_9_10_11_18_3
- + combinacoes_9_10_12_0 + combinacoes_9_10_12_1 <= 0
+ + combinacoes_9_10_12_0 + combinacoes_9_10_12_1 <= 1
 Max_Uma_Sonda_Por_MEdicao10_11: combinacoes_10_11_0 + combinacoes_10_11_1
  + combinacoes_10_11_10 + combinacoes_10_11_11 + combinacoes_10_11_12
  + combinacoes_10_11_13 + combinacoes_10_11_14 + combinacoes_10_11_15
@@ -487,1854 +487,147 @@ Max_Uma_Sonda_Por_MEdicao9_10_12: combinacoes_9_10_12_0
  + combinacoes_9_10_12_15 + combinacoes_9_10_12_2 + combinacoes_9_10_12_3
  + combinacoes_9_10_12_4 + combinacoes_9_10_12_5 + combinacoes_9_10_12_6
  + combinacoes_9_10_12_7 + combinacoes_9_10_12_8 + combinacoes_9_10_12_9 <= 1
-Rep10_11: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep10_11_18: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep10_11_18_19: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep10_11_18_19_20: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep10_11_18_21: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep10_12: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep11_10_12: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep11_18: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep11_18_19: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep11_18_19_20: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep11_18_21: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep12_10_11_18: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep12_10_11_18_19: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep12_10_11_18_19_20: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep12_10_11_18_21: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep18_19: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep18_19_20: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep18_21: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep19_18_21: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep19_20: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep20_19_18_21: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep9_10: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep9_10_11: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep9_10_11_18: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep9_10_11_18_19: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep9_10_11_18_19_20: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep9_10_11_18_21: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
-Rep9_10_12: 4 combinacoes_10_11_18_0 + 6 combinacoes_10_11_18_1
- + combinacoes_10_11_18_10 + combinacoes_10_11_18_11 + combinacoes_10_11_18_12
- + combinacoes_10_11_18_14 + 16 combinacoes_10_11_18_19_20_0
- + 24 combinacoes_10_11_18_19_20_1 + 4 combinacoes_10_11_18_19_20_10
- + 4 combinacoes_10_11_18_19_20_11 + 4 combinacoes_10_11_18_19_20_12
- + 4 combinacoes_10_11_18_19_20_14 + 4 combinacoes_10_11_18_19_20_2
- + 4 combinacoes_10_11_18_19_20_3 + 8 combinacoes_10_11_18_19_20_4
- + 4 combinacoes_10_11_18_19_20_5 + 4 combinacoes_10_11_18_19_20_6
- + 4 combinacoes_10_11_18_19_20_7 + 4 combinacoes_10_11_18_19_20_8
- + combinacoes_10_11_18_2 + 8 combinacoes_10_11_18_21_0
- + 12 combinacoes_10_11_18_21_1 + 2 combinacoes_10_11_18_21_10
- + 2 combinacoes_10_11_18_21_11 + 2 combinacoes_10_11_18_21_12
- + 2 combinacoes_10_11_18_21_14 + 2 combinacoes_10_11_18_21_2
- + 2 combinacoes_10_11_18_21_3 + 4 combinacoes_10_11_18_21_4
- + 2 combinacoes_10_11_18_21_5 + 2 combinacoes_10_11_18_21_6
- + 2 combinacoes_10_11_18_21_7 + 2 combinacoes_10_11_18_21_8
- + combinacoes_10_11_18_3 + 2 combinacoes_10_11_18_4 + combinacoes_10_11_18_5
- + combinacoes_10_11_18_6 + combinacoes_10_11_18_7 + combinacoes_10_11_18_8
- + 4 combinacoes_10_12_0 + 6 combinacoes_10_12_1 + combinacoes_10_12_10
- + combinacoes_10_12_11 + combinacoes_10_12_12 + combinacoes_10_12_14
- + combinacoes_10_12_2 + combinacoes_10_12_3 + 2 combinacoes_10_12_4
- + combinacoes_10_12_5 + combinacoes_10_12_6 + combinacoes_10_12_7
- + combinacoes_10_12_8 + 4 combinacoes_11_10_12_0 + 6 combinacoes_11_10_12_1
- + combinacoes_11_10_12_10 + combinacoes_11_10_12_11 + combinacoes_11_10_12_12
- + combinacoes_11_10_12_14 + combinacoes_11_10_12_2 + combinacoes_11_10_12_3
- + 2 combinacoes_11_10_12_4 + combinacoes_11_10_12_5 + combinacoes_11_10_12_6
- + combinacoes_11_10_12_7 + combinacoes_11_10_12_8
- + 8 combinacoes_12_10_11_18_19_20_0 + 12 combinacoes_12_10_11_18_19_20_1
- + 2 combinacoes_12_10_11_18_19_20_10 + 2 combinacoes_12_10_11_18_19_20_11
- + 2 combinacoes_12_10_11_18_19_20_12 + 2 combinacoes_12_10_11_18_19_20_14
- + 2 combinacoes_12_10_11_18_19_20_2 + 2 combinacoes_12_10_11_18_19_20_3
- + 4 combinacoes_12_10_11_18_19_20_4 + 2 combinacoes_12_10_11_18_19_20_5
- + 2 combinacoes_12_10_11_18_19_20_6 + 2 combinacoes_12_10_11_18_19_20_7
- + 2 combinacoes_12_10_11_18_19_20_8 + 12 combinacoes_12_10_11_18_21_0
- + 18 combinacoes_12_10_11_18_21_1 + 3 combinacoes_12_10_11_18_21_10
- + 3 combinacoes_12_10_11_18_21_11 + 3 combinacoes_12_10_11_18_21_12
- + 3 combinacoes_12_10_11_18_21_14 + 3 combinacoes_12_10_11_18_21_2
- + 3 combinacoes_12_10_11_18_21_3 + 6 combinacoes_12_10_11_18_21_4
- + 3 combinacoes_12_10_11_18_21_5 + 3 combinacoes_12_10_11_18_21_6
- + 3 combinacoes_12_10_11_18_21_7 + 3 combinacoes_12_10_11_18_21_8
- + 4 combinacoes_9_10_0 + 6 combinacoes_9_10_1 + combinacoes_9_10_10
- + combinacoes_9_10_11 + 4 combinacoes_9_10_11_0 + 6 combinacoes_9_10_11_1
- + combinacoes_9_10_11_10 + combinacoes_9_10_11_11 + combinacoes_9_10_11_12
- + combinacoes_9_10_11_14 + 4 combinacoes_9_10_11_18_0
- + 6 combinacoes_9_10_11_18_1 + combinacoes_9_10_11_18_10
- + combinacoes_9_10_11_18_11 + combinacoes_9_10_11_18_12
- + combinacoes_9_10_11_18_14 + 16 combinacoes_9_10_11_18_19_20_0
- + 24 combinacoes_9_10_11_18_19_20_1 + 4 combinacoes_9_10_11_18_19_20_10
- + 4 combinacoes_9_10_11_18_19_20_11 + 4 combinacoes_9_10_11_18_19_20_12
- + 4 combinacoes_9_10_11_18_19_20_14 + 4 combinacoes_9_10_11_18_19_20_2
- + 4 combinacoes_9_10_11_18_19_20_3 + 8 combinacoes_9_10_11_18_19_20_4
- + 4 combinacoes_9_10_11_18_19_20_5 + 4 combinacoes_9_10_11_18_19_20_6
- + 4 combinacoes_9_10_11_18_19_20_7 + 4 combinacoes_9_10_11_18_19_20_8
- + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_3
- + 2 combinacoes_9_10_11_18_4 + combinacoes_9_10_11_18_5
- + combinacoes_9_10_11_18_6 + combinacoes_9_10_11_18_7
- + combinacoes_9_10_11_18_8 + combinacoes_9_10_11_2 + combinacoes_9_10_11_3
- + 2 combinacoes_9_10_11_4 + combinacoes_9_10_11_5 + combinacoes_9_10_11_6
- + combinacoes_9_10_11_7 + combinacoes_9_10_11_8 + combinacoes_9_10_12
- + 4 combinacoes_9_10_12_0 + 6 combinacoes_9_10_12_1 + combinacoes_9_10_12_10
- + combinacoes_9_10_12_11 + combinacoes_9_10_12_12 + combinacoes_9_10_12_14
- + combinacoes_9_10_12_2 + combinacoes_9_10_12_3 + 2 combinacoes_9_10_12_4
- + combinacoes_9_10_12_5 + combinacoes_9_10_12_6 + combinacoes_9_10_12_7
- + combinacoes_9_10_12_8 + combinacoes_9_10_14 + combinacoes_9_10_2
- + combinacoes_9_10_3 + 2 combinacoes_9_10_4 + combinacoes_9_10_5
- + combinacoes_9_10_6 + combinacoes_9_10_7 + combinacoes_9_10_8 = 22
+Rep_'10',_'11',_'18',_'19',_'20'_: combinacoes_10_11_18_1
+ + combinacoes_12_10_11_18_19_5 + combinacoes_9_10_11_18_19_20_2 <= 3
+Rep_'10',_'11',_'18',_'19'_: combinacoes_10_11_18_21_0
+ + combinacoes_11_18_19_1 + combinacoes_12_10_11_18_19_4
+ + combinacoes_9_10_11_18_19_0 + combinacoes_9_10_11_18_19_20_1
+ + combinacoes_9_10_11_18_19_20_14 <= 6
+Rep_'10',_'11',_'18',_'21'_: combinacoes_10_12_0 + combinacoes_11_18_19_20_3
+ + combinacoes_9_10_11_18_21_0 <= 3
+Rep_'10',_'11',_'18'_: combinacoes_10_11_0 + combinacoes_10_11_18_0
+ + combinacoes_10_11_18_19_3 + combinacoes_10_11_18_21_0 + combinacoes_11_18_0
+ + combinacoes_11_18_19_0 + combinacoes_11_18_19_20_2
+ + combinacoes_12_10_11_18_19_2 + combinacoes_12_10_11_18_19_3
+ + combinacoes_9_10_11_18_0 + combinacoes_9_10_11_18_19_0
+ + 2 combinacoes_9_10_11_18_19_20_0 + combinacoes_9_10_11_18_19_20_12
+ + combinacoes_9_10_11_18_19_7 <= 15
+Rep_'10',_'11'_: combinacoes_10_11_0 + combinacoes_10_11_18_0
+ + 2 combinacoes_10_11_18_19_0 + combinacoes_10_11_18_19_1
+ + combinacoes_10_11_18_19_2 + combinacoes_10_11_18_21_3 + combinacoes_10_12_0
+ + combinacoes_11_10_12_1 + combinacoes_11_18_0 + combinacoes_11_18_19_0
+ + combinacoes_11_18_19_20_0 + combinacoes_11_18_19_20_1
+ + 2 combinacoes_12_10_11_18_19_0 + combinacoes_12_10_11_18_19_1
+ + combinacoes_12_10_11_18_3 + combinacoes_9_10_11_0
+ + combinacoes_9_10_11_18_19_20_10 + combinacoes_9_10_11_18_19_20_13
+ + combinacoes_9_10_11_18_19_20_15 + combinacoes_9_10_11_18_19_5
+ + combinacoes_9_10_11_18_19_6 + combinacoes_9_10_11_18_2
+ + combinacoes_9_10_11_18_21_4 + combinacoes_9_10_11_18_21_5
+ + combinacoes_9_10_11_18_21_6 + combinacoes_9_10_11_18_21_7
+ + combinacoes_9_10_11_18_3 + combinacoes_9_10_12_1 <= 30
+Rep_'10',_'12'_: combinacoes_10_11_18_21_3 + combinacoes_11_10_12_1
+ + 2 combinacoes_11_18_0 + 2 combinacoes_11_18_19_0 + combinacoes_11_18_19_1
+ + combinacoes_11_18_19_20_0 + combinacoes_11_18_19_20_1
+ + combinacoes_11_18_19_20_2 + combinacoes_11_18_19_20_3
+ + 2 combinacoes_12_10_11_18_19_0 + combinacoes_12_10_11_18_19_1
+ + combinacoes_12_10_11_18_19_2 + combinacoes_12_10_11_18_19_3
+ + combinacoes_12_10_11_18_19_4 + combinacoes_12_10_11_18_19_5
+ + combinacoes_12_10_11_18_3 + combinacoes_9_10_11_18_19_20_11
+ + combinacoes_9_10_12_0 <= 21
+Rep_'11',_'10',_'12'_: combinacoes_10_11_18_21_2 + combinacoes_11_10_12_0
+ + 2 combinacoes_11_18_21_0 + 2 combinacoes_12_10_11_18_0
+ + combinacoes_12_10_11_18_19_6 + combinacoes_12_10_11_18_19_7
+ + 2 combinacoes_12_10_11_18_21_0 <= 10
+Rep_'11',_'18',_'19',_'20'_: combinacoes_10_11_18_19_2
+ + combinacoes_10_11_18_19_20_3 + combinacoes_12_10_11_18_19_1
+ + combinacoes_12_10_11_18_21_0 + combinacoes_9_10_11_18_19_20_6
+ + combinacoes_9_10_11_18_21_7 <= 6
+Rep_'11',_'18',_'19'_: combinacoes_10_11_0 + combinacoes_10_11_18_19_1
+ + combinacoes_10_11_18_19_20_0 + combinacoes_10_11_18_19_20_6
+ + combinacoes_11_18_19_0 + combinacoes_11_18_21_0
+ + combinacoes_12_10_11_18_19_0 + combinacoes_12_10_11_18_21_0
+ + combinacoes_9_10_11_18_19_2 + combinacoes_9_10_11_18_19_20_5
+ + combinacoes_9_10_11_18_21_6 + combinacoes_9_10_11_18_3 <= 12
+Rep_'11',_'18',_'21'_: combinacoes_10_11_18_0 + combinacoes_10_11_18_19_20_1
+ + combinacoes_11_18_19_20_1 + combinacoes_12_10_11_18_0
+ + combinacoes_9_10_11_18_19_6 + combinacoes_9_10_11_18_21_1 <= 6
+Rep_'11',_'18'_: 2 combinacoes_10_11_18_19_0 + combinacoes_10_11_18_19_20_0
+ + combinacoes_10_11_18_19_20_2 + combinacoes_10_11_18_19_20_4
+ + combinacoes_10_11_18_19_20_5 + combinacoes_10_11_18_21_1
+ + combinacoes_10_12_0 + combinacoes_11_10_12_0 + combinacoes_11_10_12_1
+ + combinacoes_11_18_0 + combinacoes_11_18_19_20_0 + combinacoes_11_18_21_0
+ + combinacoes_12_10_11_18_0 + combinacoes_12_10_11_18_19_0
+ + combinacoes_12_10_11_18_19_6 + combinacoes_12_10_11_18_19_7
+ + combinacoes_12_10_11_18_3 + combinacoes_9_10_11_18_0
+ + combinacoes_9_10_11_18_19_1 + combinacoes_9_10_11_18_19_20_13
+ + combinacoes_9_10_11_18_19_20_15 + combinacoes_9_10_11_18_19_20_3
+ + combinacoes_9_10_11_18_19_20_4 + combinacoes_9_10_11_18_19_5
+ + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_21_0
+ + combinacoes_9_10_11_18_21_4 + combinacoes_9_10_11_18_21_5
+ + combinacoes_9_10_12_1 <= 30
+Rep_'12',_'10',_'11',_'18',_'19',_'20'_: combinacoes_12_10_11_18_2 <= 1
+Rep_'12',_'10',_'11',_'18',_'19'_: combinacoes_11_10_12_0
+ + combinacoes_12_10_11_18_21_3 <= 2
+Rep_'12',_'10',_'11',_'18',_'21'_: combinacoes_11_18_19_20_0 <= 1
+Rep_'12',_'10',_'11',_'18'_: combinacoes_10_11_18_19_20_7
+ + combinacoes_11_18_21_1 + combinacoes_12_10_11_18_1
+ + combinacoes_12_10_11_18_21_1 + combinacoes_12_10_11_18_21_2 <= 5
+Rep_'18',_'19',_'20'_: combinacoes_10_11_18_19_0
+ + combinacoes_10_11_18_19_20_5 + combinacoes_10_11_18_21_0
+ + combinacoes_12_10_11_18_19_0 + combinacoes_12_10_11_18_19_20_5
+ + combinacoes_12_10_11_18_19_3 + combinacoes_12_10_11_18_19_7
+ + combinacoes_12_10_11_18_21_2 + combinacoes_12_10_11_18_21_6
+ + combinacoes_9_10_11_18_19_20_0 + combinacoes_9_10_11_18_19_20_4
+ + combinacoes_9_10_11_18_19_20_8 + combinacoes_9_10_11_18_21_5 <= 13
+Rep_'18',_'19'_: combinacoes_10_11_0 + combinacoes_10_11_18_19_0
+ + combinacoes_10_11_18_19_20_0 + combinacoes_10_11_18_19_20_4
+ + combinacoes_10_11_18_19_3 + combinacoes_11_10_12_1 + combinacoes_11_18_19_0
+ + combinacoes_11_18_21_0 + combinacoes_11_18_21_1
+ + combinacoes_12_10_11_18_19_2 + combinacoes_12_10_11_18_19_20_1
+ + combinacoes_12_10_11_18_19_20_3 + combinacoes_12_10_11_18_19_6
+ + combinacoes_12_10_11_18_21_1 + combinacoes_12_10_11_18_21_4
+ + combinacoes_12_10_11_18_21_7 + combinacoes_12_10_11_18_3
+ + combinacoes_9_10_11_18_19_0 + combinacoes_9_10_11_18_19_1
+ + combinacoes_9_10_11_18_19_20_0 + combinacoes_9_10_11_18_19_20_15
+ + combinacoes_9_10_11_18_19_20_3 + combinacoes_9_10_11_18_19_20_7
+ + combinacoes_9_10_11_18_19_3 + combinacoes_9_10_11_18_2
+ + combinacoes_9_10_11_18_21_4 <= 26
+Rep_'18',_'21'_: combinacoes_10_11_18_0 + combinacoes_10_11_18_19_20_2
+ + combinacoes_10_12_0 + combinacoes_11_18_19_20_0 + combinacoes_11_18_19_20_2
+ + combinacoes_12_10_11_18_0 + combinacoes_12_10_11_18_1
+ + combinacoes_12_10_11_18_19_20_1 + combinacoes_12_10_11_18_19_20_3
+ + combinacoes_12_10_11_18_19_20_5 + combinacoes_12_10_11_18_21_5
+ + combinacoes_9_10_11_18_19_5 + combinacoes_9_10_11_18_19_7
+ + combinacoes_9_10_11_18_21_0 + combinacoes_9_10_11_18_21_2 <= 15
+Rep_'19',_'18',_'21'_: combinacoes_12_10_11_18_19_20_0
+ + combinacoes_12_10_11_18_19_20_4 <= 2
+Rep_'19',_'20'_: combinacoes_10_11_18_19_0 + combinacoes_10_11_18_19_1
+ + combinacoes_10_11_18_19_20_4 + combinacoes_10_11_18_19_20_6
+ + combinacoes_10_11_18_19_3 + combinacoes_10_11_18_21_0
+ + combinacoes_12_10_11_18_19_0 + combinacoes_12_10_11_18_19_2
+ + combinacoes_12_10_11_18_19_20_0 + combinacoes_12_10_11_18_19_20_3
+ + combinacoes_12_10_11_18_19_20_4 + combinacoes_12_10_11_18_19_4
+ + combinacoes_12_10_11_18_19_6 + combinacoes_12_10_11_18_21_0
+ + combinacoes_12_10_11_18_21_1 + combinacoes_12_10_11_18_21_3
+ + combinacoes_12_10_11_18_21_7 + combinacoes_12_10_11_18_3
+ + combinacoes_9_10_11_18_19_20_0 + combinacoes_9_10_11_18_19_20_1
+ + combinacoes_9_10_11_18_19_20_3 + combinacoes_9_10_11_18_19_20_5
+ + combinacoes_9_10_11_18_19_20_7 + combinacoes_9_10_11_18_19_20_9
+ + combinacoes_9_10_11_18_21_4 + combinacoes_9_10_11_18_21_6 <= 26
+Rep_'20',_'19',_'18',_'21'_: combinacoes_12_10_11_18_19_20_2 <= 1
+Rep_'9',_'10',_'11',_'18',_'19',_'20'_: combinacoes_9_10_11_18_21_3 <= 1
+Rep_'9',_'10',_'11',_'18',_'19'_: combinacoes_9_10_11_18_1
+ + combinacoes_9_10_11_18_19_20_9 <= 2
+Rep_'9',_'10',_'11',_'18',_'21'_: combinacoes_9_10_11_18_19_4 <= 1
+Rep_'9',_'10',_'11',_'18'_: combinacoes_9_10_11_18_19_20_7
+ + combinacoes_9_10_11_18_19_20_8 + combinacoes_9_10_11_18_19_3
+ + combinacoes_9_10_11_18_21_2 + combinacoes_9_10_12_0 <= 5
+Rep_'9',_'10',_'11'_: combinacoes_9_10_11_0 + combinacoes_9_10_11_18_0
+ + combinacoes_9_10_11_18_19_1 + combinacoes_9_10_11_18_19_2
+ + combinacoes_9_10_11_18_19_20_3 + combinacoes_9_10_11_18_19_20_4
+ + combinacoes_9_10_11_18_19_20_5 + combinacoes_9_10_11_18_19_20_6
+ + combinacoes_9_10_11_18_21_0 + combinacoes_9_10_11_18_21_1 <= 10
+Rep_'9',_'10',_'12'_: combinacoes_9_10_11_1 <= 1
+Rep_'9',_'10'_: combinacoes_9_10_0 + combinacoes_9_10_11_0
+ + combinacoes_9_10_11_18_0 + 2 combinacoes_9_10_11_18_19_0
+ + 2 combinacoes_9_10_11_18_19_20_0 + combinacoes_9_10_11_18_19_20_1
+ + combinacoes_9_10_11_18_19_20_2 + combinacoes_9_10_11_18_19_5
+ + combinacoes_9_10_11_18_19_6 + combinacoes_9_10_11_18_19_7
+ + combinacoes_9_10_11_18_2 + combinacoes_9_10_11_18_21_0
+ + combinacoes_9_10_11_18_21_4 + combinacoes_9_10_11_18_21_5
+ + combinacoes_9_10_11_18_21_6 + combinacoes_9_10_11_18_21_7
+ + combinacoes_9_10_11_18_3 + combinacoes_9_10_12_0 + combinacoes_9_10_12_1
+ <= 21
 Binaries
 combinacoes_10_11_0
 combinacoes_10_11_1
