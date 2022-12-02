@@ -177,7 +177,8 @@ def extractlabel(salto):
     return caminho_string[:-1]
 
 def Start(funcao):
-    inicio = time.process_time()
+    global inicio 
+    inicio= time.process_time()
     pprint(f'Iniciando a função {funcao}')
     return(inicio)
 
@@ -186,9 +187,9 @@ def End(funcao):
     pprint(f'#################################################################################')
 
 #rede = 'Geant2012.graphml'
-#rede = 'Rnp.graphml'
+rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
-rede = 'exemplo_pequeno.graphml'
+#rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')
@@ -232,14 +233,14 @@ for medicao in lista_medicao.tolist():
     str_medicao.append(extractlabel(medicao))
 
 End('Preparacao de dados1')
-Start('Preparacao de dados2')
+Start('Preparacao de dados - dictMedicoes_Pesos')
 
 
 medicao_anterior = ''
 Medicao_Peso = []
 Medicao_Sonda = []
 Sonda = []
-dictRoteador_Medicao= {}
+#dictRoteador_Medicao= {}
 
 i_medicao = 0
 i_sonda = 0
@@ -251,7 +252,7 @@ for idMedicao, Medicao in enumerate(Measurements_List):
             Medicao_Peso.append(0)
             #Sonda.append(0)        
         dictMedicoes_Pesos[extractlabel(medicao_anterior)] = Medicao_Peso
-        dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
+        #dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
         i_sonda = 0
         id_medicao_sonda.append([extractlabel(Medicao),i_sonda])
         Medicao_Peso = []
@@ -267,45 +268,33 @@ for x in range(len(Medicao_Peso),(max(num_sonda_medicao))):
     Medicao_Peso.append(0) 
     #Sonda.append(0)     
 dictMedicoes_Pesos[extractlabel(Medicao)] = Medicao_Peso
-dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
+#dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
 
 #for medicao, id_medicao in dictRoteador_Medicao.items():
 #    for id in id_medicao:
 #        pprint(f'medicao id {id} - {Probes_List[id]} ')
 #pprint(dictRoteador_Medicao)
 #pprint(dictMedicoes_Pesos)
+End('Preparacao de dados - dictMedicoes_Pesos')
 
-
+Start('Preparacao de dados - dictProbes_Compose')
 
 dictProbes_Compose = {}
 dif_probes=len(Probes_List)
-Probes_Compose_Count = []
+default_compose = list(itertools.repeat(0, dif_probes ))
+#Probes_Compose_Count = []
 for idProbe, Probes in enumerate(Probes_List):
-    Composose = []
+    Composose = copy.deepcopy(default_compose)
     if Probes == Measurements_List [idProbe]:
-        for x in range(0,idProbe):
-            Composose.append(0)
-        Composose.append(1)
-        for x in range(idProbe+1,dif_probes):
-            Composose.append(0)
-        Probes_Compose_Count.append(0);    
+        Composose[idProbe] = 1
     else:
-        lista_ids = []
-
         for Probe in Probes:
             if list(Probe) in Probes_List:
-                lista_ids.append (list(Probes_List).index(Probe))
+                Composose[(list(Probes_List).index(Probe))]=1
             else:
                 reverso = list(reversed(Probe))
                 if reverso in Probes_List:
-                    lista_ids.append (list(Probes_List).index(reverso))
-        # -1 pq começa em 0
-        for x in range(0,dif_probes):
-            if x in lista_ids:
-                Composose.append(1)
-            else:
-                Composose.append(0)
-        Probes_Compose_Count.append(len(lista_ids));    
+                    Composose[(list(Probes_List).index(reverso))]=1
     dictProbes_Compose[idProbe] = Composose 
    #pprint(idProbe)
 
@@ -317,7 +306,7 @@ for idProbe, Probes in enumerate(Probes_List):
 
 
      
-End('Preparacao de dados2')
+End('Preparacao de dados - dictProbes_Compose')
 Start('Preparacao de dados3')
 Sondas = [*range(0, max(num_sonda_medicao),1)]
 
@@ -328,42 +317,11 @@ modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
 modelo_colocacao += (lpSum([SondasDict[m][s] * dictMedicoes_Pesos[m][s] for m in str_medicao for s in Sondas]),"Peso_total",)
 End('Preparacao de dados3')
 Start('Preparacao de dados4')
+
+# Maximo de uma sonda para determinada medição
 for m in str_medicao:
     modelo_colocacao += (lpSum([SondasDict[m][s] for s in Sondas]) <= 1, "Max_Uma_Sonda_Por_MEdicao" + str(m))
 
-#for id_m, m in enumerate(str_medicao):
-#    for s in Sondas:
-#        if dictMedicoes_Pesos [m][s] !=0:
-#            #pprint(f' ID: {dictRoteador_Medicao[m][s]} - Sonda {Probes_List[dictRoteador_Medicao[m][s]]}')
-#            if Probes_List[dictRoteador_Medicao[m][s]] == Measurements_List [dictRoteador_Medicao[m][s]]:
-#                #pprint(f'não é composicao, sonda {dictRoteador_Medicao[m][s]}')
-#                lista_ids = []
-#                for m_aux in str_medicao:
-#                    for s_aux in Sondas: 
-#                        if (dictMedicoes_Pesos [m_aux][s_aux] !=0) and (Probes_List[dictRoteador_Medicao[m_aux][s_aux]] != Measurements_List[dictRoteador_Medicao[m_aux][s_aux]]):
-#                            for composicao in Probes_List[dictRoteador_Medicao[m_aux][s_aux]]:    
-#                                if list(composicao) in Probes_List and not list(Probes_List).index(composicao) in lista_ids:
-#                                    lista_ids.append (list(Probes_List).index(composicao))
-#                                else:
-#                                    
-#                                    reverso = list(reversed(composicao))
-#                                    if reverso in Probes_List and not list(Probes_List).index(reverso) in lista_ids:
-#                                        lista_ids.append (list(Probes_List).index(reverso))
-#                #pprint(lista_ids)
-#                Medicao_Lista = []
-#                Sondas_Lista = []
-#                for id in lista_ids:
-#                    Medicao_Lista.append((id_medicao_sonda[id])[0])
-#                    Sondas_Lista.append((id_medicao_sonda[id])[1])
-#                #pprint(Medicao_Lista)
-#                #pprint(Sondas_Lista)
-#                #pprint(composicao)
-#                #pprint(str(m))
-#                modelo_colocacao += (lpSum([SondasDict[m_for][s_for] for m_for in Medicao_Lista for s_for in Sondas_Lista]) <= len(Sondas_Lista), "Rep" + str(m))                         
-#    pprint(f'Medicao atual: {m} - {id_m}')
-
-#para não ter um parametros aleatorio tenho a parte inteira da metade das arestas/links em cada no/host
-#max_sondas = {n: (len(list(nx.all_neighbors(G, n)))//2)for n in G.nodes}
 
 #End('Preparacao de dados4')
 routers = G.nodes
@@ -383,21 +341,12 @@ for id_probe in range(0,dif_probes):
 
 
 
-for id_probe in range(0,dif_probes):
-    if (Probes_List[id_probe] == Measurements_List [id_probe]):
+#for id_probe in range(0,dif_probes):
+#    if (Probes_List[id_probe] == Measurements_List [id_probe]):
         #pprint(f'Probe {Probes_List[id_probe]}')
-        modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]] for id, valor in dictProbes_Compose.items() if valor[id_probe] == 1]) <= Probe_in_Compose[id_probe], "Rep" + str(Probes_List[id_probe]))                         
-        
-        #for key, valor in dictProbes_Compose.items():
-        #    if valor[id_probe] == 1:
-        #        pprint(f'Composições id: {key}  -> {Probes_List[key]}')
-        #pprint('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+#        #
+#        modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]] for id, valor in dictProbes_Compose.items() if valor[id_probe] == 1]) <= Probe_in_Compose[id_probe], "Rep" + str(Probes_List[id_probe]))                         
 
-    #for id_probe in range(0,dif_probes):
-     #   if valor[id_probe] == 1:
-
-#for key, valor in dictProbes_Compose.items():
-#            pprint(f'Probe ativo id: {id_probe}  -> {Probes_List[id_probe]}')
 
 End('Preparacao de NEW')
 
@@ -425,6 +374,7 @@ for router in routers:
                 elif (probe[0] == router) or (probe[len(probe)-1]== router):
                     list_probes.append([extractlabel(Measurement),idprobe])         
     #list_probes = list(dict.fromkeys(list_probes))
+    # Numero maximo de sondas por roteador
     modelo_colocacao += (lpSum([SondasDict[M][S] for M, S in list_probes]) <= max_sondas.get(router), "Max_Probes_Router" + router)    
 
 End('Preparacao de dados5')
