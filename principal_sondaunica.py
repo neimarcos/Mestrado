@@ -254,7 +254,6 @@ for idMedicao, Medicao in enumerate(Measurements_List):
         dictMedicoes_Pesos[extractlabel(medicao_anterior)] = Medicao_Peso
         #dictRoteador_Medicao[extractlabel(medicao_anterior)] = Sonda
         i_sonda = 0
-        id_medicao_sonda.append([extractlabel(Medicao),i_sonda])
         Medicao_Peso = []
         Sonda = []
         i_medicao +=1
@@ -302,6 +301,7 @@ for idProbe, Probes in enumerate(Probes_List):
 
 
 
+            
 
 
 
@@ -309,6 +309,8 @@ for idProbe, Probes in enumerate(Probes_List):
 End('Preparacao de dados - dictProbes_Compose')
 Start('Preparacao de dados3')
 Sondas = [*range(0, max(num_sonda_medicao),1)]
+SondasCompostas = [*range(1, max(num_sonda_medicao),1)]
+
 
 SondasDict = LpVariable.dicts("combinacoes", (str_medicao, Sondas), 0, 1, LpInteger)
 
@@ -319,8 +321,8 @@ End('Preparacao de dados3')
 Start('Preparacao de dados4')
 
 # Maximo de uma sonda para determinada medição
-for m in str_medicao:
-    modelo_colocacao += (lpSum([SondasDict[m][s] for s in Sondas]) <= 1, "Max_Uma_Sonda_Por_MEdicao" + str(m))
+#for m in str_medicao:
+#    modelo_colocacao += (lpSum([SondasDict[m][s]  for s in SondasCompostas]) <= 1, "Max_Uma_Sonda_Por_MEdicao" + str(m))
 
 
 #End('Preparacao de dados4')
@@ -338,13 +340,24 @@ for id_probe in range(0,dif_probes):
 
 #pprint(Probe_in_Compose)
 
+for id, valor in dictProbes_Compose.items():
+    if (Probes_List[id] != Measurements_List [id]):
+        #pprint(f'Sonda: {Probes_List[id]}') 
+        #pprint(SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]])
+        #for id_probe in range(0,dif_probes):
+            #if valor[id_probe] == 1: 
+                #pprint(f'Composição: {Probes_List[id_probe]}') 
+                #pprint(SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]])
+        modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]] for id_probe in range(0,dif_probes) if valor[id_probe] == 1]) == SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]], "Rep" + str(Probes_List[id]))                         
+    #for id_probe in range(0,dif_probes):
+     #   if valor[id_probe] == 1:
+      #      pprint(f'Composição: {Probes_List[id_probe]}')
 
 
 
 #for id_probe in range(0,dif_probes):
 #    if (Probes_List[id_probe] == Measurements_List [id_probe]):
         #pprint(f'Probe {Probes_List[id_probe]}')
-#        #
 #        modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]] for id, valor in dictProbes_Compose.items() if valor[id_probe] == 1]) <= Probe_in_Compose[id_probe], "Rep" + str(Probes_List[id_probe]))                         
 
 
@@ -353,7 +366,7 @@ End('Preparacao de NEW')
 #Start('Preparacao de dados5')
 
 
-pprint(max_sondas)
+#pprint(max_sondas)
 for router in routers:
     list_probes = []
     Measurement = ''
