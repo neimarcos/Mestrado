@@ -246,7 +246,59 @@ i_medicao = 0
 i_sonda = 0
 id_medicao_sonda = []
 
+
+routers = G.nodes
+
+import numpy as np
+
+R = len(routers)
+M = len(routers)
+S = max(num_sonda_medicao)
+
+RMS= np.zeros((R, M, S))
+
+#print(RMS)
+
+nodes_list = np.array(list(G.nodes()))
+
+
+
+#for id_router_origem, router_origem in enumerate(nodes_list):
+#    pprint(f'ID Origem: {id_router_origem} - nome {nodes_list[id_router_origem]}')
+#    for id_router_destino, router_destino in enumerate(nodes_list):
+#        if id_router_origem != id_router_destino:
+#            pprint(f'ID Destino: {id_router_destino} - nome {nodes_list[id_router_destino]}')
+#            for id in range (0,max(num_sonda_medicao)):
+#                RMS[id_router_origem,id_router_destino,id]=id
+    
+pprint(RMS)
+
+medicao_anterior = ''
 for idMedicao, Medicao in enumerate(Measurements_List):
+    #if (Probes_List[idMedicao] == Measurements_List [idMedicao]):
+    if str(medicao_anterior)!=str(Medicao):
+        i_sonda = 0
+    pprint(f'Origem: {Measurements_List[idMedicao][0]}')
+    pprint(f'Destino: {Measurements_List[idMedicao][len(Measurements_List[idMedicao])-1]}')
+    pprint(Probes_List[idMedicao])
+    id_origem = np.where(nodes_list == Measurements_List[idMedicao][0])
+    id_destino = np.where(nodes_list == Measurements_List[idMedicao][len(Measurements_List[idMedicao])-1])
+    RMS[id_origem,id_destino,i_sonda]=Cost_List[idMedicao]
+    i_sonda += 1
+    medicao_anterior = Medicao
+
+pprint(RMS[0])
+
+
+
+#urements_List):
+#        if Router in Medicao:
+#            pprint(Medicao)
+#            RMC[idRouter][idMedicao].append(Cost_List[idMedicao])
+#    
+#pprint (RMC)
+'''
+
     if (str(medicao_anterior)!=str(Medicao)) and (len(Medicao_Peso) > 0):
         for x in range(len(Medicao_Peso),(max(num_sonda_medicao))):
             Medicao_Peso.append(0)
@@ -333,70 +385,70 @@ Start('Preparacao de dados4')
 #End('Preparacao de dados4')
 routers = G.nodes
 max_sondas = {n: (len(list(nx.all_neighbors(G, n))))for n in G.nodes}
-Start('Preparacao de NEW')
-
-Probe_in_Compose = []
-for id_probe in range(0,dif_probes):
-    count = 0;
-    for id, valor in dictProbes_Compose.items():
-        if valor[id_probe] == 1:
-            count += 1
-    Probe_in_Compose.append(count)
-
-#pprint(Probe_in_Compose)
-
-for id, valor in dictProbes_Compose.items():
-    if (Probes_List[id] != Measurements_List [id]):
-        #pprint(f'Sonda: {Probes_List[id]}') 
-        #pprint(SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]])
-        #for id_probe in range(0,dif_probes):
-            #if valor[id_probe] == 1: 
-                #pprint(f'Composição: {Probes_List[id_probe]}') 
-                #pprint(SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]])
-        
-        modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]] for id_probe in range(0,dif_probes) if valor[id_probe] == 1]) == SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]], "Rep" + str(Probes_List[id]))                         
-    #for id_probe in range(0,dif_probes):
-     #   if valor[id_probe] == 1:
-      #      pprint(f'Composição: {Probes_List[id_probe]}')
-
-
-
+#Start('Preparacao de NEW')
+#
+#Probe_in_Compose = []
 #for id_probe in range(0,dif_probes):
-#    if (Probes_List[id_probe] == Measurements_List [id_probe]):
-        #pprint(f'Probe {Probes_List[id_probe]}')
-#        modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]] for id, valor in dictProbes_Compose.items() if valor[id_probe] == 1]) <= Probe_in_Compose[id_probe], "Rep" + str(Probes_List[id_probe]))                         
-
-
-End('Preparacao de NEW')
-
-#Start('Preparacao de dados5')
-
-
-#pprint(max_sondas)
-for router in routers:
-    list_probes = []
-    Measurement = ''
-    for idMedicao, Medicao in enumerate(Measurements_List):
-        if (Measurement != Medicao):
-            Measurement = Medicao
-            idprobe = 0
-        else:
-            idprobe += 1
-        if router in Measurement:
-            probes = Probes_List[idMedicao]
-            #pprint(probes)
-            for probe in probes:
-                # se o probe tem inicio ou fim no router
-                if type(probe) is str and (probe == router):
-                    list_probes.append([extractlabel(Measurement),idprobe])
-                    break
-                elif (probe[0] == router) or (probe[len(probe)-1]== router):
-                    list_probes.append([extractlabel(Measurement),idprobe])         
-    #list_probes = list(dict.fromkeys(list_probes))
-    # Numero maximo de sondas por roteador
-    modelo_colocacao += (lpSum([SondasDict[M][S] for M, S in list_probes]) <= max_sondas.get(router), "Max_Probes_Router" + router)    
-
-End('Preparacao de dados5')
+#    count = 0;
+#    for id, valor in dictProbes_Compose.items():
+#        if valor[id_probe] == 1:
+#            count += 1
+#    Probe_in_Compose.append(count)
+#
+##pprint(Probe_in_Compose)
+#
+#for id, valor in dictProbes_Compose.items():
+#    if (Probes_List[id] != Measurements_List [id]):
+#        #pprint(f'Sonda: {Probes_List[id]}') 
+#        #pprint(SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]])
+#        #for id_probe in range(0,dif_probes):
+#            #if valor[id_probe] == 1: 
+#                #pprint(f'Composição: {Probes_List[id_probe]}') 
+#                #pprint(SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]])
+#        
+#        modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]] for id_probe in range(0,dif_probes) if valor[id_probe] == 1]) == SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]], "Rep" + str(Probes_List[id]))                         
+#    #for id_probe in range(0,dif_probes):
+#     #   if valor[id_probe] == 1:
+#      #      pprint(f'Composição: {Probes_List[id_probe]}')
+#
+#
+#
+##for id_probe in range(0,dif_probes):
+##    if (Probes_List[id_probe] == Measurements_List [id_probe]):
+#        #pprint(f'Probe {Probes_List[id_probe]}')
+##        modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]] for id, valor in dictProbes_Compose.items() if valor[id_probe] == 1]) <= Probe_in_Compose[id_probe], "Rep" + str(Probes_List[id_probe]))                         
+#
+#
+#End('Preparacao de NEW')
+#
+##Start('Preparacao de dados5')
+#
+#
+##pprint(max_sondas)
+#for router in routers:
+#    list_probes = []
+#    Measurement = ''
+#    for idMedicao, Medicao in enumerate(Measurements_List):
+#        if (Measurement != Medicao):
+#            Measurement = Medicao
+#            idprobe = 0
+#        else:
+#            idprobe += 1
+#        if router in Measurement:
+#            probes = Probes_List[idMedicao]
+#            #pprint(probes)
+#            for probe in probes:
+#                # se o probe tem inicio ou fim no router
+#                if type(probe) is str and (probe == router):
+#                    list_probes.append([extractlabel(Measurement),idprobe])
+#                    break
+#                elif (probe[0] == router) or (probe[len(probe)-1]== router):
+#                    list_probes.append([extractlabel(Measurement),idprobe])         
+#    #list_probes = list(dict.fromkeys(list_probes))
+#    # Numero maximo de sondas por roteador
+#    modelo_colocacao += (lpSum([SondasDict[M][S] for M, S in list_probes]) <= max_sondas.get(router), "Max_Probes_Router" + router)    
+#
+#End('Preparacao de dados5')
 ##for 
 
 
@@ -413,3 +465,4 @@ for v in modelo_colocacao.variables():
         print(v.name, "=", v.varValue)
 print("Custo = ", value(modelo_colocacao.objective))
 
+'''
