@@ -250,13 +250,16 @@ id_medicao_sonda = []
 routers = G.nodes
 
 import numpy as np
-
+# Roteadores
 R = len(routers)
+# Medições de um roteador para todos os outros
 M = len(routers)
+# Possiveis composições das medições de um roteador para todos os outos
 S = max(num_sonda_medicao)
 
-RMS= np.zeros((R, M, S))
-
+RMS_Cost= np.zeros((R, M, S))
+RMS_Id_Medicao = np.zeros((R, M, S))
+RMS_Id_Medicao[:][:][:] = -1
 #print(RMS)
 
 nodes_list = np.array(list(G.nodes()))
@@ -271,25 +274,185 @@ nodes_list = np.array(list(G.nodes()))
 #            for id in range (0,max(num_sonda_medicao)):
 #                RMS[id_router_origem,id_router_destino,id]=id
     
-pprint(RMS)
+#pprint(RMS_Cost)
 
+### REVER ORIGEM E DESTINO (REVERSE)
+Start('Matriz de Custos')
 medicao_anterior = ''
 for idMedicao, Medicao in enumerate(Measurements_List):
     #if (Probes_List[idMedicao] == Measurements_List [idMedicao]):
     if str(medicao_anterior)!=str(Medicao):
         i_sonda = 0
-    pprint(f'Origem: {Measurements_List[idMedicao][0]}')
-    pprint(f'Destino: {Measurements_List[idMedicao][len(Measurements_List[idMedicao])-1]}')
-    pprint(Probes_List[idMedicao])
+    #pprint(f'Origem: {Measurements_List[idMedicao][0]}')
+    #pprint(f'Destino: {Measurements_List[idMedicao][len(Measurements_List[idMedicao])-1]}')
+    #pprint(Probes_List[idMedicao])
     id_origem = np.where(nodes_list == Measurements_List[idMedicao][0])
     id_destino = np.where(nodes_list == Measurements_List[idMedicao][len(Measurements_List[idMedicao])-1])
-    RMS[id_origem,id_destino,i_sonda]=Cost_List[idMedicao]
+    RMS_Cost[id_origem,id_destino,i_sonda]=Cost_List[idMedicao]
+    RMS_Id_Medicao[id_origem,id_destino,i_sonda]=idMedicao
     i_sonda += 1
     medicao_anterior = Medicao
 
-pprint(RMS[0])
+End('Matriz de Custos')
 
 
+Start('Inicia o modelo e cria a função de maximização')
+Roteadores = [*range(0, len(routers),1)]
+Medicoes = [*range(0, len(routers),1)]
+Sondas = [*range(0, max(num_sonda_medicao),1)]
+
+
+RMSDict = LpVariable.dicts("RMS", (Roteadores,Medicoes, Sondas), 0, 1, LpInteger)   
+
+modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
+
+modelo_colocacao += (lpSum([RMSDict[R][M][S] * RMS_Cost[R][M][S] for R in Roteadores for M in Medicoes for S in Sondas]),"Total_Cost")
+#pprint(modelo_colocacao)
+End('Inicia o modelo e cria a função de maximização')
+
+
+Start('Limita sondas por roteador')
+
+max_sondas = {n: (len(list(nx.all_neighbors(G, n))))for n in G.nodes}
+
+
+for router in routers:
+    pprint(f'Limite de sondas no roteador: {router}')
+    id_router = np.where(nodes_list == router)[0][0]
+    modelo_colocacao += (lpSum([RMSDict[id_router][M][S] for M in Medicoes for S in Sondas]) == 
+                         max_sondas.get(router), "Max_Probes_Router" + str(id_router))
+
+End('Limita sondas por roteador')
+
+Start('Sondas Compostas')
+
+for id_Probes, Probes in enumerate(Probes_List):    
+    if Probes != Measurements_List [id_Probes]:
+        pprint(f'Medição: {id_Probes} -  {Measurements_List [id_Probes]}')
+        #result = []
+        for Probe in Probes:
+            pprint(f'Composição: {Probe}')    
+            if Probe in Probes_List:
+                index = Probes_List.index(Probe)
+            else:
+                reverso = list(reversed(Probe))
+                if reverso in Probes_List:
+                   index = Probes_List.index(reverso) 
+            pprint(f'Composição Consulta Probes_List: {index} - {Probes_List[index]}')  
+            #index_list.append(index)
+            
+            result = np.concatenate((result, np.where(RMS_Id_Medicao == index)), axis=0)
+            #result += np.where(RMS_Id_Medicao == index)
+            #pprint(f'{result[0]}{result[1]}{result[2]}')
+            #pprint(f'Composta Medição Consulta Probes_List 2: {int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])} X {Probes_List[int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])]}')
+        pprint(result)
+        #goovalues = {5, 10}
+        #result = np.where(np.isin(RMS_Id_Medicao, index_list))[1].tolist()
+        #for index in index_list:
+        #   result = np.where(RMS_Id_Medicao == index)
+        #   pprint(f'Composta Medição Consulta Probes_List 2: {int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])} X {Probes_List[int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])]}')
+        #result = np.where(RMS_Id_Medicao == index)
+
+#modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]] for id_probe in range(0,dif_probes) if valor[id_probe] == 1]) == 
+#                     SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]], "Rep" + str(Probes_List[id]))                         
+
+
+End('Sondas Compostas')
+
+
+   
+#for router in routers:
+#    pprint(f'Router: {router}')
+#    for id_Probes, Probes in enumerate(Probes_List):
+#        # Medicação direta
+#        if Probes == Measurements_List [id_Probes]:
+#            if router in Probes:
+#                pprint(f'Medição: {id_Probes} -  {Probes}')
+#        # Medicação Composta
+#        else:
+#            for id_Probe, Probe in enumerate(Probes):
+#                if router in Probe:
+#                    pprint(f'Medição: {id_Probes} -  {Probe}')    
+        
+
+
+
+
+
+#dictProbes_Compose = {}
+#dif_probes=len(Probes_List)
+#default_compose = list(itertools.repeat(-1, dif_probes ))
+##Probes_Compose_Count = []
+#for idProbes, Probes in enumerate(Probes_List):
+#    Composose = copy.deepcopy(default_compose)
+#    if Probes == Measurements_List [idProbes]:
+#        Composose[idProbes] = idProbes
+#    else:
+#        for idProbe, Probe in enumerate(Probes):
+#            if list(Probe) in Probes_List:
+#                Composose[(list(Probes_List).index(Probe))]=idProbe
+#            else:
+#                reverso = list(reversed(Probe))
+#                if reverso in Probes_List:
+#                    Composose[(list(Probes_List).index(reverso))]=idProbe
+#    dictProbes_Compose[idProbes] = Composose 
+#   #pprint(idProbe)
+#
+##pprint(dictProbes_Compose)
+#
+#for id, valor in dictProbes_Compose.items():
+#    #if (Probes_List[id] != Measurements_List [id]):
+#    pprint(f'Sonda: {Probes_List[id]}') 
+#    #pprint(SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]])
+#    for id_probe in range(0,dif_probes):
+#        if valor[id_probe] != -1: 
+#            pprint(f'Composição: {Probes_List[id_probe]}') 
+                #pprint(SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]])
+        
+        #modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]] for id_probe in range(0,dif_probes) if valor[id_probe] == 1]) == SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]], "Rep" + str(Probes_List[id]))                         
+#    #for id_probe in range(0,dif_probes):
+
+
+#medicao_anterior = ''
+#for idMedicao, Medicao in enumerate(Measurements_List):
+#    #if (Probes_List[idMedicao] == Measurements_List [idMedicao]):
+#    if str(medicao_anterior)!=str(Medicao) and len(medicao_anterior)>0:
+#        id_origem = np.where(nodes_list == Measurements_List[idMedicao][0])
+#        modelo_colocacao += (lpSum([RMSDict[int(id_origem[0])][M][S] * RMS_Cost[int(id_origem[0])][M][S] for M in Medicoes for S in Sondas]) <= max_sondas.get(nodes_list[int(id_origem[0])]), "Max_Probes_Router" + str(id_origem[0]) + str(M) + str(M))
+#        i_sonda = 0 
+#    i_sonda += 1
+#    medicao_anterior = Medicao
+#
+#
+
+
+
+
+
+###Start('Salva o Modelo')
+###modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
+###End('Salva o Modelo')
+###
+###
+###Start('Pulp Solve')
+###modelo_colocacao.solve()
+###End('Pulp Solve')
+###
+###
+###print("Status:", LpStatus[modelo_colocacao.status])
+###if modelo_colocacao.status == 1:
+###    for v in modelo_colocacao.variables():
+###        if v.varValue > 0:
+###            print(v.name, "=", v.varValue)
+###            x = v.name.split("_")
+###            pprint(Probes_List[int(RMS_Id_Medicao[int(x[1])][int(x[2])][int(x[3])])])
+###print("Custo = ", value(modelo_colocacao.objective))
+###
+###
+###
+###
+
+#pprint(RMSDict)
 
 #urements_List):
 #        if Router in Medicao:
@@ -360,7 +523,7 @@ for idProbe, Probes in enumerate(Probes_List):
      
 End('Preparacao de dados - dictProbes_Compose')
 Start('Preparacao de dados3')
-Sondas = [*range(0, max(num_sonda_medicao),1)]
+
 SondasCompostas = [*range(1, max(num_sonda_medicao),1)]
 
 
@@ -384,7 +547,6 @@ Start('Preparacao de dados4')
 
 #End('Preparacao de dados4')
 routers = G.nodes
-max_sondas = {n: (len(list(nx.all_neighbors(G, n))))for n in G.nodes}
 #Start('Preparacao de NEW')
 #
 #Probe_in_Compose = []
