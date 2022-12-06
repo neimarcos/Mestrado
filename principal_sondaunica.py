@@ -187,9 +187,9 @@ def End(funcao):
     pprint(f'#################################################################################')
 
 #rede = 'Geant2012.graphml'
-#rede = 'Rnp.graphml'
+rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
-rede = 'exemplo_pequeno.graphml'
+#rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')

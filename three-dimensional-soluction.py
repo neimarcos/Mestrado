@@ -297,8 +297,9 @@ End('Matriz de Custos')
 
 
 Start('Inicia o modelo e cria a função de maximização')
-Roteadores = [*range(0, len(routers),1)]
-Medicoes = [*range(0, len(routers),1)]
+total_roteadores = len(routers)
+Roteadores = [*range(0, total_roteadores,1)]
+Medicoes = [*range(0,total_roteadores ,1)]
 Sondas = [*range(0, max(num_sonda_medicao),1)]
 
 
@@ -319,46 +320,91 @@ max_sondas = {n: (len(list(nx.all_neighbors(G, n))))for n in G.nodes}
 for router in routers:
     pprint(f'Limite de sondas no roteador: {router}')
     id_router = np.where(nodes_list == router)[0][0]
-    modelo_colocacao += (lpSum([RMSDict[id_router][M][S] for M in Medicoes for S in Sondas]) == 
+    modelo_colocacao += (lpSum([RMSDict[id_router][M][S] for M in Medicoes for S in Sondas]) <= 
                          max_sondas.get(router), "Max_Probes_Router" + str(id_router))
 
 End('Limita sondas por roteador')
+
+Start('Limita sonda composta por medicação')
+
+max_sondas = {n: (len(list(nx.all_neighbors(G, n))))for n in G.nodes}
+
+
+for router in routers:
+    pprint(f'Limite de sondas no roteador: {router}')
+    id_router = np.where(nodes_list == router)[0][0]
+    for M in Medicoes:
+        modelo_colocacao += (lpSum([RMSDict[id_router][M][S] for S in Sondas]) <= 2, "Max_Medicaoes_Roteador" + str(id_router)+ "_Medicao_" + str(M))
+
+End('Limita sonda composta por medicação')
 
 Start('Sondas Compostas')
 
 for id_Probes, Probes in enumerate(Probes_List):    
     if Probes != Measurements_List [id_Probes]:
-        pprint(f'Medição: {id_Probes} -  {Measurements_List [id_Probes]}')
-        #result = []
+        list_Probes = []
         for Probe in Probes:
-            pprint(f'Composição: {Probe}')    
+            #pprint(f'Composição: {Probe}')    
             if Probe in Probes_List:
                 index = Probes_List.index(Probe)
             else:
                 reverso = list(reversed(Probe))
                 if reverso in Probes_List:
                    index = Probes_List.index(reverso) 
-            pprint(f'Composição Consulta Probes_List: {index} - {Probes_List[index]}')  
-            #index_list.append(index)
-            
-            result = np.concatenate((result, np.where(RMS_Id_Medicao == index)), axis=0)
+            #pprint(f'Composição Consulta Probes_List: {index} - {Probes_List[index]}')  
             #result += np.where(RMS_Id_Medicao == index)
             #pprint(f'{result[0]}{result[1]}{result[2]}')
             #pprint(f'Composta Medição Consulta Probes_List 2: {int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])} X {Probes_List[int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])]}')
-        pprint(result)
-        #goovalues = {5, 10}
-        #result = np.where(np.isin(RMS_Id_Medicao, index_list))[1].tolist()
-        #for index in index_list:
-        #   result = np.where(RMS_Id_Medicao == index)
-        #   pprint(f'Composta Medição Consulta Probes_List 2: {int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])} X {Probes_List[int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])]}')
-        #result = np.where(RMS_Id_Medicao == index)
+            result =  np.where(RMS_Id_Medicao == index)
+            list_Probes.append([int(result[0]), int(result[1]),int(result[2]) ])
+        result = np.where(RMS_Id_Medicao == id_Probes)
+        #pprint (list_Probes)
+        #pprint(RMSDict[int(result[0])] [int(result[1])][int(result[2])])
+        #for sondacomposta in list_Probes:
+        #    pprint(RMSDict[sondacomposta[0]][sondacomposta[1]][sondacomposta[2]])
+        modelo_colocacao += (lpSum(RMSDict[sondacomposta[0]][sondacomposta[1]][sondacomposta[2]] for sondacomposta in list_Probes)== RMSDict[int(result[0])] [int(result[1])][int(result[2])],"Composicao" + str(id_Probes))
+        #pprint(f'Medição: {id_Probes} -  {Measurements_List [id_Probes]}')
+        #for result in list_Probes:
+        #    pprint(f'Composta Medição Consulta Probes_List 2: {int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])} X {Probes_List[int(RMS_Id_Medicao[int(result[0])][int(result[1])][int(result[2])])]}')
+            #pprint(f'Composta Medição Consulta Probes_List 2: {int(RMS_Id_Medicao[index[0]][[index[1]][[index[2]])} - {Probes_List[int(RMS_Id_Medicao[index[0]][[index[1]][[index[2]])]}')
+        
 
-#modelo_colocacao += (lpSum([SondasDict[id_medicao_sonda[id_probe][0]][id_medicao_sonda[id_probe][1]] for id_probe in range(0,dif_probes) if valor[id_probe] == 1]) == 
-#                     SondasDict[id_medicao_sonda[id][0]][id_medicao_sonda[id][1]], "Rep" + str(Probes_List[id]))                         
+                         
 
 
 End('Sondas Compostas')
 
+Start('Salva o Modelo')
+modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
+End('Salva o Modelo')
+
+
+Start('Pulp Solve')
+modelo_colocacao.solve()
+End('Pulp Solve')
+
+
+print("Status:", LpStatus[modelo_colocacao.status])
+if modelo_colocacao.status == 1:
+    for v in modelo_colocacao.variables():
+        if v.varValue > 0:
+            print(v.name, "=", v.varValue)
+            x = v.name.split("_")
+            pprint(Probes_List[int(RMS_Id_Medicao[int(x[1])][int(x[2])][int(x[3])])])
+print("Custo = ", value(modelo_colocacao.objective))
+
+
+
+
+
+#pprint(RMSDict)
+
+#urements_List):
+#        if Router in Medicao:
+#            pprint(Medicao)
+#            RMC[idRouter][idMedicao].append(Cost_List[idMedicao])
+#    
+#pprint (RMC)
 
    
 #for router in routers:
@@ -427,39 +473,6 @@ End('Sondas Compostas')
 
 
 
-
-
-###Start('Salva o Modelo')
-###modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
-###End('Salva o Modelo')
-###
-###
-###Start('Pulp Solve')
-###modelo_colocacao.solve()
-###End('Pulp Solve')
-###
-###
-###print("Status:", LpStatus[modelo_colocacao.status])
-###if modelo_colocacao.status == 1:
-###    for v in modelo_colocacao.variables():
-###        if v.varValue > 0:
-###            print(v.name, "=", v.varValue)
-###            x = v.name.split("_")
-###            pprint(Probes_List[int(RMS_Id_Medicao[int(x[1])][int(x[2])][int(x[3])])])
-###print("Custo = ", value(modelo_colocacao.objective))
-###
-###
-###
-###
-
-#pprint(RMSDict)
-
-#urements_List):
-#        if Router in Medicao:
-#            pprint(Medicao)
-#            RMC[idRouter][idMedicao].append(Cost_List[idMedicao])
-#    
-#pprint (RMC)
 '''
 
     if (str(medicao_anterior)!=str(Medicao)) and (len(Medicao_Peso) > 0):
