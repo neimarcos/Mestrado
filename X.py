@@ -187,9 +187,9 @@ def End(funcao):
     pprint(f'#################################################################################')
 
 #rede = 'Geant2012.graphml'
-rede = 'Rnp.graphml'
+#rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
-#rede = 'exemplo_pequeno.graphml'
+rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')
@@ -302,13 +302,12 @@ modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
 
 
 
-modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][0][0] * SDMC_Cost[i_RS][i_RD][0][0] for i_RS in RS_list for i_RD in RD_list]),"Total_Cost")
+modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][0] * SDMC_Cost[i_RS][i_RD][i_M][0] for i_RS in RS_list for i_RD in RD_list for i_M in M_list for i_C in C_list if i_RS != i_RD]),"Total_Cost")
 
 End('Inicia o modelo e cria a função de maximização')
 
 
 
-    
 
 
 Start('Limita sondas por roteador')
@@ -320,9 +319,11 @@ for id_router, router in enumerate(routers):
     #if id_router < (len(routers)-1):
     pprint(f'Limite de sondas no roteador: {router} - {max_sondas.get(router)}')
     #id_router = np.where(nodes_list == router)[0][0]
-    modelo_colocacao += (lpSum([SDMC_Dict[i_RD][i_RD][0][0]for i_RD in RD_list]) <= max_sondas.get(router), "Max_Probes_Router" + str(id_router))
+    modelo_colocacao += (lpSum([SDMC_Dict[id_router][i_RD][0][0] for i_RD in RD_list if id_router != i_RD]) <= 3* max_sondas.get(router), "Max_Probes_Router" + str(id_router))
 
 End('Limita sondas por roteador')
+
+Start('Iguala as sondas')
 
 for id_path, path in enumerate(paths):
     id_RS = int(np.where(nodes_list == path[0])[0])
@@ -333,18 +334,25 @@ for id_path, path in enumerate(paths):
                 for i_C in C_list:
                     if (SDMC_Id_Medicao[i_RS,i_RD,i_M,i_C]) > 0 and (i_M > 0) and (i_C > 0):
                         if id_path == int(SDMC_Id_Medicao[i_RS,i_RD,i_M,i_C]) :
-                            modelo_colocacao += SDMC_Dict[id_RS][id_RD][0][0] + SDMC_Dict[i_RS][i_RD][i_M][i_C] == 2, "Igual_Probes" + str(path) + str(i_RS) + str(i_RD) + str(i_M) + str(i_C)
+                            modelo_colocacao += SDMC_Dict[i_RS][i_RD][i_M][i_C] == SDMC_Dict[id_RS][id_RD][0][0], "Igual_Probes" + str(path) + str(i_RS) + str(i_RD) + str(i_M) + str(i_C)
                             #pprint(id_path)
                             #pprint(int(SDMC_Id_Medicao[i_RS,i_RD,i_M,i_C]))
                             #pprint(SDMC_Dict[id_RS][id_RD][0][0])
                             #pprint(SDMC_Dict[i_RS][i_RD][i_M][i_C])
-                        
-                                                  
-#for id_path, path in enumerate(paths):
-    
-    #modelo_colocacao += (lpSum(RMSDict[sondacomposta[0]][sondacomposta[1]][sondacomposta[2]] for sondacomposta in list_Probes)== RMSDict[int(result[0])] [int(result[1])][int(result[2])],"Composicao" + str(id_Probes))
+End('Iguala as sondas')
 
 
+for i_RS in RS_list:
+    for i_RD in RD_list:
+        if i_RS != i_RD:
+            for i_M in M_list:
+                if SDMC_Cost[id_RS,id_RD,id_M,0] > 0:
+                    list_comp = []
+                    for i_C in C_list:
+                        if SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C] > 0:
+                            list_comp.append(i_C)
+                    if len(list_comp) >0:
+                        modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][i_C] for i_C in list_comp]) == len(list_comp), "Sonda" + str(i_RS) + str(i_RD) + str(i_M))
 
 Start('Salva o Modelo')
 modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
