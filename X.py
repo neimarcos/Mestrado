@@ -187,9 +187,9 @@ def End(funcao):
     pprint(f'#################################################################################')
 
 #rede = 'Geant2012.graphml'
-#rede = 'Rnp.graphml'
+rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
-rede = 'exemplo_pequeno.graphml'
+#rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')
@@ -319,7 +319,7 @@ for id_router, router in enumerate(routers):
     #if id_router < (len(routers)-1):
     pprint(f'Limite de sondas no roteador: {router} - {max_sondas.get(router)}')
     #id_router = np.where(nodes_list == router)[0][0]
-    modelo_colocacao += (lpSum([SDMC_Dict[id_router][i_RD][0][0] for i_RD in RD_list if id_router != i_RD]) <= 3* max_sondas.get(router), "Max_Probes_Router" + str(id_router))
+    modelo_colocacao += (lpSum([SDMC_Dict[id_router][i_RD][i_M][0] for i_RD in RD_list for i_M in M_list if id_router != i_RD]) <=  max_sondas.get(router), "Max_Probes_Router" + str(id_router))
 
 End('Limita sondas por roteador')
 
@@ -342,17 +342,17 @@ for id_path, path in enumerate(paths):
 End('Iguala as sondas')
 
 
-for i_RS in RS_list:
-    for i_RD in RD_list:
-        if i_RS != i_RD:
-            for i_M in M_list:
-                if SDMC_Cost[id_RS,id_RD,id_M,0] > 0:
-                    list_comp = []
-                    for i_C in C_list:
-                        if SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C] > 0:
-                            list_comp.append(i_C)
-                    if len(list_comp) >0:
-                        modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][i_C] for i_C in list_comp]) == len(list_comp), "Sonda" + str(i_RS) + str(i_RD) + str(i_M))
+#for i_RS in RS_list:
+#    for i_RD in RD_list:
+#        if i_RS != i_RD:
+#            for i_M in M_list:
+#                if SDMC_Cost[id_RS,id_RD,id_M,0] > 0:
+#                    list_comp = []
+#                    for i_C in C_list:
+#                        if SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C] > 0:
+#                            list_comp.append(i_C)
+#                    if len(list_comp) >0:
+#                        modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][i_C] for i_C in list_comp]) == len(list_comp), "Sonda" + str(i_RS) + str(i_RD) + str(i_M))
 
 Start('Salva o Modelo')
 modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
