@@ -171,25 +171,46 @@ def Compose_Route_Cost(rotascompostas):
         Cost_List.append(val)
 
 def extractlabel(salto):
+    """
+    Return um string with all nodes of a path divide per one hyphen    
+    
+    ### Parameters:
+        salto (list): string of jumps of one paths  
+        
+    """
     caminho_string = ''
     for no in salto:
         caminho_string += str(no) + '-'
     return caminho_string[:-1]
 
-def Start(funcao):
+def Start(NameFunction):
+    """
+    Start calculating the time required for a given function    
+    
+    ### Parameters:
+        NameFunction (String): name of the function to be executed to calculate the time  
+        
+    """
     global inicio 
     inicio= time.process_time()
-    pprint(f'Iniciando a função {funcao}')
+    pprint(f'Iniciando a função {NameFunction}')
     return(inicio)
 
-def End(funcao):
-    pprint(f'Concluiu a função {funcao}, em {time.process_time() - inicio:.2f} segundos')
+def End(NameFunction):
+    """
+    Finishes calculating the time required for a given function    
+    
+    ### Parameters:
+        NameFunction (String): name of the function to be executed to calculate the time  
+        
+    """
+    pprint(f'Concluiu a função {NameFunction}, em {time.process_time() - inicio:.2f} segundos')
     pprint(f'#################################################################################')
 
 #rede = 'Geant2012.graphml'
-rede = 'Rnp.graphml'
+#rede = 'Rnp.graphml'
 #rede = 'exemplo.graphml'
-#rede = 'exemplo_pequeno.graphml'
+rede = 'exemplo_pequeno.graphml'
 
 G = nx.read_graphml(rede)
 spf = nx.shortest_path(G, weight='LinkSpeedRaw')
@@ -334,7 +355,7 @@ for id_path, path in enumerate(paths):
                 for i_C in C_list:
                     if (SDMC_Id_Medicao[i_RS,i_RD,i_M,i_C]) > 0 and (i_M > 0) and (i_C > 0):
                         if id_path == int(SDMC_Id_Medicao[i_RS,i_RD,i_M,i_C]) :
-                            modelo_colocacao += SDMC_Dict[i_RS][i_RD][i_M][i_C] == SDMC_Dict[id_RS][id_RD][0][0], "Igual_Probes" + str(path) + str(i_RS) + str(i_RD) + str(i_M) + str(i_C)
+                            modelo_colocacao += SDMC_Dict[i_RS][i_RD][i_M][i_C] == SDMC_Dict[id_RS][id_RD][0][0], "Igual_Probes" + str(path) + '_' + str(i_RS) + '_' + str(i_RD) + '_' + str(i_M) + '_' + str(i_C)
                             #pprint(id_path)
                             #pprint(int(SDMC_Id_Medicao[i_RS,i_RD,i_M,i_C]))
                             #pprint(SDMC_Dict[id_RS][id_RD][0][0])
@@ -373,6 +394,3 @@ if modelo_colocacao.status == 1:
             x = v.name.split("_")
             #pprint(Probes_List[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])])
 print("Custo = ", value(modelo_colocacao.objective))
-
-
-
