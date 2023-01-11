@@ -323,7 +323,7 @@ modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
 
 
 
-modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][0] * SDMC_Cost[i_RS][i_RD][i_M][0] for i_RS in RS_list for i_RD in RD_list for i_M in M_list for i_C in C_list if i_RS != i_RD]),"Total_Cost")
+modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][0][0] * SDMC_Cost[i_RS][i_RD][0][0] for i_RS in RS_list for i_RD in RD_list for i_M in M_list for i_C in C_list if i_RS != i_RD]),"Total_Cost")
 
 End('Inicia o modelo e cria a função de maximização')
 
@@ -340,7 +340,7 @@ for id_router, router in enumerate(routers):
     #if id_router < (len(routers)-1):
     pprint(f'Limite de sondas no roteador: {router} - {max_sondas.get(router)}')
     #id_router = np.where(nodes_list == router)[0][0]
-    modelo_colocacao += (lpSum([SDMC_Dict[id_router][i_RD][i_M][0] for i_RD in RD_list for i_M in M_list if id_router != i_RD]) <=  max_sondas.get(router), "Max_Probes_Router" + str(id_router))
+    modelo_colocacao += (lpSum([SDMC_Dict[id_router][i_RD][0][0] for i_RD in RD_list if id_router != i_RD]) <=  max_sondas.get(router), "Max_Probes_Router" + str(id_router))
 
 End('Limita sondas por roteador')
 
@@ -392,5 +392,14 @@ if modelo_colocacao.status == 1:
         if v.varValue > 0:
             print(v.name, "=", v.varValue)
             x = v.name.split("_")
-            #pprint(Probes_List[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])])
+            #if (int(x[3]) == 0 ):
+            pprint(int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])]))
+            pprint(Probes_List[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])])
 print("Custo = ", value(modelo_colocacao.objective))
+
+
+#pprint(SDMC_Id_Medicao)
+#pprint(Probes_List)
+
+#for (i, item) in enumerate(Probes_List, start=0):
+   # print(i, item)
