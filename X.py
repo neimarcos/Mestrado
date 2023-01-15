@@ -5,6 +5,18 @@ import numpy as np
 from pulp import *
 import time
 import concurrent.futures
+import matplotlib.pyplot as plt
+from collections import defaultdict
+
+node_dist_to_color = {
+    1: "tab:red",
+    2: "tab:orange",
+    3: "tab:olive",
+    4: "tab:green",
+    5: "tab:blue",
+    6: "tab:purple",
+    7: "tab:gray",
+}
 
 def ClearRoutes(spf):
     """
@@ -59,6 +71,33 @@ def Count_Subsegment_Occurrences(routes):
         Path_Cost.append(count)
     return (Path_Count_Occurrences,Path_Cost)
 
+#def Nexts_Paths(pos, paths, subpaths):
+#    """
+#    Finds the next possible subpaths for composing the route
+#
+#    ### Parameters:
+#        pos (int): current position on the route to start the scan
+#        route(list): route to analyze possible compositions of subpaths
+#        (list): possible subpaths of the route
+#
+#    ### Returns:
+#        list:list of next possible subpaths in the composition
+#    """    
+#    Nexts = []
+#    if paths[pos] != paths[len(paths)-1]:
+#        for subpath in range(len(subpaths)):
+#            if len(subpaths[subpath]) >= len(paths):
+#                continue
+#            igual = True
+#            for id, item in enumerate(subpaths[subpath]):
+#                if id <= pos:
+#                    continue
+#                if paths[pos+id] == item:
+#                   igual=False
+#            if igual:   
+#                Nexts.append(subpath)
+#                pprint(f"são igual - {subpath} {subpaths[subpath]}")   
+#    return (Nexts)                
 def Nexts_Paths(pos, paths, subpaths):
     """
     Finds the next possible subpaths for composing the route
@@ -76,7 +115,7 @@ def Nexts_Paths(pos, paths, subpaths):
         for subpath in range(len(subpaths)):
             if paths[pos] == subpaths[subpath][0]:
                 Nexts.append(subpath)
-    return (Nexts)
+    return (Nexts)  
 
 def Compose_Subpaths(Path, SubPaths, pos = 0 , path_segment = []):
     """
@@ -208,6 +247,58 @@ def End(NameFunction):
     pprint(f'#################################################################################')
 
 
+def grafico(G):
+
+    # larger figure size
+    plt.figure("Todos os Links",figsize=(12,12)) 
+    # some math labels
+
+    #Link = (G.edges(data='LinkLabel'))
+    #for i in range(G.number_of_edges(G)):
+
+    Links = nx.get_edge_attributes(G,'LinkLabel').values()
+        
+    cores = []
+
+    for key in Links:
+      if (key == '20Gbps'):
+        cores.append(node_dist_to_color[1])
+      elif(key=='10Gbps'):
+        cores.append(node_dist_to_color[2])
+      elif(key=='3.5Gbps'):
+        cores.append(node_dist_to_color[3])
+      elif (key == '3Gbps'):
+        cores.append(node_dist_to_color[4])
+      elif (key == '1.45Gbps'):
+        cores.append(node_dist_to_color[5])
+      elif(key=='200Mbps'):
+        cores.append(node_dist_to_color[6])
+      elif(key=='20Mbps'):
+        cores.append(node_dist_to_color[7])
+
+    label_dic = dict(list(G.nodes(data="label")))
+
+    Latitude = (list(G.nodes(data="Latitude")))
+    Longitude = (list(G.nodes(data="Longitude")))
+
+    #pprint(Latitude)
+
+    pos={}
+    poslabel={}
+    for i in range(G.number_of_nodes()):
+      pos[str(i)]= [float(Longitude[i][1]), float(Latitude[i][1])]
+      poslabel[str(i)]= [float(Longitude[i][1]), float(Latitude[i][1]+1)]
+    
+    nx.draw_networkx_edges(G, pos,edge_color=cores, width=2)
+    
+    nx.draw_networkx_labels(G, poslabel)
+    nx.draw_networkx_nodes(G, pos, node_size=60, node_color="#210070", alpha=0.9)
+    plt.show()
+
+
+
+
+
 def IgualaSondas(paths): 
     global modelo_colocacao   
     for id_path, path in enumerate(paths):
@@ -226,12 +317,11 @@ def IgualaSondas(paths):
                             #pprint(SDMC_Dict[i_RS][i_RD][i_M][i_C])
 
 
-
 if __name__ == '__main__':
     
-    #rede = 'Geant2012.graphml'
+    rede = 'Geant2012.graphml'
     #rede = 'Rnp.graphml'
-    rede = 'exemplo.graphml'
+    #rede = 'exemplo.graphml'
     #rede = 'exemplo_pequeno.graphml'
 
     G = nx.read_graphml(rede)
@@ -324,8 +414,8 @@ if __name__ == '__main__':
                 SDMC_Id_Medicao[id_RS,id_RD,id_M,id_C]=id_cost
                 id_C +=1
         medicao_anterior = Medicao
-    pprint(SDMC_Cost) 
-    pprint(SDMC_Id_Medicao) 
+    #pprint(SDMC_Cost) 
+    #pprint(SDMC_Id_Medicao) 
     End('Matriz de Custos')
 
     Start('Inicia o modelo e cria a função de maximização')
@@ -392,7 +482,7 @@ if __name__ == '__main__':
     modelo_colocacao.solve()
     End('Pulp Solve')
 
-
+    lista_Sondas = []
     print("Status:", LpStatus[modelo_colocacao.status])
     if modelo_colocacao.status == 1:
         #pprint(modelo_colocacao)    
@@ -403,20 +493,68 @@ if __name__ == '__main__':
                 #if (int(x[3]) == 0 ):
                 pprint(int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])]))
                 pprint(paths[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])])
+                lista_Sondas.append ( paths[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])])
     print("Custo = ", value(modelo_colocacao.objective))
 
+    #pprint(lista_Sondas)
+    #pprint("###########################")
+    #pprint(paths)
+    count_sondas = 0 
+    count_sondas_reversas = 0
+    count_composicao = 0
+    count_sem_medicao = 0
+    for path in paths:
+        pathreverse = path.reverse()
+        if path in lista_Sondas:
+            pprint(f'{path} - Sonda')
+            count_sondas += 1
+        elif pathreverse  in lista_Sondas:
+            pprint(f'{path} - Sonda - Reverse')
+            count_sondas_reversas += 1
+        else:
+            pprint(path)
+            subpaths = []
+            compostos = []
+            if len (path) > 2:
+                for i in range(len(path)):
+                    for j in range(i + 1, len(path) + 1):
+                        subpath = (path[i: j])
+                        if (len(subpath) > 1) and (len(subpath) < len(path)):
+                            try:
+                                subpaths.append(subpath)
+                            except ValueError as e:
+                                pprint("Subcaminho não existente")
+                compostos = (Compose_Subpaths(path, subpaths))
+            if compostos:
+                pprint(f'Composiçoes possiveis {compostos}')
+                count_composicao += 1
+            else:
+                pprint('SEM MEDICACAO')
+                count_sem_medicao += 1
+         
+    pprint('Relátorio')
+    pprint(f'Total de Medições por Sondas: {count_sondas}')
+    pprint(f'Total de Medições por Sondas Reversas: {count_sondas_reversas}')
+    pprint(f'Total de Medições através de composiçôes: {count_composicao}')
+    pprint(f'Total rotas sem Mediçãos : {count_sem_medicao}')
+    pprint(f'Total de medições: {count_sondas+ count_sondas_reversas + count_composicao +count_sem_medicao} = {len(paths)} = {len(num_sonda_medicao)}')
+    
+    #pprint(type(paths))
+    #pprint(type(lista_Sondas))
+    #difference = list(set(paths[0]) - set(lista_Sondas[0]))
 
-    file = open('Probes_List.txt','w')
-    for itemmedicao in Probes_List:
-	    file.write(str(itemmedicao)+"\n")
-    file.close()
-
-    file2 = open('SDMC_Id_Medicao.txt','w')
-    for itemmedicao in SDMC_Id_Medicao:
-	    file2.write(str(itemmedicao)+"\n")
-    file2.close()
-
-
+    #pprint(difference)
+    #grafico(G)
+    #
+    #H = G.copy()
+    #
+    #edlist=[]
+    #H.remove_edges_from( G.edges())
+    #for v in modelo_colocacao.variables():
+    #    if v.varValue > 0:
+    #        x = v.name.split("_")    
+    #        H.add_edge(str(x[1]),str(x[2]))
+    #grafico(H)
     #pprint(SDMC_Id_Medicao)
     #pprint(Probes_List)
 

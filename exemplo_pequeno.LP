@@ -1,28 +1,28 @@
 \* Probes_Placement_Model *\
 Maximize
-Total_Cost: 560 SDMC_0_1_0_0 + 400 SDMC_0_2_0_0 + 80 SDMC_0_3_0_0
- + 320 SDMC_0_4_0_0 + 160 SDMC_0_5_0_0 + 80 SDMC_0_6_0_0 + 80 SDMC_0_7_0_0
- + 1120 SDMC_1_2_0_0 + 240 SDMC_1_3_0_0 + 960 SDMC_1_4_0_0 + 480 SDMC_1_5_0_0
- + 240 SDMC_1_6_0_0 + 240 SDMC_1_7_0_0 + 80 SDMC_2_3_0_0 + 1280 SDMC_2_4_0_0
- + 640 SDMC_2_5_0_0 + 320 SDMC_2_6_0_0 + 320 SDMC_2_7_0_0 + 320 SDMC_3_4_0_0
- + 160 SDMC_3_5_0_0 + 80 SDMC_3_6_0_0 + 80 SDMC_3_7_0_0 + 800 SDMC_4_5_0_0
- + 400 SDMC_4_6_0_0 + 560 SDMC_4_7_0_0 + 480 SDMC_5_6_0_0 + 160 SDMC_5_7_0_0
- + 80 SDMC_6_7_0_0
+Total_Cost: 80 SDMC_0_1_0_0 + 240 SDMC_0_2_0_0 + 320 SDMC_0_3_0_0
+ + 80 SDMC_0_4_0_0 + 560 SDMC_0_5_0_0 + 160 SDMC_0_6_0_0 + 80 SDMC_0_7_0_0
+ + 480 SDMC_1_2_0_0 + 320 SDMC_1_3_0_0 + 80 SDMC_1_4_0_0 + 240 SDMC_1_5_0_0
+ + 160 SDMC_1_6_0_0 + 80 SDMC_1_7_0_0 + 880 SDMC_2_3_0_0 + 320 SDMC_2_4_0_0
+ + 720 SDMC_2_5_0_0 + 480 SDMC_2_6_0_0 + 240 SDMC_2_7_0_0 + 160 SDMC_3_4_0_0
+ + 960 SDMC_3_5_0_0 + 640 SDMC_3_6_0_0 + 320 SDMC_3_7_0_0 + 240 SDMC_4_5_0_0
+ + 160 SDMC_4_6_0_0 + 80 SDMC_4_7_0_0 + 960 SDMC_5_6_0_0 + 480 SDMC_5_7_0_0
+ + 560 SDMC_6_7_0_0
 Subject To
 Max_Probes_Router0: SDMC_0_1_0_0 + SDMC_0_2_0_0 + SDMC_0_3_0_0 + SDMC_0_4_0_0
  + SDMC_0_5_0_0 + SDMC_0_6_0_0 + SDMC_0_7_0_0 <= 1
 Max_Probes_Router1: SDMC_1_0_0_0 + SDMC_1_2_0_0 + SDMC_1_3_0_0 + SDMC_1_4_0_0
- + SDMC_1_5_0_0 + SDMC_1_6_0_0 + SDMC_1_7_0_0 <= 3
+ + SDMC_1_5_0_0 + SDMC_1_6_0_0 + SDMC_1_7_0_0 <= 1
 Max_Probes_Router2: SDMC_2_0_0_0 + SDMC_2_1_0_0 + SDMC_2_3_0_0 + SDMC_2_4_0_0
- + SDMC_2_5_0_0 + SDMC_2_6_0_0 + SDMC_2_7_0_0 <= 2
+ + SDMC_2_5_0_0 + SDMC_2_6_0_0 + SDMC_2_7_0_0 <= 3
 Max_Probes_Router3: SDMC_3_0_0_0 + SDMC_3_1_0_0 + SDMC_3_2_0_0 + SDMC_3_4_0_0
- + SDMC_3_5_0_0 + SDMC_3_6_0_0 + SDMC_3_7_0_0 <= 1
+ + SDMC_3_5_0_0 + SDMC_3_6_0_0 + SDMC_3_7_0_0 <= 2
 Max_Probes_Router4: SDMC_4_0_0_0 + SDMC_4_1_0_0 + SDMC_4_2_0_0 + SDMC_4_3_0_0
- + SDMC_4_5_0_0 + SDMC_4_6_0_0 + SDMC_4_7_0_0 <= 3
+ + SDMC_4_5_0_0 + SDMC_4_6_0_0 + SDMC_4_7_0_0 <= 1
 Max_Probes_Router5: SDMC_5_0_0_0 + SDMC_5_1_0_0 + SDMC_5_2_0_0 + SDMC_5_3_0_0
- + SDMC_5_4_0_0 + SDMC_5_6_0_0 + SDMC_5_7_0_0 <= 2
+ + SDMC_5_4_0_0 + SDMC_5_6_0_0 + SDMC_5_7_0_0 <= 3
 Max_Probes_Router6: SDMC_6_0_0_0 + SDMC_6_1_0_0 + SDMC_6_2_0_0 + SDMC_6_3_0_0
- + SDMC_6_4_0_0 + SDMC_6_5_0_0 + SDMC_6_7_0_0 <= 1
+ + SDMC_6_4_0_0 + SDMC_6_5_0_0 + SDMC_6_7_0_0 <= 2
 Max_Probes_Router7: SDMC_7_0_0_0 + SDMC_7_1_0_0 + SDMC_7_2_0_0 + SDMC_7_3_0_0
  + SDMC_7_4_0_0 + SDMC_7_5_0_0 + SDMC_7_6_0_0 <= 1
 Binaries
