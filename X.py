@@ -295,10 +295,6 @@ def grafico(G):
     nx.draw_networkx_nodes(G, pos, node_size=60, node_color="#210070", alpha=0.9)
     plt.show()
 
-
-
-
-
 def IgualaSondas(paths): 
     global modelo_colocacao   
     for id_path, path in enumerate(paths):
@@ -318,9 +314,9 @@ def IgualaSondas(paths):
 
 
 if __name__ == '__main__':
-    
-    rede = 'Geant2012.graphml'
-    #rede = 'Rnp.graphml'
+    inicio_total= time.process_time()
+    #rede = 'Geant2012.graphml'
+    rede = 'Rnp_2020.graphml'
     #rede = 'exemplo.graphml'
     #rede = 'exemplo_pequeno.graphml'
 
@@ -506,13 +502,13 @@ if __name__ == '__main__':
     for path in paths:
         pathreverse = path.reverse()
         if path in lista_Sondas:
-            pprint(f'{path} - Sonda')
+            #pprint(f'{path} - Sonda')
             count_sondas += 1
         elif pathreverse  in lista_Sondas:
-            pprint(f'{path} - Sonda - Reverse')
+            #pprint(f'{path} - Sonda - Reverse')
             count_sondas_reversas += 1
         else:
-            pprint(path)
+            #pprint(path)
             subpaths = []
             compostos = []
             if len (path) > 2:
@@ -526,10 +522,10 @@ if __name__ == '__main__':
                                 pprint("Subcaminho não existente")
                 compostos = (Compose_Subpaths(path, subpaths))
             if compostos:
-                pprint(f'Composiçoes possiveis {compostos}')
+                #pprint(f'Composiçoes possiveis {compostos}')
                 count_composicao += 1
             else:
-                pprint('SEM MEDICACAO')
+                #pprint('SEM MEDICACAO')
                 count_sem_medicao += 1
          
     pprint('Relátorio')
@@ -539,12 +535,22 @@ if __name__ == '__main__':
     pprint(f'Total rotas sem Mediçãos : {count_sem_medicao}')
     pprint(f'Total de medições: {count_sondas+ count_sondas_reversas + count_composicao +count_sem_medicao} = {len(paths)} = {len(num_sonda_medicao)}')
     
+    
+    pprint(f'#################################################################################')
+    pprint(f'Concluiu tudo em {time.process_time() - inicio_total:.2f} segundos')
+    pprint(f'#################################################################################')
+    
+    
+    pprint(f'Total de arestas {G.number_of_edges()}')
+    pprint(f'Total de nos {G.number_of_nodes()}')
+    pprint(f'Total de routas SPF {len(spf)}')
+    
     #pprint(type(paths))
     #pprint(type(lista_Sondas))
     #difference = list(set(paths[0]) - set(lista_Sondas[0]))
 
     #pprint(difference)
-    #grafico(G)
+    grafico(G)
     #
     #H = G.copy()
     #
