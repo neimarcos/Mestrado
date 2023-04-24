@@ -7,8 +7,6 @@ import time
 import concurrent.futures
 import matplotlib.pyplot as plt
 from collections import defaultdict
-import math
-
 
 node_dist_to_color = {
     1: "tab:red",
@@ -299,7 +297,7 @@ def grafico(G):
     nx.draw_networkx_nodes(G, pos, node_size=40, node_color="#210070", alpha=0.9)
     plt.show()
 
-def IgualaSondas(paths, nodelist): 
+def IgualaSondas(paths): 
     """
     This function is used to match the probes used in different paths.
     It uses the 'paths' parameter and the global variable 'modelo_colocacao' to match the probes.
@@ -312,8 +310,7 @@ def IgualaSondas(paths, nodelist):
     Returns:
         None
     """
-    #global modelo_colocacao   
-    #global nodes_list
+    global modelo_colocacao   
     for id_path, path in enumerate(paths):
         id_RS = int(np.where(nodes_list == path[0])[0])
         id_RD = int(np.where(nodes_list == path[len(path)-1])[0])
@@ -328,24 +325,23 @@ def IgualaSondas(paths, nodelist):
                             #pprint(int(SDMC_Id_Medicao[i_RS,i_RD,i_M,i_C]))
                             #pprint(SDMC_Dict[id_RS][id_RD][0][0])
                             #pprint(SDMC_Dict[i_RS][i_RD][i_M][i_C])
-    return modelo_colocacao 
-
-
-
 
 
 if __name__ == '__main__':
     inicio_total= time.process_time()
     #rede = 'Geant2012.graphml'
-    #rede = 'Rnp_2020.graphml'
-    #rede = 'Rnp.graphml'
-    rede = 'exemplo.graphml'
+    rede = 'Rnp_2020.graphml'
+    #rede = 'exemplo.graphml'
     #rede = 'exemplo_pequeno.graphml'
-    
-    
 
     G = nx.read_graphml(rede)
+    pprint(list(G))
+    pprint(G.edges(data=False))
+    
+    
+'''  
     spf = nx.shortest_path(G, weight='LinkSpeedRaw')
+
     # Clear routes
 
     inicio=time.process_time()
@@ -411,6 +407,7 @@ if __name__ == '__main__':
     medicao_anterior = ''
     id_M = 0
     
+    #REVISARRRRRRR
     for idMedicao, Medicao in enumerate(Measurements_List):
         #if (Probes_List[idMedicao] == Measurements_List [idMedicao]):
         if str(medicao_anterior)!=str(Medicao):
@@ -443,16 +440,20 @@ if __name__ == '__main__':
     C_list = [*range(0, max_len_probe,1)]
 
 
-    
-
     SDMC_Dict = LpVariable.dicts("SDMC", (RS_list,RD_list,M_list,C_list), 0, 1, LpInteger)   
 
-    
+    #pprint(SDMC_Dict)
 
     modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
 
-    modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][0][0] * SDMC_Cost[i_RS][i_RD][0][0] for i_RS in RS_list for i_RD in RD_list if i_RS != i_RD]),"Total_Cost")
+
+
+    modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][0][0] * SDMC_Cost[i_RS][i_RD][0][0] for i_RS in RS_list for i_RD in RD_list for i_M in M_list for i_C in C_list if i_RS != i_RD]),"Total_Cost")
     End('Inicia o modelo e cria a função de maximização')
+
+
+
+
 
     Start('Limita sondas por roteador')
 
@@ -467,42 +468,11 @@ if __name__ == '__main__':
 
     End('Limita sondas por roteador')
 
-    Start('Limita sondas por Link')
-    for u, v, atributos in G.edges(data=True):
-        if u < v:
-            i_Router = [int(u),int(v)]
-            modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][0] for i_RS in i_Router for i_RD in i_Router for i_M in range(num_sonda_medicao[i_RS]) if i_RS != i_RD])
-                             <= math.ceil(atributos['LinkSpeedRaw']/1000000000), "Max_Probes_Link" + str(u) + "_" + str(v))
-    End('Limita sondas por Link')
     Start('Iguala as sondas')
-    #with concurrent.futures.ProcessPoolExecutor() as executor:
-    #    executor.map(IgualaSondas, paths)    
-    #IgualaSondas(paths)
-    # Cria um executor para executar as tarefas em paralelo
     with concurrent.futures.ProcessPoolExecutor() as executor:
-        # Cria um dicionário que mapeia as tarefas aos objetos Future
-        future_to_path = {executor.submit(IgualaSondas, path): path for path in paths}
+        executor.map(IgualaSondas, paths)    
+    #IgualaSondas(paths)
 
-        # Coleta os resultados conforme eles forem sendo concluídos
-        for future in concurrent.futures.as_completed(future_to_path):
-            path = future_to_path[future]
-            try:
-                modelo_colocacao += future.result()  # obtém o resultado da função
-                # faça algo com o resultado, se necessário
-            except Exception as exc:
-                print(f'Erro ao executar {path}: {exc}')
-                
-                
-    #for id_path, path in enumerate(paths):
-    #    id_RS = int(np.where(nodes_list == path[0])[0])
-    #    id_RD = int(np.where(nodes_list == path[len(path)-1])[0])
-    #    for i_RS in RS_list:
-    #        for i_RD in RD_list:
-    #            for i_M in M_list:
-    #                for i_C in C_list:
-    #                    if (SDMC_Id_Medicao[i_RS, i_RD, i_M, i_C]) > 0 and (i_M > 0) and (i_C > 0):
-    #                        if id_path == int(SDMC_Id_Medicao[i_RS, i_RD, i_M, i_C]):
-    #                            modelo_colocacao += SDMC_Dict[i_RS][i_RD][i_M][i_C] == SDMC_Dict[id_RS][id_RD][0][0], "Igual_Probes" + str(path) + '_' + str(i_RS) + '_' + str(i_RD) + '_' + str(i_M) + '_' + str(i_C)   
     End('Iguala as sondas')
 
 
@@ -514,12 +484,7 @@ if __name__ == '__main__':
     Start('Pulp Solve')
     modelo_colocacao.solve()
     End('Pulp Solve')
-    
-    with open(rede.replace(".graphml", ".result"), 'w') as f:
-        for v in modelo_colocacao.variables():
-            f.write(v.name + ' = ' + str(v.varValue) + '\n')
-    
-    
+
     lista_Sondas = []
     print("Status:", LpStatus[modelo_colocacao.status])
     if modelo_colocacao.status == 1:
@@ -544,7 +509,7 @@ if __name__ == '__main__':
     for path in paths:
         pathreverse = path.reverse()
         if path in lista_Sondas:
-            #pprint(f'Sonda - {path}')
+            pprint(f'Sonda - {path}')
             count_sondas += 1
         elif pathreverse  in lista_Sondas:
             #pprint(f'{path} - Sonda - Reverse')
@@ -564,7 +529,7 @@ if __name__ == '__main__':
                                 pprint("Subcaminho não existente")
                 compostos = (Compose_Subpaths(path, subpaths))
             if compostos:
-                #pprint(f'MEDICACAO Composta - {path}')
+                pprint(f'MEDICACAO Composta - {path}')
                 #pprint(f'Composiçoes possiveis {compostos}')
                 count_composicao += 1
             else:
@@ -594,7 +559,7 @@ if __name__ == '__main__':
     #difference = list(set(paths[0]) - set(lista_Sondas[0]))
 
     #pprint(difference)
-    #grafico(G)
+    grafico(G)
     #
     #H = G.copy()
     #
@@ -610,3 +575,4 @@ if __name__ == '__main__':
 
     #for (i, item) in enumerate(Probes_List, start=0):
       # print(i, item)]
+ '''
