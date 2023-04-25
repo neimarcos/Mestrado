@@ -333,7 +333,7 @@ def IgualaSondas(paths, nodes_list, RS_list, RD_list,M_list,C_list, SDMC_Id_Medi
 
 
 
-
+6
 
 if __name__ == '__main__':
     inicio_total= time.process_time()
@@ -385,7 +385,7 @@ if __name__ == '__main__':
 
     max_len_probe = max([len(sub_list) for sub_list in Measurements_List if isinstance(sub_list, list)])
     max_probe = Counter([tuple(sublist) for sublist in Measurements_List]).most_common(1)[0]
-    lista_medicao, num_sonda_medicao = np.unique(Measurements_List, return_counts=True)
+    #lista_medicao, num_sonda_medicao = np.unique(Measurements_List, return_counts=True)
     routers = G.nodes
 
 
@@ -473,17 +473,17 @@ if __name__ == '__main__':
             if u in path and v in path:
                 lista_sondas_link.append(id_path)
                 pprint(f"id {id_path}")
-                pprint(f"caminho  {path}")
+                pprint(f"caminho  {path}")        
         i_Router = [int(u),int(v)]
         for i_RS in i_Router:
             for i_RD in i_Router:
-                for i_M in M_list:
-                    for i_C in C_list:
-                        if i_RS != i_RD:
-                            if int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C]) > 0:
-                                pprint (f" sonda {int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C])}")
+                if i_RS != i_RD:
+                    for i_M in M_list:
+                        for i_C in C_list:
+                            if int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C]) >0:
+                                pprint(f"{int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C])} sonda na lista {lista_sondas_link}")
                                 if int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C]) in lista_sondas_link:
-                                    pprint(f"{int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C])} sonda na lista")
+                                    pprint("na lista")
         modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][i_C] for i_RS in i_Router for i_RD in i_Router for i_M in M_list for i_C in C_list if i_RS != i_RD if SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C] in lista_sondas_link ])
                              <= math.ceil(atributos['LinkSpeedRaw']/1000000000), "Max_Probes_Link" + str(u) + "_" + str(v))
     End('Limita sondas por Link')
@@ -573,7 +573,7 @@ if __name__ == '__main__':
     pprint(f'Total de Medições por Sondas Reversas: {count_sondas_reversas}')
     pprint(f'Total de Medições através de composiçôes: {count_composicao}')
     pprint(f'Total rotas sem Mediçãos : {count_sem_medicao}')
-    pprint(f'Total de medições: {count_sondas+ count_sondas_reversas + count_composicao +count_sem_medicao} = {len(paths)} = {len(num_sonda_medicao)}')
+    pprint(f'Total de medições: {count_sondas+ count_sondas_reversas + count_composicao +count_sem_medicao} = {len(paths)} ')
     
     
     pprint(f'#################################################################################')
