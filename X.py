@@ -340,8 +340,8 @@ if __name__ == '__main__':
     #rede = 'Geant2012.graphml'
     #rede = 'Rnp_2020.graphml'
     #rede = 'Rnp.graphml'
-    #rede = 'exemplo.graphml'
-    rede = 'exemplo_pequeno.graphml'
+    rede = 'exemplo.graphml'
+    #rede = 'exemplo_pequeno.graphml'
     
     
 
@@ -442,22 +442,18 @@ if __name__ == '__main__':
     RD_list = [*range(0, total_roteadores,1)]
     M_list = [*range(0, M,1)]
     C_list = [*range(0, C,1)]
-
-
-    
+   
     SDMC_Dict = LpVariable.dicts("SDMC", (RS_list,RD_list,M_list,C_list), 0, 1, LpInteger)   
-
-    
+   
     modelo_colocacao = LpProblem("Probes Placement Model", LpMaximize)
 
-    modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][0][0] * SDMC_Cost[i_RS][i_RD][0][0] for i_RS in RS_list for i_RD in RD_list for i_M in M_list for i_C in C_list if i_RS != i_RD]),"Total_Cost")
+    modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][i_C] * SDMC_Cost[i_RS][i_RD][i_M][i_C] for i_RS in RS_list for i_RD in RD_list for i_M in M_list for i_C in C_list if i_RS != i_RD]),"Total_Cost")
     End('Inicia o modelo e cria a função de maximização')
 
     Start('Limita sondas por roteador')
 
     max_sondas = {n: (len(list(nx.all_neighbors(G, n))))for n in G.nodes}
 
-    #### ATENÇÃO VER ORIGEM DESTINO ######## 1-> 2 = 2 -> 1
     for id_router, router in enumerate(routers):
         #if id_router < (len(routers)-1):
         pprint(f'Limite de sondas no roteador: {router} - {max_sondas.get(router)}')
@@ -465,30 +461,32 @@ if __name__ == '__main__':
         modelo_colocacao += (lpSum([SDMC_Dict[id_router][i_RD][0][0] for i_RD in RD_list if id_router != i_RD]) <=  max_sondas.get(router), "Max_Probes_Router" + str(id_router))
 
     End('Limita sondas por roteador')
-
+    
     Start('Limita sondas por Link')
     for u, v, atributos in G.edges(data=True):
         lista_sondas_link = []
         for id_path, path in enumerate(paths):
-            if u in path and v in path:
+            if u in path or v in path:
                 lista_sondas_link.append(id_path)
-                pprint(f"id {id_path}")
-                pprint(f"caminho  {path}")        
+                #pprint(f"id {id_path}")
+                #pprint(f"caminho  {path}")        
         i_Router = [int(u),int(v)]
-        for i_RS in i_Router:
-            for i_RD in i_Router:
-                if i_RS != i_RD:
-                    for i_M in M_list:
-                        for i_C in C_list:
-                            if int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C]) >0:
-                                pprint(f"{int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C])} sonda na lista {lista_sondas_link}")
-                                if int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C]) in lista_sondas_link:
-                                    pprint("na lista")
-        modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][i_C] for i_RS in i_Router for i_RD in i_Router for i_M in M_list for i_C in C_list if i_RS != i_RD if SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C] in lista_sondas_link ])
-                             <= math.ceil(atributos['LinkSpeedRaw']/1000000000), "Max_Probes_Link" + str(u) + "_" + str(v))
+        
+        #for i_RS in RS_list:
+        #    for i_RD in RD_list:
+        #        if i_RS != i_RD:
+        #            for i_M in M_list:
+        #                for i_C in C_list:
+        #                    if int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C]) >0:
+        #                        #pprint(f"{int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C])} sonda na lista {lista_sondas_link}")
+        #                        if (int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C])) in lista_sondas_link:
+        #                            pprint("na lista")
+        modelo_colocacao += (lpSum([SDMC_Dict[i_RS][i_RD][i_M][i_C] for i_RS in RS_list for i_RD in RD_list for i_M in M_list for i_C in C_list if i_RS != i_RD if SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C] in lista_sondas_link ])
+        <= math.ceil(atributos['LinkSpeedRaw']/1000000000), "Max_Probes_Link" + str(u) + "_" + str(v))
+    # Encontra as posições dos elementos do array que correspondem ao valor desejado   
     End('Limita sondas por Link')
     
-    Start('Iguala as sondas')    
+    #Start('Iguala as sondas')    
     for id_path, path in enumerate(paths):
         id_RS = int(np.where(nodes_list == path[0])[0])
         id_RD = int(np.where(nodes_list == path[len(path)-1])[0])
@@ -497,6 +495,9 @@ if __name__ == '__main__':
                 for i_M in range(1,M):
                     for i_C in range(1,C):
                         if id_path == int(SDMC_Id_Medicao[i_RS, i_RD, i_M, i_C]):
+                            print(f'{id_path} Valor {path}')
+                            pprint(f'Sonda ID {id_RS}  - {id_RD} - 0 - 0 - {paths[int(SDMC_Id_Medicao[id_RS][id_RD][0][0])]}')
+                            pprint(f'Composicao ID {i_RS}  - {i_RD} - {i_M} - {i_C} - {paths[int(SDMC_Id_Medicao[i_RS][i_RD][i_M][i_C])]}')
                             modelo_colocacao += SDMC_Dict[i_RS][i_RD][i_M][i_C] == SDMC_Dict[id_RS][id_RD][0][0], "Igual_Probes" + str(path) + '_' + str(i_RS) + '_' + str(i_RD) + '_' + str(i_M) + '_' + str(i_C)   
     End('Iguala as sondas')
 
@@ -521,18 +522,18 @@ if __name__ == '__main__':
         #pprint(modelo_colocacao)    
         for v in modelo_colocacao.variables():
             if v.varValue > 0:
-                #print(v.name, "=", v.varValue)
+                print(v.name, "=", v.varValue)
                 x = v.name.split("_")
-                if (int(x[3]) == 0 ) and (int(x[4]) == 0) :
-                    print(v.name, "=", v.varValue)
-                    pprint(int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])]))
-                    pprint(paths[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])])
-                    lista_Sondas.append ( paths[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])])
+                #if (int(x[3]) == 0 ) and (int(x[4]) == 0) :
+                #print(v.name, "=", v.varValue)
+                #pprint(f'Sonda - {[int(x[1])]} - {[int(x[2])]}')
+                pprint(f'Probe list {paths[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])]}')
+                lista_Sondas.append (paths[int(SDMC_Id_Medicao[int(x[1])][int(x[2])][int(x[3])][int(x[4])])])
     print("Custo = ", value(modelo_colocacao.objective))
 
-    #pprint(lista_Sondas)
+    pprint(lista_Sondas)
     #pprint("###########################")
-    pprint(paths)
+    #pprint(paths)
     count_sondas = 0 
     count_sondas_reversas = 0
     count_composicao = 0
