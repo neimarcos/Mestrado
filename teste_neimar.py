@@ -159,7 +159,7 @@ def Find_Compose_Paths(path_count):
     paths=tuple([k[0] for k in path_count])
     ComposePaths = []
     global Measurements_List
-    global Probes_List
+    global Compose_List
     for path in paths:
         if len(path) > 2:
             #pprint(f"Origem: {i}, destino: {k}, rota spf: {v} ")
@@ -176,13 +176,13 @@ def Find_Compose_Paths(path_count):
             ComposePaths.append (retorno)
             # Medicao da propia sonda
             Measurements_List.append(path)
-            Probes_List.append(path)
+            Compose_List.append(path)
             for comp in retorno:
                 Measurements_List.append(path)
-                Probes_List.append(comp)
+                Compose_List.append(comp)
         elif len(path) > 1:
             Measurements_List.append(path)
-            Probes_List.append(path)
+            Compose_List.append(path)
     return (ComposePaths)
 
 def Compose_Route_Cost(rotascompostas):
@@ -301,12 +301,12 @@ def grafico(G):
     plt.show()
 
 
-def CompoeSonda(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao):
+def CompoeSonda(Start, End, Measurements_List, Compose_List, SDMC_Dict, modelo_colocacao):
     Start('Inicio Compoe sonda')
        
     for idMedicao, Medicao in enumerate(Measurements_List):
-        if Measurements_List[idMedicao]!=Probes_List[idMedicao]:
-            for idprobe, probe in enumerate (Probes_List[idMedicao]):
+        if Measurements_List[idMedicao]!=Compose_List[idMedicao]:
+            for idprobe, probe in enumerate (Compose_List[idMedicao]):
                 if probe in Measurements_List:
                     id_M = Measurements_List.index(probe)
                 else:
@@ -319,7 +319,7 @@ def CompoeSonda(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_co
     
     
     
-def Sondas_Link(Start, End, G, paths, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao):
+def Sondas_Link(Start, End, G, paths, Measurements_List, Compose_List, SDMC_Dict, modelo_colocacao):
     Start('Limita sondas por link')
 
     for u, v, atributos in G.edges(data=True):
@@ -331,12 +331,12 @@ def Sondas_Link(Start, End, G, paths, Measurements_List, Probes_List, SDMC_Dict,
                 #pprint(f"caminho  {path}")        
         lista_sondas_link = []
         for idMedicao, Medicao in enumerate(Measurements_List):
-            if Measurements_List[idMedicao]==Probes_List[idMedicao] and Medicao in lista_caminhos: 
+            if Measurements_List[idMedicao]==Compose_List[idMedicao] and Medicao in lista_caminhos: 
                 lista_sondas_link.append(idMedicao)
         modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in lista_sondas_link])<= math.ceil(atributos['LinkSpeedRaw']/100000000)*3, "Max_Probes_Link" + str(u) + "_" + str(v))
     End('Limita sondas por link')
 
-def Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_Dict, modelo_colocacao):
+def Sondas_Roteador(Start, End, G, Measurements_List, Compose_List, routers, SDMC_Dict, modelo_colocacao):
     Start('Limita sondas por roteador')
 
     max_sondas = {n: (len(list(nx.all_neighbors(G, n))))for n in G.nodes}
@@ -344,18 +344,18 @@ def Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC
     for id_router, router in enumerate(routers):
         lista_sondas_roteador = []
         for idMedicao, Medicao in enumerate(Measurements_List):
-            if Measurements_List[idMedicao]!=Probes_List[idMedicao]:
+            if Measurements_List[idMedicao]!=Compose_List[idMedicao]:
                 if id_router == int(Measurements_List[idMedicao][0]) or id_router == int(Measurements_List[idMedicao][len(Measurements_List[idMedicao])-1]):
                     lista_sondas_roteador.append(idMedicao)       
         modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in lista_sondas_roteador]) <=  max_sondas.get(router)*3, "Max_Probes_Router" + str(id_router))
 
     End('Limita sondas por roteador')
 
-def Iguala_Sondas(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao):
+def Iguala_Sondas(Start, End, Measurements_List, Compose_List, SDMC_Dict, modelo_colocacao):
     Start('Inicio do Iguala sonda')
     for idMedicao, Medicao in enumerate(Measurements_List):
-        if Measurements_List[idMedicao]!=Probes_List[idMedicao]:
-            for idprobe, probe in enumerate (Probes_List[idMedicao]):
+        if Measurements_List[idMedicao]!=Compose_List[idMedicao]:
+            for idprobe, probe in enumerate (Compose_List[idMedicao]):
                 if not probe in Measurements_List:
                     probe = probe[::-1]   
                 modelo_colocacao += SDMC_Dict[idMedicao] == SDMC_Dict[Measurements_List.index(probe)]
@@ -366,9 +366,9 @@ if __name__ == '__main__':
     inicio_total= time.process_time()
     #rede = 'Geant2012.graphml'
     #rede = 'Rnp_2020.graphml'
-    rede = 'Rnp.graphml'
+    #rede = 'Rnp.graphml'
     #rede = 'exemplo.graphml'
-    #rede = 'exemplo_pequeno.graphml'
+    rede = 'exemplo_pequeno.graphml'
     
     
 
@@ -388,7 +388,7 @@ if __name__ == '__main__':
     End('Count_Subsegment_Occurrences')
 
     Measurements_List = []
-    Probes_List = []
+    Compose_List = []
     Cost_List = []
 
     Start('Find_Compose_Paths')
@@ -396,7 +396,7 @@ if __name__ == '__main__':
     End('Find_Compose_Paths')
 
     Start('Compose_Route_Cost')
-    Compose_Route_Cost(Probes_List)
+    Compose_Route_Cost(Compose_List)
     End('Compose_Route_Cost')
 
     routers = G.nodes
@@ -409,102 +409,102 @@ if __name__ == '__main__':
     
     nodes_list = np.array(list(G.nodes()))
  
- 
-    max_cost = max(Cost_List)
-    pprint(f'{Cost_List}')
-    # Converta a lista em um array NumPy
-    Cost_Array = np.array(Cost_List)
-
-    # Subtraia max_cost de cada elemento do array NumPy
-    Cost_Array -= max_cost
-
-    # Multiplique cada elemento por -1
-    Cost_Array = Cost_Array * (-1)
-
-    # Converta o array NumPy de volta em uma lista, se necessário
-    Cost_List = Cost_Array.tolist()
-    pprint(f'{Cost_List}')
+    Sonda_ativa = [-1] * len(paths)
+    Measurements_Ativa = [-1] * M
+    Compose_Ativa = [0] * M
     
- 
-    Start('Inicia o modelo e cria a função de maximização')
-
-    SDMC_Dict = LpVariable.dicts("Medicao", (M_list), 0, 1, LpInteger)   
+    #Grau de centralidade
+    #degree = nx.degree_centrality(G)
+    #Centralidade de proximidade
+    closeness = nx.closeness_centrality(G, distance='LinkSpeedRaw')
+    #Centralidade de intermediação
+    #betweenness = nx.betweenness_centrality(G, weight='LinkSpeedRaw')
     
-    modelo_colocacao = LpProblem("Probes Placement Model", LpMinimize)
-
-    modelo_colocacao += (lpSum([SDMC_Dict[i_M] * Cost_List[i_M] for i_M in M_list]),"Total_Cost")
-    End('Fim modelo e cria a função de maximização')
+    sorted_nodes = sorted(G.nodes(), key=lambda node: closeness[node], reverse=True)
+    max_sondas = {n: (len(list(nx.all_neighbors(G, n))))for n in G.nodes}
+    
+    
+    
+    # Crie um conjunto de caminhos compostos
+    compose_tuples = [tuple(tuple(lst) for lst in sublist) if isinstance(sublist, list) else tuple(sublist) for sublist in Compose_List]
+    compose_set = set(compose_tuples)
+    Measurements_set = set(tuple(lst) for lst in Measurements_List)
+    
+    # Imprima a centralidade de proximidade para cada nó ordenado
+    for node in sorted_nodes:
+        print("Nó:", node)
+        print("Centralidade de proximidade:", closeness[node])
+        print()
+        lista_sonda = []
+        for id_path, path in enumerate(paths):
+            if node in path:
+                if (path[len(path)-1] == node or path[0]==node) and Sonda_ativa[id_path] == -1: 
+                    lista_sonda.append(id_path)
+        sorted_lista = sorted(lista_sonda, key=lambda id: path_cost[id], reverse=True)
+        count = 0
+        #for id in sorted_lista:            
+        #    pprint(paths[id])
+        #    pprint(path_cost[id])
+        #    if count < max_sondas[node]*2:
+        #        Sonda_ativa[id] = int(node)
+        #        count+=1
+        #        for id_M, M in enumerate(Measurements_List):
+        #            if (paths[id]==M):
+        #                Measurements_Ativa[id_M] = int(node)
+        #                Compose_Ativa[id_M] = -2
+        #        for id_C, C in enumerate(Compose_List):
+        #            if (M in C):
+        #                Compose_Ativa[id_C] += 1
+        #                if (M!=C) and Compose_Ativa[id_C] == len(C):
+        #                    Compose_Ativa[id_C] = -2 
+        #                    Sonda_ativa[paths.index(Measurements_List[id_C])] = -2
+        #                    for i_M, Medicao in enumerate(Measurements_List):
+        #                        if Measurements_List[i_M] == Compose_List[id_C]:
+        #                            Measurements_Ativa[i_M] = -2    
     
 
-    Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_Dict, modelo_colocacao)
-
-    Sondas_Link(Start, End, G, paths, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
-
-    Start('Inicio Minimo uma medição por caminho')
-    posicao = ''
-    for id_path, path in enumerate(paths):
-        Lista_Sondas = [indice for indice, sonda in enumerate(Measurements_List) if path == sonda]
-        modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in Lista_Sondas]) >= 1 , "Minimo_Sondas_Medicao" + str(id_path))
-            
-    End('Fim Compoe sonda')
-
-    CompoeSonda(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
-    
-    Start('Salva o Modelo')
-    modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
-    End('Salva o Modelo')
-
-    Start('Pulp Solve')
-    modelo_colocacao.solve()
-    End('Pulp Solve')
-
-    with open(rede.replace(".graphml", ".result"), 'w') as f:
-        for v in modelo_colocacao.variables():
-            f.write(v.name + ' = ' + str(v.varValue) + '\n')
-    
-    print("Status:", LpStatus[modelo_colocacao.status])
-    Sondas_ativas = []
-    if modelo_colocacao.status == 1:
-        
-        pprint(modelo_colocacao)    
-        for v in modelo_colocacao.variables():
-            if v.varValue > 0:
-                #print(v.name, "=", v.varValue)
-                x = v.name.split("_")
-                pprint(Probes_List[int(x[1])])
-                Sondas_ativas.append (int(x[1]))
-    print("Custo = ", value(modelo_colocacao.objective))
-    pprint(f'Total de sondas: {len(Sondas_ativas)}')
-
-
-
-    #pprint("###########################")
-    #pprint(paths)
-    count_sondas = 0 
-    count_composicao = 0
-      
-    for Sonda in Sondas_ativas:
-        if Measurements_List[int(Sonda)] == Probes_List[int(Sonda)] :
-            pprint(f'Sonda - {Probes_List[int(Sonda)]}')
-            count_sondas += 1
+    # Use um loop for em vez de enumerate() para obter o índice da lista de medições
+    for i in range(M):
+        m = tuple(Measurements_List[i])
+        if m in compose_set:
+            # Verifique se o caminho composto está ativo
+            idx = Compose_List.index(m)
+            Compose_Ativa[idx] += 1
+            if Compose_Ativa[idx] == len(Compose_List[idx]):
+                Compose_Ativa[idx] = -2
+                sonda_idx = paths.index(Measurements_List[idx])
+                Sonda_ativa[sonda_idx] = -2
+                for j in range(M):
+                    if Measurements_List[j] == Compose_List[idx]:
+                        Measurements_Ativa[j] = -2
+        #elif m in measurements_set:                       
+                   
+                        
+                        
+                        
+    for id_sonda, sonda in enumerate(Sonda_ativa):
+        if sonda > 0:
+            pprint(f'Medição por Sonda: {paths[id_sonda]} no roteador {sonda}') 
+        elif sonda != -1:
+            pprint(f'Medição por Composição: {paths[id_sonda]} ') 
         else:
-            pprint(f'Composição - {Probes_List[int(Sonda)]}')
+            pprint(f'SEM Medição: {paths[id_sonda]} ') 
+
+    count_sondas = 0
+    count_composicao = 0  
+    count_SEM = 0   
+    print ('####################################')
+    for id, route in enumerate(Measurements_Ativa):
+        if int(route) >= 0 :
+            pprint(f'Sonda: {Compose_List[id]} no roteador {route}') 
+            count_sondas += 1
+        elif int(route) != -1:
+            pprint(f'Composição: {Compose_List[id]} ') 
             count_composicao += 1
-         
-    pprint('Relátorio')
-    pprint(f'Total de Medições por Sondas: {count_sondas}')
-    pprint(f'Total de Medições através de composiçôes: {count_composicao}')
-
-    pprint(f'Total de medições: {count_sondas+ count_composicao } = {len(paths)} ')
-    
-    
-    pprint(f'#################################################################################')
-    pprint(f'Concluiu tudo em {time.process_time() - inicio_total:.2f} segundos')
-    pprint(f'#################################################################################')
-    
-    
-    total_paths = sum(len(v) for k, v in spf.items() if k != '')
-
-    pprint(f'Total de arestas {G.number_of_edges()}')
-    pprint(f'Total de nos {G.number_of_nodes()}')
-    pprint(f'Total de routas SPF {len(paths)}')
+        else:
+            pprint(f'SEM MEDICAO: {Compose_List[id]} ') 
+            count_SEM += 1
+            
+    pprint(f'Total de medições por Sondas: {count_sondas}')
+    pprint(f'Total de medições por Composicao: {count_composicao}')
+    pprint(f'Total SEM medições: {count_SEM}')

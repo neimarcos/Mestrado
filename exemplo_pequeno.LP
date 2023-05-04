@@ -1,26 +1,34 @@
 \* Probes_Placement_Model *\
 Minimize
-Total_Cost: Medicao_0 + Medicao_1 + Medicao_10 + Medicao_100 + Medicao_101
- + Medicao_102 + Medicao_103 + Medicao_104 + Medicao_105 + Medicao_106
- + Medicao_107 + Medicao_108 + Medicao_109 + Medicao_11 + Medicao_110
- + Medicao_111 + Medicao_112 + Medicao_113 + Medicao_114 + Medicao_115
- + Medicao_116 + Medicao_117 + Medicao_118 + Medicao_12 + Medicao_13
- + Medicao_14 + Medicao_15 + Medicao_16 + Medicao_17 + Medicao_18 + Medicao_19
- + Medicao_2 + Medicao_20 + Medicao_21 + Medicao_22 + Medicao_23 + Medicao_24
- + Medicao_25 + Medicao_26 + Medicao_27 + Medicao_28 + Medicao_29 + Medicao_3
- + Medicao_30 + Medicao_31 + Medicao_32 + Medicao_33 + Medicao_34 + Medicao_35
- + Medicao_36 + Medicao_37 + Medicao_38 + Medicao_39 + Medicao_4 + Medicao_40
- + Medicao_41 + Medicao_42 + Medicao_43 + Medicao_44 + Medicao_45 + Medicao_46
- + Medicao_47 + Medicao_48 + Medicao_49 + Medicao_5 + Medicao_50 + Medicao_51
- + Medicao_52 + Medicao_53 + Medicao_54 + Medicao_55 + Medicao_56 + Medicao_57
- + Medicao_58 + Medicao_59 + Medicao_6 + Medicao_60 + Medicao_61 + Medicao_62
- + Medicao_63 + Medicao_64 + Medicao_65 + Medicao_66 + Medicao_67 + Medicao_68
- + Medicao_69 + Medicao_7 + Medicao_70 + Medicao_71 + Medicao_72 + Medicao_73
- + Medicao_74 + Medicao_75 + Medicao_76 + Medicao_77 + Medicao_78 + Medicao_79
- + Medicao_8 + Medicao_80 + Medicao_81 + Medicao_82 + Medicao_83 + Medicao_84
- + Medicao_85 + Medicao_86 + Medicao_87 + Medicao_88 + Medicao_89 + Medicao_9
- + Medicao_90 + Medicao_91 + Medicao_92 + Medicao_93 + Medicao_94 + Medicao_95
- + Medicao_96 + Medicao_97 + Medicao_98 + Medicao_99
+Total_Cost: 41 Medicao_0 + 44 Medicao_1 + 22 Medicao_10 + 2 Medicao_100
+ + 15 Medicao_101 + 18 Medicao_102 + 29 Medicao_103 + 16 Medicao_104
+ + 29 Medicao_105 + 31 Medicao_106 + 41 Medicao_107 + 15 Medicao_108
+ + 28 Medicao_109 + 35 Medicao_11 + 31 Medicao_110 + 42 Medicao_111
+ + 26 Medicao_112 + 39 Medicao_113 + 39 Medicao_114 + 36 Medicao_115
+ + 42 Medicao_116 + 29 Medicao_117 + 41 Medicao_118 + 39 Medicao_12
+ + 47 Medicao_13 + 14 Medicao_14 + 27 Medicao_15 + 28 Medicao_16
+ + 38 Medicao_17 + 29 Medicao_18 + 42 Medicao_19 + 29 Medicao_2
+ + 41 Medicao_20 + 47 Medicao_21 + 12 Medicao_22 + 25 Medicao_23
+ + 26 Medicao_24 + 38 Medicao_25 + 27 Medicao_26 + 40 Medicao_27
+ + 39 Medicao_28 + 42 Medicao_29 + 46 Medicao_3 + 44 Medicao_30
+ + 31 Medicao_31 + 47 Medicao_32 + 38 Medicao_33 + 45 Medicao_34
+ + 19 Medicao_35 + 33 Medicao_36 + 32 Medicao_37 + 46 Medicao_38
+ + 7 Medicao_39 + 29 Medicao_4 + 23 Medicao_40 + 21 Medicao_41 + 36 Medicao_42
+ + 20 Medicao_43 + 36 Medicao_44 + 33 Medicao_45 + 47 Medicao_46
+ + 13 Medicao_48 + 16 Medicao_49 + 45 Medicao_5 + 27 Medicao_50
+ + 14 Medicao_51 + 27 Medicao_52 + 29 Medicao_53 + 39 Medicao_54
+ + 13 Medicao_55 + 26 Medicao_56 + 29 Medicao_57 + 40 Medicao_58
+ + 26 Medicao_59 + 18 Medicao_6 + 39 Medicao_60 + 39 Medicao_61
+ + 37 Medicao_62 + 44 Medicao_63 + 39 Medicao_64 + 25 Medicao_65
+ + 42 Medicao_66 + 13 Medicao_67 + 29 Medicao_68 + 27 Medicao_69
+ + 32 Medicao_7 + 45 Medicao_70 + 6 Medicao_71 + 19 Medicao_72 + 22 Medicao_73
+ + 33 Medicao_74 + 20 Medicao_75 + 33 Medicao_76 + 35 Medicao_77
+ + 36 Medicao_78 + 46 Medicao_79 + 33 Medicao_8 + 33 Medicao_80
+ + 40 Medicao_81 + 24 Medicao_82 + 44 Medicao_83 + 17 Medicao_84
+ + 30 Medicao_85 + 33 Medicao_86 + 45 Medicao_87 + 21 Medicao_88
+ + 35 Medicao_89 + 47 Medicao_9 + 34 Medicao_90 + 46 Medicao_91 + 9 Medicao_92
+ + 25 Medicao_93 + 23 Medicao_94 + 38 Medicao_95 + 22 Medicao_96
+ + 38 Medicao_97 + 33 Medicao_98 + 47 Medicao_99
 Subject To
 Composicao100_115: Medicao_100 - Medicao_115 <= 0
 Composicao100_118: Medicao_100 - Medicao_118 <= 0
@@ -269,24 +277,6 @@ Composicao97_79: - Medicao_79 + Medicao_97 <= 0
 Composicao97_81: - Medicao_81 + Medicao_97 <= 0
 Composicao98_115: - Medicao_115 + Medicao_98 <= 0
 Composicao98_87: - Medicao_87 + Medicao_98 <= 0
-Max_Probes_Link0_5: Medicao_0 + Medicao_1 + Medicao_13 + Medicao_21
- + Medicao_3 + Medicao_5 + Medicao_9 <= 90
-Max_Probes_Link1_2: Medicao_21 + Medicao_29 + Medicao_30 + Medicao_32
- + Medicao_34 + Medicao_38 + Medicao_46 <= 300
-Max_Probes_Link2_3: Medicao_13 + Medicao_21 + Medicao_30 + Medicao_34
- + Medicao_38 + Medicao_46 + Medicao_5 + Medicao_62 + Medicao_64 + Medicao_66
- + Medicao_70 + Medicao_79 + Medicao_87 + Medicao_91 + Medicao_99 <= 90
-Max_Probes_Link2_4: Medicao_13 + Medicao_32 + Medicao_63 + Medicao_79
- + Medicao_87 + Medicao_91 + Medicao_99 <= 300
-Max_Probes_Link3_5: Medicao_1 + Medicao_13 + Medicao_21 + Medicao_34
- + Medicao_38 + Medicao_46 + Medicao_5 + Medicao_64 + Medicao_66 + Medicao_70
- + Medicao_78 + Medicao_81 + Medicao_83 + Medicao_87 + Medicao_91 + Medicao_99
- <= 300
-Max_Probes_Link5_6: Medicao_115 + Medicao_116 + Medicao_3 + Medicao_38
- + Medicao_46 + Medicao_66 + Medicao_70 + Medicao_81 + Medicao_83 + Medicao_9
- + Medicao_91 + Medicao_99 <= 300
-Max_Probes_Link6_7: Medicao_116 + Medicao_118 + Medicao_46 + Medicao_70
- + Medicao_83 + Medicao_9 + Medicao_99 <= 300
 Max_Probes_Router0: Medicao_10 + Medicao_11 + Medicao_12 + Medicao_14
  + Medicao_15 + Medicao_16 + Medicao_17 + Medicao_18 + Medicao_19 + Medicao_2
  + Medicao_20 + Medicao_22 + Medicao_23 + Medicao_24 + Medicao_25 + Medicao_26
