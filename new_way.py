@@ -333,7 +333,7 @@ def Sondas_Link(Start, End, G, paths, Measurements_List, Probes_List, SDMC_Dict,
         for idMedicao, Medicao in enumerate(Measurements_List):
             if Measurements_List[idMedicao]==Probes_List[idMedicao] and Medicao in lista_caminhos: 
                 lista_sondas_link.append(idMedicao)
-        modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in lista_sondas_link])<= math.ceil(atributos['LinkSpeedRaw']/100000000)*3, "Max_Probes_Link" + str(u) + "_" + str(v))
+        modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in lista_sondas_link])<= math.ceil(float(atributos['LinkSpeed'])*fatormultiplicacao_link), "Max_Probes_Link" + str(u) + "_" + str(v))
     End('Limita sondas por link')
 
 def Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_Dict, modelo_colocacao):
@@ -347,7 +347,7 @@ def Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC
             if Measurements_List[idMedicao]!=Probes_List[idMedicao]:
                 if id_router == int(Measurements_List[idMedicao][0]) or id_router == int(Measurements_List[idMedicao][len(Measurements_List[idMedicao])-1]):
                     lista_sondas_roteador.append(idMedicao)       
-        modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in lista_sondas_roteador]) <=  max_sondas.get(router)*3, "Max_Probes_Router" + str(id_router))
+        modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in lista_sondas_roteador]) <=  max_sondas.get(router)*fatormultiplicacao_router, "Max_Probes_Router" + str(id_router))
 
     End('Limita sondas por roteador')
 
@@ -362,14 +362,24 @@ def Iguala_Sondas(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_
 
     End('Final do Iguala')
 
+def MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict, modelo_colocacao):
+    Start('Inicio Minimo de uma medição por caminho')
+    posicao = ''
+    for id_path, path in enumerate(paths):
+        Lista_Sondas = [indice for indice, sonda in enumerate(Measurements_List) if path == sonda]
+        modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in Lista_Sondas]) >= 1 , "Minimo_Sondas_Medicao" + str(id_path))
+            
+    End('Fim Minimo de uma medição por caminho')
+
 if __name__ == '__main__':
     inicio_total= time.process_time()
     #rede = 'Geant2012.graphml'
     #rede = 'Rnp_2020.graphml'
-    rede = 'Rnp.graphml'
-    #rede = 'exemplo.graphml'
+    #rede = 'Rnp.graphml'
+    rede = 'exemplo.graphml'
     #rede = 'exemplo_pequeno.graphml'
-    
+    fatormultiplicacao_link = 10
+    fatormultiplicacao_router = 6
     
 
     G = nx.read_graphml(rede)
@@ -426,27 +436,28 @@ if __name__ == '__main__':
     pprint(f'{Cost_List}')
     
  
-    Start('Inicia o modelo e cria a função de maximização')
+    Start('Inicia o modelo e cria a função LpMinimize')
 
     SDMC_Dict = LpVariable.dicts("Medicao", (M_list), 0, 1, LpInteger)   
     
     modelo_colocacao = LpProblem("Probes Placement Model", LpMinimize)
 
-    modelo_colocacao += (lpSum([SDMC_Dict[i_M] * Cost_List[i_M] for i_M in M_list]),"Total_Cost")
-    End('Fim modelo e cria a função de maximização')
+    
+    #modelo_colocacao += (lpSum([SDMC_Dict[i_M] * Cost_List[i_M] for i_M in M_list]),"Total_Cost")
+    #modelo_colocacao += (lpSum([SDMC_Dict[i_M] * Cost_List[i_M] for i_M in M_list if Probes_List[i_M]==Measurements_List[i_M]]),"Total_Cost")
+
+    #modelo_colocacao += (lpSum([SDMC_Dict[i_M] for i_M in M_list]),"Total_Cost")
+    modelo_colocacao += (lpSum([SDMC_Dict[i_M]  for i_M in M_list if Probes_List[i_M]==Measurements_List[i_M]]),"Total_Cost")
+    #modelo_colocacao += (lpSum([SDMC_Dict[i_M] * Cost_List[i_M] for i_M in M_list if Probes_List[i_M]==Measurements_List[i_M]]),"Total_Cost")
+    End('Fim modelo e cria a função LpMinimize')
+    
     
 
     Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_Dict, modelo_colocacao)
 
     Sondas_Link(Start, End, G, paths, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
 
-    Start('Inicio Minimo uma medição por caminho')
-    posicao = ''
-    for id_path, path in enumerate(paths):
-        Lista_Sondas = [indice for indice, sonda in enumerate(Measurements_List) if path == sonda]
-        modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in Lista_Sondas]) >= 1 , "Minimo_Sondas_Medicao" + str(id_path))
-            
-    End('Fim Compoe sonda')
+    MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict, modelo_colocacao)
 
     CompoeSonda(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
     
@@ -455,8 +466,21 @@ if __name__ == '__main__':
     End('Salva o Modelo')
 
     Start('Pulp Solve')
-    modelo_colocacao.solve()
+    #modelo_colocacao.solve()
+    
+    #modelo_colocacao.solve(pulp.PULP_CBC_CMD(maxSeconds=30))
+    
+    # Definindo o número máximo de iterações para 100
+    max_iterations = 1000000
+
+    # Resolvendo o modelo
+    for i in range(max_iterations):
+        status = modelo_colocacao.solve()
+        if status == LpStatusOptimal or status == LpStatusInfeasible:
+            break
+
     End('Pulp Solve')
+
 
     with open(rede.replace(".graphml", ".result"), 'w') as f:
         for v in modelo_colocacao.variables():
@@ -508,3 +532,5 @@ if __name__ == '__main__':
     pprint(f'Total de arestas {G.number_of_edges()}')
     pprint(f'Total de nos {G.number_of_nodes()}')
     pprint(f'Total de routas SPF {len(paths)}')
+
+    pprint(f'Total de : {i}')

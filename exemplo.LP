@@ -1,560 +1,46 @@
 \* Probes_Placement_Model *\
 Minimize
-Total_Cost: Medicao_0 + Medicao_1 + Medicao_10 + Medicao_100 + Medicao_1000
- + Medicao_1001 + Medicao_1002 + Medicao_1003 + Medicao_1004 + Medicao_1005
- + Medicao_1006 + Medicao_1007 + Medicao_1008 + Medicao_1009 + Medicao_101
- + Medicao_1010 + Medicao_1011 + Medicao_1012 + Medicao_1013 + Medicao_1014
- + Medicao_1015 + Medicao_1016 + Medicao_1017 + Medicao_1018 + Medicao_1019
- + Medicao_102 + Medicao_1020 + Medicao_1021 + Medicao_1022 + Medicao_1023
- + Medicao_1024 + Medicao_1025 + Medicao_1026 + Medicao_1027 + Medicao_1028
- + Medicao_1029 + Medicao_103 + Medicao_1030 + Medicao_1031 + Medicao_1032
- + Medicao_1033 + Medicao_1034 + Medicao_1035 + Medicao_1036 + Medicao_1037
- + Medicao_1038 + Medicao_1039 + Medicao_104 + Medicao_1040 + Medicao_1041
- + Medicao_1042 + Medicao_1043 + Medicao_1044 + Medicao_1045 + Medicao_1046
- + Medicao_1047 + Medicao_1048 + Medicao_1049 + Medicao_105 + Medicao_1050
- + Medicao_1051 + Medicao_1052 + Medicao_1053 + Medicao_1054 + Medicao_1055
- + Medicao_1056 + Medicao_1057 + Medicao_1058 + Medicao_1059 + Medicao_106
- + Medicao_1060 + Medicao_1061 + Medicao_1062 + Medicao_1063 + Medicao_1064
- + Medicao_1065 + Medicao_1066 + Medicao_1067 + Medicao_1068 + Medicao_1069
- + Medicao_107 + Medicao_1070 + Medicao_1071 + Medicao_1072 + Medicao_1073
- + Medicao_1074 + Medicao_1075 + Medicao_1076 + Medicao_1077 + Medicao_1078
- + Medicao_1079 + Medicao_108 + Medicao_1080 + Medicao_1081 + Medicao_1082
- + Medicao_1083 + Medicao_1084 + Medicao_1085 + Medicao_1086 + Medicao_1087
- + Medicao_1088 + Medicao_1089 + Medicao_109 + Medicao_1090 + Medicao_1091
- + Medicao_1092 + Medicao_1093 + Medicao_1094 + Medicao_1095 + Medicao_1096
- + Medicao_1097 + Medicao_1098 + Medicao_1099 + Medicao_11 + Medicao_110
- + Medicao_1100 + Medicao_1101 + Medicao_1102 + Medicao_1103 + Medicao_1104
- + Medicao_1105 + Medicao_1106 + Medicao_1107 + Medicao_1108 + Medicao_1109
- + Medicao_111 + Medicao_1110 + Medicao_1111 + Medicao_1112 + Medicao_1113
- + Medicao_1114 + Medicao_1115 + Medicao_1116 + Medicao_1117 + Medicao_1118
- + Medicao_1119 + Medicao_112 + Medicao_1120 + Medicao_1121 + Medicao_1122
- + Medicao_1123 + Medicao_1124 + Medicao_1125 + Medicao_1126 + Medicao_1127
- + Medicao_1128 + Medicao_1129 + Medicao_113 + Medicao_1130 + Medicao_1131
- + Medicao_1132 + Medicao_1133 + Medicao_1134 + Medicao_1135 + Medicao_1136
- + Medicao_1137 + Medicao_1138 + Medicao_1139 + Medicao_114 + Medicao_1140
- + Medicao_1141 + Medicao_1142 + Medicao_1143 + Medicao_1144 + Medicao_1145
- + Medicao_1146 + Medicao_1147 + Medicao_1148 + Medicao_1149 + Medicao_115
- + Medicao_1150 + Medicao_1151 + Medicao_1152 + Medicao_1153 + Medicao_1154
- + Medicao_1155 + Medicao_1156 + Medicao_1157 + Medicao_1158 + Medicao_1159
- + Medicao_116 + Medicao_1160 + Medicao_1161 + Medicao_1162 + Medicao_1163
- + Medicao_1164 + Medicao_1165 + Medicao_1166 + Medicao_1167 + Medicao_1168
- + Medicao_1169 + Medicao_117 + Medicao_1170 + Medicao_1171 + Medicao_1172
- + Medicao_1173 + Medicao_1174 + Medicao_1175 + Medicao_1176 + Medicao_1177
- + Medicao_1178 + Medicao_1179 + Medicao_118 + Medicao_1180 + Medicao_1181
- + Medicao_1182 + Medicao_1183 + Medicao_1184 + Medicao_1185 + Medicao_1186
- + Medicao_1187 + Medicao_1188 + Medicao_1189 + Medicao_119 + Medicao_1190
- + Medicao_1191 + Medicao_1192 + Medicao_1193 + Medicao_1194 + Medicao_1195
- + Medicao_1196 + Medicao_1197 + Medicao_1198 + Medicao_1199 + Medicao_12
- + Medicao_120 + Medicao_1200 + Medicao_1201 + Medicao_1202 + Medicao_1203
- + Medicao_1204 + Medicao_1205 + Medicao_1206 + Medicao_1207 + Medicao_1208
- + Medicao_1209 + Medicao_121 + Medicao_1210 + Medicao_1211 + Medicao_1212
- + Medicao_1213 + Medicao_1214 + Medicao_1215 + Medicao_1216 + Medicao_1217
- + Medicao_1218 + Medicao_1219 + Medicao_122 + Medicao_1220 + Medicao_1221
- + Medicao_1222 + Medicao_1223 + Medicao_1224 + Medicao_1225 + Medicao_1226
- + Medicao_1227 + Medicao_1228 + Medicao_1229 + Medicao_123 + Medicao_1230
- + Medicao_1231 + Medicao_1232 + Medicao_1233 + Medicao_1234 + Medicao_1235
- + Medicao_1236 + Medicao_1237 + Medicao_1238 + Medicao_1239 + Medicao_124
- + Medicao_1240 + Medicao_1241 + Medicao_1242 + Medicao_1243 + Medicao_1244
- + Medicao_1245 + Medicao_1246 + Medicao_1247 + Medicao_1248 + Medicao_1249
- + Medicao_125 + Medicao_1250 + Medicao_1251 + Medicao_1252 + Medicao_1253
- + Medicao_1254 + Medicao_1255 + Medicao_1256 + Medicao_1257 + Medicao_1258
- + Medicao_1259 + Medicao_126 + Medicao_1260 + Medicao_1261 + Medicao_1262
- + Medicao_1263 + Medicao_1264 + Medicao_1265 + Medicao_1266 + Medicao_1267
- + Medicao_1268 + Medicao_1269 + Medicao_127 + Medicao_1270 + Medicao_1271
- + Medicao_1272 + Medicao_1273 + Medicao_1274 + Medicao_1275 + Medicao_1276
- + Medicao_1277 + Medicao_1278 + Medicao_1279 + Medicao_128 + Medicao_1280
- + Medicao_1281 + Medicao_1282 + Medicao_1283 + Medicao_1284 + Medicao_1285
- + Medicao_1286 + Medicao_1287 + Medicao_1288 + Medicao_1289 + Medicao_129
- + Medicao_1290 + Medicao_1291 + Medicao_1292 + Medicao_1293 + Medicao_1294
- + Medicao_1295 + Medicao_1296 + Medicao_1297 + Medicao_1298 + Medicao_1299
- + Medicao_13 + Medicao_130 + Medicao_1300 + Medicao_1301 + Medicao_1302
- + Medicao_1303 + Medicao_1304 + Medicao_1305 + Medicao_1306 + Medicao_1307
- + Medicao_1308 + Medicao_1309 + Medicao_131 + Medicao_1310 + Medicao_1311
- + Medicao_1312 + Medicao_1313 + Medicao_1314 + Medicao_1315 + Medicao_1316
- + Medicao_1317 + Medicao_1318 + Medicao_1319 + Medicao_132 + Medicao_1320
- + Medicao_1321 + Medicao_1322 + Medicao_1323 + Medicao_1324 + Medicao_1325
- + Medicao_1326 + Medicao_1327 + Medicao_1328 + Medicao_1329 + Medicao_133
- + Medicao_1330 + Medicao_1331 + Medicao_1332 + Medicao_1333 + Medicao_1334
- + Medicao_1335 + Medicao_1336 + Medicao_1337 + Medicao_1338 + Medicao_1339
- + Medicao_134 + Medicao_1340 + Medicao_1341 + Medicao_1342 + Medicao_1343
- + Medicao_1344 + Medicao_1345 + Medicao_1346 + Medicao_1347 + Medicao_1348
- + Medicao_1349 + Medicao_135 + Medicao_1350 + Medicao_1351 + Medicao_1352
- + Medicao_1353 + Medicao_1354 + Medicao_1355 + Medicao_1356 + Medicao_1357
- + Medicao_1358 + Medicao_1359 + Medicao_136 + Medicao_1360 + Medicao_1361
- + Medicao_1362 + Medicao_1363 + Medicao_1364 + Medicao_1365 + Medicao_1366
- + Medicao_1367 + Medicao_1368 + Medicao_1369 + Medicao_137 + Medicao_1370
- + Medicao_1371 + Medicao_1372 + Medicao_1373 + Medicao_1374 + Medicao_1375
- + Medicao_1376 + Medicao_1377 + Medicao_1378 + Medicao_1379 + Medicao_138
- + Medicao_1380 + Medicao_1381 + Medicao_1382 + Medicao_1383 + Medicao_1384
- + Medicao_1385 + Medicao_1386 + Medicao_1387 + Medicao_1388 + Medicao_1389
- + Medicao_139 + Medicao_1390 + Medicao_1391 + Medicao_1392 + Medicao_1393
- + Medicao_1394 + Medicao_1395 + Medicao_1396 + Medicao_1397 + Medicao_1398
- + Medicao_1399 + Medicao_14 + Medicao_140 + Medicao_1400 + Medicao_1401
- + Medicao_1402 + Medicao_1403 + Medicao_1404 + Medicao_1405 + Medicao_1406
- + Medicao_1407 + Medicao_1408 + Medicao_1409 + Medicao_141 + Medicao_1410
- + Medicao_1411 + Medicao_1412 + Medicao_1413 + Medicao_1414 + Medicao_1415
- + Medicao_1416 + Medicao_1417 + Medicao_1418 + Medicao_1419 + Medicao_142
- + Medicao_1420 + Medicao_1421 + Medicao_1422 + Medicao_1423 + Medicao_1424
- + Medicao_1425 + Medicao_1426 + Medicao_1427 + Medicao_1428 + Medicao_1429
- + Medicao_143 + Medicao_1430 + Medicao_1431 + Medicao_1432 + Medicao_1433
- + Medicao_1434 + Medicao_1435 + Medicao_1436 + Medicao_1437 + Medicao_1438
- + Medicao_1439 + Medicao_144 + Medicao_1440 + Medicao_1441 + Medicao_1442
- + Medicao_1443 + Medicao_1444 + Medicao_1445 + Medicao_1446 + Medicao_1447
- + Medicao_1448 + Medicao_1449 + Medicao_145 + Medicao_1450 + Medicao_1451
- + Medicao_1452 + Medicao_1453 + Medicao_1454 + Medicao_1455 + Medicao_1456
- + Medicao_1457 + Medicao_1458 + Medicao_1459 + Medicao_146 + Medicao_1460
- + Medicao_1461 + Medicao_1462 + Medicao_1463 + Medicao_1464 + Medicao_1465
- + Medicao_1466 + Medicao_1467 + Medicao_1468 + Medicao_1469 + Medicao_147
- + Medicao_1470 + Medicao_1471 + Medicao_1472 + Medicao_1473 + Medicao_1474
- + Medicao_1475 + Medicao_1476 + Medicao_1477 + Medicao_1478 + Medicao_1479
- + Medicao_148 + Medicao_1480 + Medicao_1481 + Medicao_1482 + Medicao_1483
- + Medicao_1484 + Medicao_1485 + Medicao_1486 + Medicao_1487 + Medicao_1488
- + Medicao_1489 + Medicao_149 + Medicao_1490 + Medicao_1491 + Medicao_1492
- + Medicao_1493 + Medicao_1494 + Medicao_1495 + Medicao_1496 + Medicao_1497
- + Medicao_1498 + Medicao_1499 + Medicao_15 + Medicao_150 + Medicao_1500
- + Medicao_1501 + Medicao_1502 + Medicao_1503 + Medicao_1504 + Medicao_1505
- + Medicao_1506 + Medicao_1507 + Medicao_1508 + Medicao_1509 + Medicao_151
- + Medicao_1510 + Medicao_1511 + Medicao_1512 + Medicao_1513 + Medicao_1514
- + Medicao_1515 + Medicao_1516 + Medicao_1517 + Medicao_1518 + Medicao_1519
- + Medicao_152 + Medicao_1520 + Medicao_1521 + Medicao_1522 + Medicao_1523
- + Medicao_1524 + Medicao_1525 + Medicao_1526 + Medicao_1527 + Medicao_1528
- + Medicao_1529 + Medicao_153 + Medicao_1530 + Medicao_1531 + Medicao_1532
- + Medicao_1533 + Medicao_1534 + Medicao_1535 + Medicao_1536 + Medicao_1537
- + Medicao_1538 + Medicao_1539 + Medicao_154 + Medicao_1540 + Medicao_1541
- + Medicao_1542 + Medicao_1543 + Medicao_1544 + Medicao_1545 + Medicao_1546
- + Medicao_1547 + Medicao_1548 + Medicao_1549 + Medicao_155 + Medicao_1550
- + Medicao_1551 + Medicao_1552 + Medicao_1553 + Medicao_1554 + Medicao_1555
- + Medicao_1556 + Medicao_1557 + Medicao_1558 + Medicao_1559 + Medicao_156
- + Medicao_1560 + Medicao_1561 + Medicao_1562 + Medicao_1563 + Medicao_1564
- + Medicao_1565 + Medicao_1566 + Medicao_1567 + Medicao_1568 + Medicao_1569
- + Medicao_157 + Medicao_1570 + Medicao_1571 + Medicao_1572 + Medicao_1573
- + Medicao_1574 + Medicao_1575 + Medicao_1576 + Medicao_1577 + Medicao_1578
- + Medicao_1579 + Medicao_158 + Medicao_1580 + Medicao_1581 + Medicao_1582
- + Medicao_1583 + Medicao_1584 + Medicao_1585 + Medicao_1586 + Medicao_1587
- + Medicao_1588 + Medicao_1589 + Medicao_159 + Medicao_1590 + Medicao_1591
- + Medicao_1592 + Medicao_1593 + Medicao_1594 + Medicao_1595 + Medicao_1596
- + Medicao_1597 + Medicao_1598 + Medicao_1599 + Medicao_16 + Medicao_160
- + Medicao_1600 + Medicao_1601 + Medicao_1602 + Medicao_1603 + Medicao_1604
- + Medicao_1605 + Medicao_1606 + Medicao_1607 + Medicao_1608 + Medicao_1609
- + Medicao_161 + Medicao_1610 + Medicao_1611 + Medicao_1612 + Medicao_1613
- + Medicao_1614 + Medicao_1615 + Medicao_1616 + Medicao_1617 + Medicao_1618
- + Medicao_1619 + Medicao_162 + Medicao_1620 + Medicao_1621 + Medicao_1622
- + Medicao_1623 + Medicao_1624 + Medicao_1625 + Medicao_1626 + Medicao_1627
- + Medicao_1628 + Medicao_1629 + Medicao_163 + Medicao_1630 + Medicao_1631
- + Medicao_1632 + Medicao_1633 + Medicao_1634 + Medicao_1635 + Medicao_1636
- + Medicao_1637 + Medicao_1638 + Medicao_1639 + Medicao_164 + Medicao_1640
- + Medicao_1641 + Medicao_1642 + Medicao_1643 + Medicao_1644 + Medicao_1645
- + Medicao_1646 + Medicao_1647 + Medicao_1648 + Medicao_1649 + Medicao_165
- + Medicao_1650 + Medicao_1651 + Medicao_1652 + Medicao_1653 + Medicao_1654
- + Medicao_1655 + Medicao_1656 + Medicao_1657 + Medicao_1658 + Medicao_1659
- + Medicao_166 + Medicao_1660 + Medicao_1661 + Medicao_1662 + Medicao_1663
- + Medicao_1664 + Medicao_1665 + Medicao_1666 + Medicao_1667 + Medicao_1668
- + Medicao_1669 + Medicao_167 + Medicao_1670 + Medicao_1671 + Medicao_1672
- + Medicao_1673 + Medicao_1674 + Medicao_1675 + Medicao_1676 + Medicao_1677
- + Medicao_1678 + Medicao_1679 + Medicao_168 + Medicao_1680 + Medicao_1681
- + Medicao_1682 + Medicao_1683 + Medicao_1684 + Medicao_1685 + Medicao_1686
- + Medicao_1687 + Medicao_1688 + Medicao_1689 + Medicao_169 + Medicao_1690
- + Medicao_1691 + Medicao_1692 + Medicao_1693 + Medicao_1694 + Medicao_1695
- + Medicao_1696 + Medicao_1697 + Medicao_1698 + Medicao_1699 + Medicao_17
- + Medicao_170 + Medicao_1700 + Medicao_1701 + Medicao_1702 + Medicao_1703
- + Medicao_1704 + Medicao_1705 + Medicao_1706 + Medicao_1707 + Medicao_1708
- + Medicao_1709 + Medicao_171 + Medicao_1710 + Medicao_1711 + Medicao_1712
- + Medicao_1713 + Medicao_1714 + Medicao_1715 + Medicao_1716 + Medicao_1717
- + Medicao_1718 + Medicao_1719 + Medicao_172 + Medicao_1720 + Medicao_1721
- + Medicao_1722 + Medicao_1723 + Medicao_1724 + Medicao_1725 + Medicao_1726
- + Medicao_1727 + Medicao_1728 + Medicao_1729 + Medicao_173 + Medicao_1730
- + Medicao_1731 + Medicao_1732 + Medicao_1733 + Medicao_1734 + Medicao_1735
- + Medicao_1736 + Medicao_1737 + Medicao_1738 + Medicao_1739 + Medicao_174
- + Medicao_1740 + Medicao_1741 + Medicao_1742 + Medicao_1743 + Medicao_1744
- + Medicao_1745 + Medicao_1746 + Medicao_1747 + Medicao_1748 + Medicao_1749
- + Medicao_175 + Medicao_1750 + Medicao_1751 + Medicao_1752 + Medicao_1753
- + Medicao_1754 + Medicao_1755 + Medicao_1756 + Medicao_1757 + Medicao_1758
- + Medicao_1759 + Medicao_176 + Medicao_1760 + Medicao_1761 + Medicao_1762
- + Medicao_1763 + Medicao_1764 + Medicao_1765 + Medicao_1766 + Medicao_1767
- + Medicao_1768 + Medicao_1769 + Medicao_177 + Medicao_1770 + Medicao_1771
- + Medicao_1772 + Medicao_1773 + Medicao_1774 + Medicao_1775 + Medicao_1776
- + Medicao_1777 + Medicao_1778 + Medicao_1779 + Medicao_178 + Medicao_1780
- + Medicao_1781 + Medicao_1782 + Medicao_1783 + Medicao_1784 + Medicao_1785
- + Medicao_1786 + Medicao_1787 + Medicao_1788 + Medicao_1789 + Medicao_179
- + Medicao_1790 + Medicao_1791 + Medicao_1792 + Medicao_1793 + Medicao_1794
- + Medicao_1795 + Medicao_1796 + Medicao_1797 + Medicao_1798 + Medicao_1799
- + Medicao_18 + Medicao_180 + Medicao_1800 + Medicao_1801 + Medicao_1802
- + Medicao_1803 + Medicao_1804 + Medicao_1805 + Medicao_1806 + Medicao_1807
- + Medicao_1808 + Medicao_1809 + Medicao_181 + Medicao_1810 + Medicao_1811
- + Medicao_1812 + Medicao_1813 + Medicao_1814 + Medicao_1815 + Medicao_1816
- + Medicao_1817 + Medicao_1818 + Medicao_1819 + Medicao_182 + Medicao_1820
- + Medicao_1821 + Medicao_1822 + Medicao_1823 + Medicao_1824 + Medicao_1825
- + Medicao_1826 + Medicao_1827 + Medicao_1828 + Medicao_1829 + Medicao_183
- + Medicao_1830 + Medicao_1831 + Medicao_1832 + Medicao_1833 + Medicao_1834
- + Medicao_1835 + Medicao_1836 + Medicao_1837 + Medicao_1838 + Medicao_1839
- + Medicao_184 + Medicao_1840 + Medicao_1841 + Medicao_1842 + Medicao_1843
- + Medicao_1844 + Medicao_1845 + Medicao_1846 + Medicao_1847 + Medicao_1848
- + Medicao_1849 + Medicao_185 + Medicao_1850 + Medicao_1851 + Medicao_1852
- + Medicao_1853 + Medicao_1854 + Medicao_1855 + Medicao_1856 + Medicao_1857
- + Medicao_1858 + Medicao_1859 + Medicao_186 + Medicao_1860 + Medicao_1861
- + Medicao_1862 + Medicao_1863 + Medicao_1864 + Medicao_1865 + Medicao_1866
- + Medicao_1867 + Medicao_1868 + Medicao_1869 + Medicao_187 + Medicao_1870
- + Medicao_1871 + Medicao_1872 + Medicao_1873 + Medicao_1874 + Medicao_1875
- + Medicao_1876 + Medicao_1877 + Medicao_1878 + Medicao_1879 + Medicao_188
- + Medicao_1880 + Medicao_1881 + Medicao_1882 + Medicao_1883 + Medicao_1884
- + Medicao_1885 + Medicao_1886 + Medicao_1887 + Medicao_1888 + Medicao_1889
- + Medicao_189 + Medicao_1890 + Medicao_1891 + Medicao_1892 + Medicao_1893
- + Medicao_1894 + Medicao_1895 + Medicao_1896 + Medicao_1897 + Medicao_1898
- + Medicao_1899 + Medicao_19 + Medicao_190 + Medicao_1900 + Medicao_1901
- + Medicao_1902 + Medicao_1903 + Medicao_1904 + Medicao_1905 + Medicao_1906
- + Medicao_1907 + Medicao_1908 + Medicao_1909 + Medicao_191 + Medicao_1910
- + Medicao_1911 + Medicao_1912 + Medicao_1913 + Medicao_1914 + Medicao_1915
- + Medicao_1916 + Medicao_1917 + Medicao_1918 + Medicao_1919 + Medicao_192
- + Medicao_1920 + Medicao_1921 + Medicao_1922 + Medicao_1923 + Medicao_1924
- + Medicao_1925 + Medicao_1926 + Medicao_1927 + Medicao_1928 + Medicao_1929
- + Medicao_193 + Medicao_1930 + Medicao_1931 + Medicao_1932 + Medicao_1933
- + Medicao_1934 + Medicao_1935 + Medicao_1936 + Medicao_1937 + Medicao_1938
- + Medicao_1939 + Medicao_194 + Medicao_1940 + Medicao_1941 + Medicao_1942
- + Medicao_1943 + Medicao_1944 + Medicao_1945 + Medicao_1946 + Medicao_1947
- + Medicao_1948 + Medicao_1949 + Medicao_195 + Medicao_1950 + Medicao_1951
- + Medicao_1952 + Medicao_1953 + Medicao_1954 + Medicao_1955 + Medicao_1956
- + Medicao_1957 + Medicao_1958 + Medicao_1959 + Medicao_196 + Medicao_1960
- + Medicao_1961 + Medicao_1962 + Medicao_1963 + Medicao_1964 + Medicao_1965
- + Medicao_1966 + Medicao_1967 + Medicao_1968 + Medicao_1969 + Medicao_197
- + Medicao_1970 + Medicao_1971 + Medicao_1972 + Medicao_1973 + Medicao_1974
- + Medicao_1975 + Medicao_1976 + Medicao_1977 + Medicao_1978 + Medicao_1979
- + Medicao_198 + Medicao_1980 + Medicao_1981 + Medicao_1982 + Medicao_1983
- + Medicao_1984 + Medicao_1985 + Medicao_1986 + Medicao_1987 + Medicao_1988
- + Medicao_1989 + Medicao_199 + Medicao_1990 + Medicao_1991 + Medicao_1992
- + Medicao_1993 + Medicao_1994 + Medicao_1995 + Medicao_1996 + Medicao_1997
- + Medicao_1998 + Medicao_1999 + Medicao_2 + Medicao_20 + Medicao_200
- + Medicao_2000 + Medicao_2001 + Medicao_2002 + Medicao_2003 + Medicao_2004
- + Medicao_2005 + Medicao_2006 + Medicao_2007 + Medicao_2008 + Medicao_2009
- + Medicao_201 + Medicao_2010 + Medicao_2011 + Medicao_2012 + Medicao_2013
- + Medicao_2014 + Medicao_2015 + Medicao_2016 + Medicao_2017 + Medicao_2018
- + Medicao_2019 + Medicao_202 + Medicao_2020 + Medicao_2021 + Medicao_2022
- + Medicao_2023 + Medicao_2024 + Medicao_2025 + Medicao_2026 + Medicao_2027
- + Medicao_2028 + Medicao_2029 + Medicao_203 + Medicao_2030 + Medicao_2031
- + Medicao_2032 + Medicao_2033 + Medicao_2034 + Medicao_2035 + Medicao_2036
- + Medicao_2037 + Medicao_2038 + Medicao_2039 + Medicao_204 + Medicao_2040
- + Medicao_2041 + Medicao_2042 + Medicao_2043 + Medicao_2044 + Medicao_2045
- + Medicao_2046 + Medicao_2047 + Medicao_2048 + Medicao_2049 + Medicao_205
- + Medicao_2050 + Medicao_2051 + Medicao_2052 + Medicao_2053 + Medicao_2054
- + Medicao_2055 + Medicao_2056 + Medicao_2057 + Medicao_2058 + Medicao_2059
- + Medicao_206 + Medicao_2060 + Medicao_2061 + Medicao_2062 + Medicao_2063
- + Medicao_2064 + Medicao_2065 + Medicao_2066 + Medicao_2067 + Medicao_2068
- + Medicao_2069 + Medicao_207 + Medicao_2070 + Medicao_2071 + Medicao_2072
- + Medicao_2073 + Medicao_2074 + Medicao_2075 + Medicao_2076 + Medicao_2077
- + Medicao_2078 + Medicao_2079 + Medicao_208 + Medicao_2080 + Medicao_2081
- + Medicao_2082 + Medicao_2083 + Medicao_2084 + Medicao_2085 + Medicao_2086
- + Medicao_2087 + Medicao_2088 + Medicao_2089 + Medicao_209 + Medicao_2090
- + Medicao_2091 + Medicao_2092 + Medicao_2093 + Medicao_2094 + Medicao_2095
- + Medicao_2096 + Medicao_2097 + Medicao_2098 + Medicao_2099 + Medicao_21
- + Medicao_210 + Medicao_2100 + Medicao_2101 + Medicao_2102 + Medicao_2103
- + Medicao_2104 + Medicao_2105 + Medicao_2106 + Medicao_2107 + Medicao_2108
- + Medicao_2109 + Medicao_211 + Medicao_2110 + Medicao_2111 + Medicao_2112
- + Medicao_2113 + Medicao_2114 + Medicao_2115 + Medicao_2116 + Medicao_2117
- + Medicao_2118 + Medicao_2119 + Medicao_212 + Medicao_2120 + Medicao_2121
- + Medicao_2122 + Medicao_2123 + Medicao_2124 + Medicao_2125 + Medicao_2126
- + Medicao_2127 + Medicao_2128 + Medicao_2129 + Medicao_213 + Medicao_2130
- + Medicao_2131 + Medicao_2132 + Medicao_2133 + Medicao_2134 + Medicao_2135
- + Medicao_2136 + Medicao_2137 + Medicao_2138 + Medicao_2139 + Medicao_214
- + Medicao_2140 + Medicao_2141 + Medicao_2142 + Medicao_2143 + Medicao_2144
- + Medicao_2145 + Medicao_2146 + Medicao_2147 + Medicao_2148 + Medicao_2149
- + Medicao_215 + Medicao_2150 + Medicao_2151 + Medicao_2152 + Medicao_2153
- + Medicao_2154 + Medicao_2155 + Medicao_2156 + Medicao_2157 + Medicao_2158
- + Medicao_2159 + Medicao_216 + Medicao_2160 + Medicao_2161 + Medicao_2162
- + Medicao_2163 + Medicao_2164 + Medicao_2165 + Medicao_2166 + Medicao_2167
- + Medicao_2168 + Medicao_2169 + Medicao_217 + Medicao_2170 + Medicao_2171
- + Medicao_2172 + Medicao_2173 + Medicao_2174 + Medicao_2175 + Medicao_2176
- + Medicao_2177 + Medicao_2178 + Medicao_2179 + Medicao_218 + Medicao_2180
- + Medicao_2181 + Medicao_2182 + Medicao_2183 + Medicao_2184 + Medicao_2185
- + Medicao_2186 + Medicao_2187 + Medicao_2188 + Medicao_2189 + Medicao_219
- + Medicao_2190 + Medicao_2191 + Medicao_2192 + Medicao_2193 + Medicao_2194
- + Medicao_2195 + Medicao_2196 + Medicao_2197 + Medicao_2198 + Medicao_2199
- + Medicao_22 + Medicao_220 + Medicao_2200 + Medicao_2201 + Medicao_2202
- + Medicao_2203 + Medicao_2204 + Medicao_2205 + Medicao_2206 + Medicao_2207
- + Medicao_2208 + Medicao_2209 + Medicao_221 + Medicao_2210 + Medicao_2211
- + Medicao_2212 + Medicao_2213 + Medicao_2214 + Medicao_2215 + Medicao_2216
- + Medicao_2217 + Medicao_2218 + Medicao_2219 + Medicao_222 + Medicao_2220
- + Medicao_2221 + Medicao_2222 + Medicao_2223 + Medicao_2224 + Medicao_2225
- + Medicao_2226 + Medicao_2227 + Medicao_2228 + Medicao_2229 + Medicao_223
- + Medicao_2230 + Medicao_2231 + Medicao_2232 + Medicao_2233 + Medicao_2234
- + Medicao_2235 + Medicao_2236 + Medicao_2237 + Medicao_2238 + Medicao_2239
- + Medicao_224 + Medicao_2240 + Medicao_2241 + Medicao_2242 + Medicao_2243
- + Medicao_2244 + Medicao_2245 + Medicao_2246 + Medicao_2247 + Medicao_2248
- + Medicao_2249 + Medicao_225 + Medicao_2250 + Medicao_2251 + Medicao_2252
- + Medicao_2253 + Medicao_2254 + Medicao_2255 + Medicao_2256 + Medicao_2257
- + Medicao_2258 + Medicao_2259 + Medicao_226 + Medicao_2260 + Medicao_2261
- + Medicao_2262 + Medicao_2263 + Medicao_2264 + Medicao_2265 + Medicao_2266
- + Medicao_2267 + Medicao_2268 + Medicao_2269 + Medicao_227 + Medicao_2270
- + Medicao_2271 + Medicao_2272 + Medicao_2273 + Medicao_2274 + Medicao_2275
- + Medicao_2276 + Medicao_2277 + Medicao_2278 + Medicao_2279 + Medicao_228
- + Medicao_2280 + Medicao_2281 + Medicao_2282 + Medicao_2283 + Medicao_2284
- + Medicao_2285 + Medicao_2286 + Medicao_2287 + Medicao_2288 + Medicao_2289
- + Medicao_229 + Medicao_2290 + Medicao_2291 + Medicao_2292 + Medicao_2293
- + Medicao_2294 + Medicao_2295 + Medicao_2296 + Medicao_2297 + Medicao_2298
- + Medicao_2299 + Medicao_23 + Medicao_230 + Medicao_2300 + Medicao_2301
- + Medicao_2302 + Medicao_2303 + Medicao_2304 + Medicao_2305 + Medicao_2306
- + Medicao_2307 + Medicao_2308 + Medicao_2309 + Medicao_231 + Medicao_2310
- + Medicao_2311 + Medicao_2312 + Medicao_2313 + Medicao_2314 + Medicao_2315
- + Medicao_2316 + Medicao_2317 + Medicao_2318 + Medicao_2319 + Medicao_232
- + Medicao_2320 + Medicao_2321 + Medicao_2322 + Medicao_2323 + Medicao_2324
- + Medicao_2325 + Medicao_2326 + Medicao_2327 + Medicao_2328 + Medicao_2329
- + Medicao_233 + Medicao_2330 + Medicao_2331 + Medicao_2332 + Medicao_2333
- + Medicao_2334 + Medicao_2335 + Medicao_2336 + Medicao_2337 + Medicao_2338
- + Medicao_2339 + Medicao_234 + Medicao_2340 + Medicao_2341 + Medicao_2342
- + Medicao_2343 + Medicao_2344 + Medicao_2345 + Medicao_2346 + Medicao_2347
- + Medicao_2348 + Medicao_2349 + Medicao_235 + Medicao_2350 + Medicao_2351
- + Medicao_2352 + Medicao_2353 + Medicao_2354 + Medicao_2355 + Medicao_2356
- + Medicao_2357 + Medicao_2358 + Medicao_2359 + Medicao_236 + Medicao_2360
- + Medicao_2361 + Medicao_2362 + Medicao_2363 + Medicao_2364 + Medicao_2365
- + Medicao_2366 + Medicao_2367 + Medicao_2368 + Medicao_2369 + Medicao_237
- + Medicao_2370 + Medicao_2371 + Medicao_2372 + Medicao_2373 + Medicao_2374
- + Medicao_2375 + Medicao_2376 + Medicao_2377 + Medicao_2378 + Medicao_2379
- + Medicao_238 + Medicao_2380 + Medicao_2381 + Medicao_2382 + Medicao_2383
- + Medicao_2384 + Medicao_2385 + Medicao_2386 + Medicao_2387 + Medicao_2388
- + Medicao_2389 + Medicao_239 + Medicao_2390 + Medicao_2391 + Medicao_2392
- + Medicao_2393 + Medicao_2394 + Medicao_2395 + Medicao_2396 + Medicao_2397
- + Medicao_2398 + Medicao_2399 + Medicao_24 + Medicao_240 + Medicao_2400
- + Medicao_2401 + Medicao_2402 + Medicao_2403 + Medicao_2404 + Medicao_2405
- + Medicao_2406 + Medicao_2407 + Medicao_2408 + Medicao_2409 + Medicao_241
- + Medicao_2410 + Medicao_2411 + Medicao_2412 + Medicao_2413 + Medicao_2414
- + Medicao_2415 + Medicao_2416 + Medicao_2417 + Medicao_2418 + Medicao_2419
- + Medicao_242 + Medicao_2420 + Medicao_2421 + Medicao_2422 + Medicao_2423
- + Medicao_2424 + Medicao_2425 + Medicao_2426 + Medicao_2427 + Medicao_2428
- + Medicao_2429 + Medicao_243 + Medicao_2430 + Medicao_2431 + Medicao_2432
- + Medicao_2433 + Medicao_2434 + Medicao_2435 + Medicao_2436 + Medicao_2437
- + Medicao_2438 + Medicao_2439 + Medicao_244 + Medicao_2440 + Medicao_2441
- + Medicao_2442 + Medicao_2443 + Medicao_2444 + Medicao_2445 + Medicao_2446
- + Medicao_2447 + Medicao_2448 + Medicao_2449 + Medicao_245 + Medicao_2450
- + Medicao_2451 + Medicao_2452 + Medicao_2453 + Medicao_2454 + Medicao_2455
- + Medicao_2456 + Medicao_2457 + Medicao_2458 + Medicao_2459 + Medicao_246
- + Medicao_2460 + Medicao_2461 + Medicao_2462 + Medicao_2463 + Medicao_2464
- + Medicao_2465 + Medicao_2466 + Medicao_2467 + Medicao_2468 + Medicao_2469
- + Medicao_247 + Medicao_2470 + Medicao_2471 + Medicao_2472 + Medicao_2473
- + Medicao_2474 + Medicao_2475 + Medicao_2476 + Medicao_2477 + Medicao_2478
- + Medicao_2479 + Medicao_248 + Medicao_2480 + Medicao_2481 + Medicao_2482
- + Medicao_2483 + Medicao_2484 + Medicao_2485 + Medicao_2486 + Medicao_2487
- + Medicao_2488 + Medicao_2489 + Medicao_249 + Medicao_2490 + Medicao_2491
- + Medicao_2492 + Medicao_2493 + Medicao_2494 + Medicao_2495 + Medicao_2496
- + Medicao_2497 + Medicao_2498 + Medicao_2499 + Medicao_25 + Medicao_250
- + Medicao_2500 + Medicao_2501 + Medicao_2502 + Medicao_2503 + Medicao_2504
- + Medicao_2505 + Medicao_2506 + Medicao_2507 + Medicao_2508 + Medicao_2509
- + Medicao_251 + Medicao_2510 + Medicao_2511 + Medicao_2512 + Medicao_2513
- + Medicao_2514 + Medicao_2515 + Medicao_2516 + Medicao_2517 + Medicao_2518
- + Medicao_2519 + Medicao_252 + Medicao_2520 + Medicao_2521 + Medicao_2522
- + Medicao_2523 + Medicao_2524 + Medicao_2525 + Medicao_2526 + Medicao_2527
- + Medicao_2528 + Medicao_2529 + Medicao_253 + Medicao_2530 + Medicao_2531
- + Medicao_2532 + Medicao_2533 + Medicao_2534 + Medicao_2535 + Medicao_2536
- + Medicao_2537 + Medicao_2538 + Medicao_2539 + Medicao_254 + Medicao_2540
- + Medicao_2541 + Medicao_2542 + Medicao_2543 + Medicao_2544 + Medicao_2545
- + Medicao_2546 + Medicao_2547 + Medicao_2548 + Medicao_2549 + Medicao_255
- + Medicao_2550 + Medicao_2551 + Medicao_2552 + Medicao_2553 + Medicao_2554
- + Medicao_2555 + Medicao_2556 + Medicao_2557 + Medicao_2558 + Medicao_2559
- + Medicao_256 + Medicao_2560 + Medicao_2561 + Medicao_2562 + Medicao_2563
- + Medicao_2564 + Medicao_2565 + Medicao_2566 + Medicao_2567 + Medicao_2568
- + Medicao_2569 + Medicao_257 + Medicao_2570 + Medicao_2571 + Medicao_2572
- + Medicao_2573 + Medicao_2574 + Medicao_2575 + Medicao_2576 + Medicao_2577
- + Medicao_2578 + Medicao_2579 + Medicao_258 + Medicao_2580 + Medicao_2581
- + Medicao_2582 + Medicao_2583 + Medicao_2584 + Medicao_2585 + Medicao_2586
- + Medicao_2587 + Medicao_2588 + Medicao_2589 + Medicao_259 + Medicao_2590
- + Medicao_2591 + Medicao_2592 + Medicao_2593 + Medicao_2594 + Medicao_2595
- + Medicao_2596 + Medicao_2597 + Medicao_2598 + Medicao_2599 + Medicao_26
- + Medicao_260 + Medicao_2600 + Medicao_2601 + Medicao_2602 + Medicao_2603
- + Medicao_2604 + Medicao_2605 + Medicao_2606 + Medicao_2607 + Medicao_2608
- + Medicao_2609 + Medicao_261 + Medicao_2610 + Medicao_2611 + Medicao_2612
- + Medicao_2613 + Medicao_2614 + Medicao_2615 + Medicao_2616 + Medicao_2617
- + Medicao_2618 + Medicao_2619 + Medicao_262 + Medicao_2620 + Medicao_2621
- + Medicao_2622 + Medicao_2623 + Medicao_2624 + Medicao_2625 + Medicao_2626
- + Medicao_2627 + Medicao_2628 + Medicao_2629 + Medicao_263 + Medicao_2630
- + Medicao_2631 + Medicao_2632 + Medicao_2633 + Medicao_2634 + Medicao_2635
- + Medicao_2636 + Medicao_2637 + Medicao_2638 + Medicao_2639 + Medicao_264
- + Medicao_2640 + Medicao_2641 + Medicao_2642 + Medicao_2643 + Medicao_2644
- + Medicao_2645 + Medicao_2646 + Medicao_2647 + Medicao_2648 + Medicao_2649
- + Medicao_265 + Medicao_2650 + Medicao_2651 + Medicao_2652 + Medicao_2653
- + Medicao_2654 + Medicao_2655 + Medicao_2656 + Medicao_2657 + Medicao_2658
- + Medicao_2659 + Medicao_266 + Medicao_2660 + Medicao_2661 + Medicao_2662
- + Medicao_2663 + Medicao_2664 + Medicao_2665 + Medicao_2666 + Medicao_2667
- + Medicao_2668 + Medicao_2669 + Medicao_267 + Medicao_2670 + Medicao_2671
- + Medicao_2672 + Medicao_2673 + Medicao_2674 + Medicao_2675 + Medicao_2676
- + Medicao_2677 + Medicao_2678 + Medicao_2679 + Medicao_268 + Medicao_2680
- + Medicao_2681 + Medicao_2682 + Medicao_2683 + Medicao_2684 + Medicao_2685
- + Medicao_2686 + Medicao_2687 + Medicao_2688 + Medicao_2689 + Medicao_269
- + Medicao_2690 + Medicao_2691 + Medicao_2692 + Medicao_2693 + Medicao_2694
- + Medicao_2695 + Medicao_2696 + Medicao_2697 + Medicao_2698 + Medicao_2699
- + Medicao_27 + Medicao_270 + Medicao_2700 + Medicao_2701 + Medicao_2702
- + Medicao_2703 + Medicao_2704 + Medicao_2705 + Medicao_2706 + Medicao_2707
- + Medicao_2708 + Medicao_2709 + Medicao_271 + Medicao_2710 + Medicao_2711
- + Medicao_2712 + Medicao_2713 + Medicao_2714 + Medicao_2715 + Medicao_2716
- + Medicao_2717 + Medicao_2718 + Medicao_2719 + Medicao_272 + Medicao_2720
- + Medicao_2721 + Medicao_2722 + Medicao_2723 + Medicao_2724 + Medicao_2725
- + Medicao_2726 + Medicao_2727 + Medicao_2728 + Medicao_2729 + Medicao_273
- + Medicao_2730 + Medicao_2731 + Medicao_2732 + Medicao_2733 + Medicao_2734
- + Medicao_2735 + Medicao_2736 + Medicao_2737 + Medicao_2738 + Medicao_2739
- + Medicao_274 + Medicao_2740 + Medicao_2741 + Medicao_2742 + Medicao_2743
- + Medicao_2744 + Medicao_2745 + Medicao_2746 + Medicao_2747 + Medicao_2748
- + Medicao_2749 + Medicao_275 + Medicao_2750 + Medicao_2751 + Medicao_2752
- + Medicao_2753 + Medicao_2754 + Medicao_2755 + Medicao_2756 + Medicao_2757
- + Medicao_2758 + Medicao_2759 + Medicao_276 + Medicao_2760 + Medicao_2761
- + Medicao_2762 + Medicao_2763 + Medicao_2764 + Medicao_2765 + Medicao_2766
- + Medicao_2767 + Medicao_2768 + Medicao_2769 + Medicao_277 + Medicao_2770
- + Medicao_2771 + Medicao_278 + Medicao_279 + Medicao_28 + Medicao_280
- + Medicao_281 + Medicao_282 + Medicao_283 + Medicao_284 + Medicao_285
- + Medicao_286 + Medicao_287 + Medicao_288 + Medicao_289 + Medicao_29
- + Medicao_290 + Medicao_291 + Medicao_292 + Medicao_293 + Medicao_294
- + Medicao_295 + Medicao_296 + Medicao_297 + Medicao_298 + Medicao_299
- + Medicao_3 + Medicao_30 + Medicao_300 + Medicao_301 + Medicao_302
- + Medicao_303 + Medicao_304 + Medicao_305 + Medicao_306 + Medicao_307
- + Medicao_308 + Medicao_309 + Medicao_31 + Medicao_310 + Medicao_311
- + Medicao_312 + Medicao_313 + Medicao_314 + Medicao_315 + Medicao_316
- + Medicao_317 + Medicao_318 + Medicao_319 + Medicao_32 + Medicao_320
- + Medicao_321 + Medicao_322 + Medicao_323 + Medicao_324 + Medicao_325
- + Medicao_326 + Medicao_327 + Medicao_328 + Medicao_329 + Medicao_33
- + Medicao_330 + Medicao_331 + Medicao_332 + Medicao_333 + Medicao_334
- + Medicao_335 + Medicao_336 + Medicao_337 + Medicao_338 + Medicao_339
- + Medicao_34 + Medicao_340 + Medicao_341 + Medicao_342 + Medicao_343
- + Medicao_344 + Medicao_345 + Medicao_346 + Medicao_347 + Medicao_348
- + Medicao_349 + Medicao_35 + Medicao_350 + Medicao_351 + Medicao_352
- + Medicao_353 + Medicao_354 + Medicao_355 + Medicao_356 + Medicao_357
- + Medicao_358 + Medicao_359 + Medicao_36 + Medicao_360 + Medicao_361
- + Medicao_362 + Medicao_363 + Medicao_364 + Medicao_365 + Medicao_366
- + Medicao_367 + Medicao_368 + Medicao_369 + Medicao_37 + Medicao_370
- + Medicao_371 + Medicao_372 + Medicao_373 + Medicao_374 + Medicao_375
- + Medicao_376 + Medicao_377 + Medicao_378 + Medicao_379 + Medicao_38
- + Medicao_380 + Medicao_381 + Medicao_382 + Medicao_383 + Medicao_384
- + Medicao_385 + Medicao_386 + Medicao_387 + Medicao_388 + Medicao_389
- + Medicao_39 + Medicao_390 + Medicao_391 + Medicao_392 + Medicao_393
- + Medicao_394 + Medicao_395 + Medicao_396 + Medicao_397 + Medicao_398
- + Medicao_399 + Medicao_4 + Medicao_40 + Medicao_400 + Medicao_401
- + Medicao_402 + Medicao_403 + Medicao_404 + Medicao_405 + Medicao_406
- + Medicao_407 + Medicao_408 + Medicao_409 + Medicao_41 + Medicao_410
- + Medicao_411 + Medicao_412 + Medicao_413 + Medicao_414 + Medicao_415
- + Medicao_416 + Medicao_417 + Medicao_418 + Medicao_419 + Medicao_42
- + Medicao_420 + Medicao_421 + Medicao_422 + Medicao_423 + Medicao_424
- + Medicao_425 + Medicao_426 + Medicao_427 + Medicao_428 + Medicao_429
- + Medicao_43 + Medicao_430 + Medicao_431 + Medicao_432 + Medicao_433
- + Medicao_434 + Medicao_435 + Medicao_436 + Medicao_437 + Medicao_438
- + Medicao_439 + Medicao_44 + Medicao_440 + Medicao_441 + Medicao_442
- + Medicao_443 + Medicao_444 + Medicao_445 + Medicao_446 + Medicao_447
- + Medicao_448 + Medicao_449 + Medicao_45 + Medicao_450 + Medicao_451
- + Medicao_452 + Medicao_453 + Medicao_454 + Medicao_455 + Medicao_456
- + Medicao_457 + Medicao_458 + Medicao_459 + Medicao_46 + Medicao_460
- + Medicao_461 + Medicao_462 + Medicao_463 + Medicao_464 + Medicao_465
- + Medicao_466 + Medicao_467 + Medicao_468 + Medicao_469 + Medicao_47
- + Medicao_470 + Medicao_471 + Medicao_472 + Medicao_473 + Medicao_474
- + Medicao_475 + Medicao_476 + Medicao_477 + Medicao_478 + Medicao_479
- + Medicao_48 + Medicao_480 + Medicao_481 + Medicao_482 + Medicao_483
- + Medicao_484 + Medicao_485 + Medicao_486 + Medicao_487 + Medicao_488
- + Medicao_489 + Medicao_49 + Medicao_490 + Medicao_491 + Medicao_492
- + Medicao_493 + Medicao_494 + Medicao_495 + Medicao_496 + Medicao_497
- + Medicao_498 + Medicao_499 + Medicao_5 + Medicao_50 + Medicao_500
- + Medicao_501 + Medicao_502 + Medicao_503 + Medicao_504 + Medicao_505
- + Medicao_506 + Medicao_507 + Medicao_508 + Medicao_509 + Medicao_51
- + Medicao_510 + Medicao_511 + Medicao_512 + Medicao_513 + Medicao_514
- + Medicao_515 + Medicao_516 + Medicao_517 + Medicao_518 + Medicao_519
- + Medicao_52 + Medicao_520 + Medicao_521 + Medicao_522 + Medicao_523
- + Medicao_524 + Medicao_525 + Medicao_526 + Medicao_527 + Medicao_528
- + Medicao_529 + Medicao_53 + Medicao_530 + Medicao_531 + Medicao_532
- + Medicao_533 + Medicao_534 + Medicao_535 + Medicao_536 + Medicao_537
- + Medicao_538 + Medicao_539 + Medicao_54 + Medicao_540 + Medicao_541
- + Medicao_542 + Medicao_543 + Medicao_544 + Medicao_545 + Medicao_546
- + Medicao_547 + Medicao_548 + Medicao_549 + Medicao_55 + Medicao_550
- + Medicao_551 + Medicao_552 + Medicao_553 + Medicao_554 + Medicao_555
- + Medicao_556 + Medicao_557 + Medicao_558 + Medicao_559 + Medicao_56
- + Medicao_560 + Medicao_561 + Medicao_562 + Medicao_563 + Medicao_564
- + Medicao_565 + Medicao_566 + Medicao_567 + Medicao_568 + Medicao_569
- + Medicao_57 + Medicao_570 + Medicao_571 + Medicao_572 + Medicao_573
- + Medicao_574 + Medicao_575 + Medicao_576 + Medicao_577 + Medicao_578
- + Medicao_579 + Medicao_58 + Medicao_580 + Medicao_581 + Medicao_582
- + Medicao_583 + Medicao_584 + Medicao_585 + Medicao_586 + Medicao_587
- + Medicao_588 + Medicao_589 + Medicao_59 + Medicao_590 + Medicao_591
- + Medicao_592 + Medicao_593 + Medicao_594 + Medicao_595 + Medicao_596
- + Medicao_597 + Medicao_598 + Medicao_599 + Medicao_6 + Medicao_60
- + Medicao_600 + Medicao_601 + Medicao_602 + Medicao_603 + Medicao_604
- + Medicao_605 + Medicao_606 + Medicao_607 + Medicao_608 + Medicao_609
- + Medicao_61 + Medicao_610 + Medicao_611 + Medicao_612 + Medicao_613
- + Medicao_614 + Medicao_615 + Medicao_616 + Medicao_617 + Medicao_618
- + Medicao_619 + Medicao_62 + Medicao_620 + Medicao_621 + Medicao_622
- + Medicao_623 + Medicao_624 + Medicao_625 + Medicao_626 + Medicao_627
- + Medicao_628 + Medicao_629 + Medicao_63 + Medicao_630 + Medicao_631
- + Medicao_632 + Medicao_633 + Medicao_634 + Medicao_635 + Medicao_636
- + Medicao_637 + Medicao_638 + Medicao_639 + Medicao_64 + Medicao_640
- + Medicao_641 + Medicao_642 + Medicao_643 + Medicao_644 + Medicao_645
- + Medicao_646 + Medicao_647 + Medicao_648 + Medicao_649 + Medicao_65
- + Medicao_650 + Medicao_651 + Medicao_652 + Medicao_653 + Medicao_654
- + Medicao_655 + Medicao_656 + Medicao_657 + Medicao_658 + Medicao_659
- + Medicao_66 + Medicao_660 + Medicao_661 + Medicao_662 + Medicao_663
- + Medicao_664 + Medicao_665 + Medicao_666 + Medicao_667 + Medicao_668
- + Medicao_669 + Medicao_67 + Medicao_670 + Medicao_671 + Medicao_672
- + Medicao_673 + Medicao_674 + Medicao_675 + Medicao_676 + Medicao_677
- + Medicao_678 + Medicao_679 + Medicao_68 + Medicao_680 + Medicao_681
- + Medicao_682 + Medicao_683 + Medicao_684 + Medicao_685 + Medicao_686
- + Medicao_687 + Medicao_688 + Medicao_689 + Medicao_69 + Medicao_690
- + Medicao_691 + Medicao_692 + Medicao_693 + Medicao_694 + Medicao_695
- + Medicao_696 + Medicao_697 + Medicao_698 + Medicao_699 + Medicao_7
- + Medicao_70 + Medicao_700 + Medicao_701 + Medicao_702 + Medicao_703
- + Medicao_704 + Medicao_705 + Medicao_706 + Medicao_707 + Medicao_708
- + Medicao_709 + Medicao_71 + Medicao_710 + Medicao_711 + Medicao_712
- + Medicao_713 + Medicao_714 + Medicao_715 + Medicao_716 + Medicao_717
- + Medicao_718 + Medicao_719 + Medicao_72 + Medicao_720 + Medicao_721
- + Medicao_722 + Medicao_723 + Medicao_724 + Medicao_725 + Medicao_726
- + Medicao_727 + Medicao_728 + Medicao_729 + Medicao_73 + Medicao_730
- + Medicao_731 + Medicao_732 + Medicao_733 + Medicao_734 + Medicao_735
- + Medicao_736 + Medicao_737 + Medicao_738 + Medicao_739 + Medicao_74
- + Medicao_740 + Medicao_741 + Medicao_742 + Medicao_743 + Medicao_744
- + Medicao_745 + Medicao_746 + Medicao_747 + Medicao_748 + Medicao_749
- + Medicao_75 + Medicao_750 + Medicao_751 + Medicao_752 + Medicao_753
- + Medicao_754 + Medicao_755 + Medicao_756 + Medicao_757 + Medicao_758
- + Medicao_759 + Medicao_76 + Medicao_760 + Medicao_761 + Medicao_762
- + Medicao_763 + Medicao_764 + Medicao_765 + Medicao_766 + Medicao_767
- + Medicao_768 + Medicao_769 + Medicao_77 + Medicao_770 + Medicao_771
- + Medicao_772 + Medicao_773 + Medicao_774 + Medicao_775 + Medicao_776
- + Medicao_777 + Medicao_778 + Medicao_779 + Medicao_78 + Medicao_780
- + Medicao_781 + Medicao_782 + Medicao_783 + Medicao_784 + Medicao_785
- + Medicao_786 + Medicao_787 + Medicao_788 + Medicao_789 + Medicao_79
- + Medicao_790 + Medicao_791 + Medicao_792 + Medicao_793 + Medicao_794
- + Medicao_795 + Medicao_796 + Medicao_797 + Medicao_798 + Medicao_799
- + Medicao_8 + Medicao_80 + Medicao_800 + Medicao_801 + Medicao_802
- + Medicao_803 + Medicao_804 + Medicao_805 + Medicao_806 + Medicao_807
- + Medicao_808 + Medicao_809 + Medicao_81 + Medicao_810 + Medicao_811
- + Medicao_812 + Medicao_813 + Medicao_814 + Medicao_815 + Medicao_816
- + Medicao_817 + Medicao_818 + Medicao_819 + Medicao_82 + Medicao_820
- + Medicao_821 + Medicao_822 + Medicao_823 + Medicao_824 + Medicao_825
- + Medicao_826 + Medicao_827 + Medicao_828 + Medicao_829 + Medicao_83
- + Medicao_830 + Medicao_831 + Medicao_832 + Medicao_833 + Medicao_834
- + Medicao_835 + Medicao_836 + Medicao_837 + Medicao_838 + Medicao_839
- + Medicao_84 + Medicao_840 + Medicao_841 + Medicao_842 + Medicao_843
- + Medicao_844 + Medicao_845 + Medicao_846 + Medicao_847 + Medicao_848
- + Medicao_849 + Medicao_85 + Medicao_850 + Medicao_851 + Medicao_852
- + Medicao_853 + Medicao_854 + Medicao_855 + Medicao_856 + Medicao_857
- + Medicao_858 + Medicao_859 + Medicao_86 + Medicao_860 + Medicao_861
- + Medicao_862 + Medicao_863 + Medicao_864 + Medicao_865 + Medicao_866
- + Medicao_867 + Medicao_868 + Medicao_869 + Medicao_87 + Medicao_870
- + Medicao_871 + Medicao_872 + Medicao_873 + Medicao_874 + Medicao_875
- + Medicao_876 + Medicao_877 + Medicao_878 + Medicao_879 + Medicao_88
- + Medicao_880 + Medicao_881 + Medicao_882 + Medicao_883 + Medicao_884
- + Medicao_885 + Medicao_886 + Medicao_887 + Medicao_888 + Medicao_889
- + Medicao_89 + Medicao_890 + Medicao_891 + Medicao_892 + Medicao_893
- + Medicao_894 + Medicao_895 + Medicao_896 + Medicao_897 + Medicao_898
- + Medicao_899 + Medicao_9 + Medicao_90 + Medicao_900 + Medicao_901
- + Medicao_902 + Medicao_903 + Medicao_904 + Medicao_905 + Medicao_906
- + Medicao_907 + Medicao_908 + Medicao_909 + Medicao_91 + Medicao_910
- + Medicao_911 + Medicao_912 + Medicao_913 + Medicao_914 + Medicao_915
- + Medicao_916 + Medicao_917 + Medicao_918 + Medicao_919 + Medicao_92
- + Medicao_920 + Medicao_921 + Medicao_922 + Medicao_923 + Medicao_924
- + Medicao_925 + Medicao_926 + Medicao_927 + Medicao_928 + Medicao_929
- + Medicao_93 + Medicao_930 + Medicao_931 + Medicao_932 + Medicao_933
- + Medicao_934 + Medicao_935 + Medicao_936 + Medicao_937 + Medicao_938
- + Medicao_939 + Medicao_94 + Medicao_940 + Medicao_941 + Medicao_942
- + Medicao_943 + Medicao_944 + Medicao_945 + Medicao_946 + Medicao_947
- + Medicao_948 + Medicao_949 + Medicao_95 + Medicao_950 + Medicao_951
- + Medicao_952 + Medicao_953 + Medicao_954 + Medicao_955 + Medicao_956
- + Medicao_957 + Medicao_958 + Medicao_959 + Medicao_96 + Medicao_960
- + Medicao_961 + Medicao_962 + Medicao_963 + Medicao_964 + Medicao_965
- + Medicao_966 + Medicao_967 + Medicao_968 + Medicao_969 + Medicao_97
- + Medicao_970 + Medicao_971 + Medicao_972 + Medicao_973 + Medicao_974
- + Medicao_975 + Medicao_976 + Medicao_977 + Medicao_978 + Medicao_979
- + Medicao_98 + Medicao_980 + Medicao_981 + Medicao_982 + Medicao_983
- + Medicao_984 + Medicao_985 + Medicao_986 + Medicao_987 + Medicao_988
- + Medicao_989 + Medicao_99 + Medicao_990 + Medicao_991 + Medicao_992
- + Medicao_993 + Medicao_994 + Medicao_995 + Medicao_996 + Medicao_997
- + Medicao_998 + Medicao_999
+Total_Cost: Medicao_0 + Medicao_1 + Medicao_10 + Medicao_100 + Medicao_101
+ + Medicao_1015 + Medicao_102 + Medicao_1031 + Medicao_104 + Medicao_106
+ + Medicao_1063 + Medicao_108 + Medicao_1095 + Medicao_1096 + Medicao_1098
+ + Medicao_1100 + Medicao_1102 + Medicao_1104 + Medicao_1106 + Medicao_1108
+ + Medicao_1112 + Medicao_112 + Medicao_1120 + Medicao_1136 + Medicao_1152
+ + Medicao_116 + Medicao_1184 + Medicao_120 + Medicao_1216 + Medicao_1217
+ + Medicao_1219 + Medicao_1221 + Medicao_1223 + Medicao_1227 + Medicao_1235
+ + Medicao_124 + Medicao_1243 + Medicao_1251 + Medicao_1267 + Medicao_128
+ + Medicao_1283 + Medicao_1315 + Medicao_1347 + Medicao_1351 + Medicao_1355
+ + Medicao_1359 + Medicao_136 + Medicao_1367 + Medicao_1375 + Medicao_1383
+ + Medicao_1399 + Medicao_14 + Medicao_1431 + Medicao_1495 + Medicao_152
+ + Medicao_1559 + Medicao_1687 + Medicao_18 + Medicao_1815 + Medicao_1816
+ + Medicao_1818 + Medicao_1820 + Medicao_1822 + Medicao_1826 + Medicao_1834
+ + Medicao_184 + Medicao_1850 + Medicao_1866 + Medicao_1898 + Medicao_1930
+ + Medicao_1934 + Medicao_1938 + Medicao_1946 + Medicao_1954 + Medicao_1962
+ + Medicao_1978 + Medicao_2 + Medicao_2010 + Medicao_2074 + Medicao_2138
+ + Medicao_216 + Medicao_22 + Medicao_2266 + Medicao_2394 + Medicao_2395
+ + Medicao_2396 + Medicao_2398 + Medicao_2402 + Medicao_2406 + Medicao_2414
+ + Medicao_2422 + Medicao_2438 + Medicao_2439 + Medicao_2441 + Medicao_2443
+ + Medicao_2445 + Medicao_2449 + Medicao_2453 + Medicao_2461 + Medicao_2462
+ + Medicao_2463 + Medicao_2467 + Medicao_2475 + Medicao_2483 + Medicao_2485
+ + Medicao_2486 + Medicao_2488 + Medicao_2496 + Medicao_2512 + Medicao_2528
+ + Medicao_2529 + Medicao_2531 + Medicao_2535 + Medicao_2543 + Medicao_2559
+ + Medicao_2575 + Medicao_26 + Medicao_2607 + Medicao_2639 + Medicao_2647
+ + Medicao_2663 + Medicao_2679 + Medicao_2680 + Medicao_2684 + Medicao_2700
+ + Medicao_2708 + Medicao_2740 + Medicao_280 + Medicao_30 + Medicao_34
+ + Medicao_344 + Medicao_345 + Medicao_346 + Medicao_348 + Medicao_350
+ + Medicao_352 + Medicao_354 + Medicao_356 + Medicao_358 + Medicao_360
+ + Medicao_362 + Medicao_364 + Medicao_368 + Medicao_376 + Medicao_38
+ + Medicao_392 + Medicao_4 + Medicao_408 + Medicao_42 + Medicao_440
+ + Medicao_472 + Medicao_473 + Medicao_474 + Medicao_475 + Medicao_477
+ + Medicao_479 + Medicao_481 + Medicao_485 + Medicao_489 + Medicao_493
+ + Medicao_497 + Medicao_50 + Medicao_501 + Medicao_509 + Medicao_525
+ + Medicao_557 + Medicao_58 + Medicao_589 + Medicao_6 + Medicao_653
+ + Medicao_66 + Medicao_717 + Medicao_718 + Medicao_720 + Medicao_722
+ + Medicao_724 + Medicao_728 + Medicao_732 + Medicao_736 + Medicao_740
+ + Medicao_744 + Medicao_752 + Medicao_768 + Medicao_8 + Medicao_800
+ + Medicao_82 + Medicao_832 + Medicao_896 + Medicao_960 + Medicao_961
+ + Medicao_963 + Medicao_965 + Medicao_967 + Medicao_969 + Medicao_971
+ + Medicao_975 + Medicao_98 + Medicao_983 + Medicao_99 + Medicao_991
+ + Medicao_999
 Subject To
 Composicao1000_0: - Medicao_0 + Medicao_1000 <= 0
 Composicao1000_1: - Medicao_1 + Medicao_1000 <= 0
@@ -9965,6 +9451,167 @@ Composicao998_472: - Medicao_472 + Medicao_998 <= 0
 Composicao998_493: - Medicao_493 + Medicao_998 <= 0
 Composicao9_1: - Medicao_1 + Medicao_9 <= 0
 Composicao9_2462: - Medicao_2462 + Medicao_9 <= 0
+Max_Probes_Link0_12: Medicao_0 + Medicao_10 + Medicao_1015 + Medicao_1031
+ + Medicao_1063 + Medicao_1112 + Medicao_1120 + Medicao_1136 + Medicao_1152
+ + Medicao_1184 + Medicao_1227 + Medicao_1251 + Medicao_1267 + Medicao_1283
+ + Medicao_1315 + Medicao_136 + Medicao_1399 + Medicao_14 + Medicao_1431
+ + Medicao_1495 + Medicao_152 + Medicao_1559 + Medicao_1687 + Medicao_1826
+ + Medicao_1834 + Medicao_184 + Medicao_1850 + Medicao_1866 + Medicao_1898
+ + Medicao_1978 + Medicao_2 + Medicao_2010 + Medicao_2074 + Medicao_2138
+ + Medicao_216 + Medicao_2266 + Medicao_2402 + Medicao_2406 + Medicao_2414
+ + Medicao_2422 + Medicao_2443 + Medicao_2445 + Medicao_2449 + Medicao_2453
+ + Medicao_2463 + Medicao_2467 + Medicao_2475 + Medicao_2488 + Medicao_2496
+ + Medicao_2512 + Medicao_2535 + Medicao_2543 + Medicao_2559 + Medicao_2575
+ + Medicao_2607 + Medicao_2639 + Medicao_2647 + Medicao_2663 + Medicao_2684
+ + Medicao_2708 + Medicao_2740 + Medicao_280 + Medicao_368 + Medicao_376
+ + Medicao_392 + Medicao_4 + Medicao_408 + Medicao_440 + Medicao_509
+ + Medicao_525 + Medicao_557 + Medicao_589 + Medicao_653 + Medicao_752
+ + Medicao_768 + Medicao_800 + Medicao_832 + Medicao_896 + Medicao_975
+ + Medicao_999 <= 30
+Max_Probes_Link0_13: Medicao_1 + Medicao_1015 + Medicao_1031 + Medicao_1063
+ + Medicao_1112 + Medicao_1120 + Medicao_1136 + Medicao_1152 + Medicao_1184
+ + Medicao_1227 + Medicao_1251 + Medicao_1267 + Medicao_1283 + Medicao_1315
+ + Medicao_136 + Medicao_1399 + Medicao_1431 + Medicao_1495 + Medicao_152
+ + Medicao_1559 + Medicao_1687 + Medicao_18 + Medicao_1826 + Medicao_1834
+ + Medicao_184 + Medicao_1850 + Medicao_1866 + Medicao_1898 + Medicao_1978
+ + Medicao_2010 + Medicao_2074 + Medicao_2138 + Medicao_216 + Medicao_22
+ + Medicao_2266 + Medicao_2402 + Medicao_2406 + Medicao_2414 + Medicao_2422
+ + Medicao_2443 + Medicao_2445 + Medicao_2449 + Medicao_2453 + Medicao_2463
+ + Medicao_2467 + Medicao_2475 + Medicao_2488 + Medicao_2496 + Medicao_2512
+ + Medicao_2531 + Medicao_2535 + Medicao_2543 + Medicao_2559 + Medicao_2575
+ + Medicao_26 + Medicao_2607 + Medicao_2639 + Medicao_2647 + Medicao_2663
+ + Medicao_2684 + Medicao_2708 + Medicao_2740 + Medicao_280 + Medicao_30
+ + Medicao_34 + Medicao_368 + Medicao_376 + Medicao_38 + Medicao_392
+ + Medicao_408 + Medicao_42 + Medicao_440 + Medicao_50 + Medicao_509
+ + Medicao_525 + Medicao_557 + Medicao_58 + Medicao_589 + Medicao_6
+ + Medicao_653 + Medicao_66 + Medicao_752 + Medicao_768 + Medicao_8
+ + Medicao_800 + Medicao_82 + Medicao_832 + Medicao_896 + Medicao_975
+ + Medicao_999 <= 30
+Max_Probes_Link11_12: Medicao_10 + Medicao_1031 + Medicao_1120 + Medicao_1152
+ + Medicao_1251 + Medicao_1283 + Medicao_1431 + Medicao_152 + Medicao_1559
+ + Medicao_1834 + Medicao_1866 + Medicao_2 + Medicao_2010 + Medicao_2138
+ + Medicao_216 + Medicao_2395 + Medicao_2396 + Medicao_2398 + Medicao_2402
+ + Medicao_2406 + Medicao_2414 + Medicao_2422 + Medicao_2439 + Medicao_2467
+ + Medicao_2496 + Medicao_2543 + Medicao_2575 + Medicao_2647 + Medicao_2680
+ + Medicao_2700 + Medicao_2740 + Medicao_376 + Medicao_408 + Medicao_525
+ + Medicao_589 + Medicao_768 + Medicao_832 + Medicao_999 <= 30
+Max_Probes_Link11_19: Medicao_10 + Medicao_1031 + Medicao_1152 + Medicao_1283
+ + Medicao_1559 + Medicao_1866 + Medicao_2138 + Medicao_216 + Medicao_2394
+ + Medicao_2439 + Medicao_2467 + Medicao_2496 + Medicao_2575 + Medicao_2647
+ + Medicao_2680 + Medicao_2700 + Medicao_2740 + Medicao_408 + Medicao_589
+ + Medicao_832 <= 30
+Max_Probes_Link12_17: Medicao_1015 + Medicao_1063 + Medicao_1136
+ + Medicao_1184 + Medicao_1267 + Medicao_1315 + Medicao_14 + Medicao_1495
+ + Medicao_1687 + Medicao_184 + Medicao_1850 + Medicao_1898 + Medicao_2074
+ + Medicao_2266 + Medicao_2396 + Medicao_2398 + Medicao_2438 + Medicao_2441
+ + Medicao_2463 + Medicao_2475 + Medicao_2488 + Medicao_2512 + Medicao_2559
+ + Medicao_2607 + Medicao_2639 + Medicao_2663 + Medicao_2680 + Medicao_2684
+ + Medicao_2700 + Medicao_2708 + Medicao_280 + Medicao_392 + Medicao_4
+ + Medicao_440 + Medicao_557 + Medicao_653 + Medicao_800 + Medicao_896 <= 30
+Max_Probes_Link13_14: Medicao_1108 + Medicao_1223 + Medicao_128 + Medicao_1383
+ + Medicao_1822 + Medicao_1962 + Medicao_2414 + Medicao_2449 + Medicao_2462
+ + Medicao_2486 + Medicao_2488 + Medicao_2496 + Medicao_2512 + Medicao_2529
+ + Medicao_2531 + Medicao_2535 + Medicao_2543 + Medicao_2559 + Medicao_2575
+ + Medicao_2607 + Medicao_364 + Medicao_501 + Medicao_744 + Medicao_8
+ + Medicao_971 <= 100
+Max_Probes_Link13_16: Medicao_1015 + Medicao_1031 + Medicao_1063 + Medicao_108
+ + Medicao_1098 + Medicao_1108 + Medicao_1112 + Medicao_1120 + Medicao_1136
+ + Medicao_1152 + Medicao_1184 + Medicao_1219 + Medicao_1223 + Medicao_1227
+ + Medicao_1251 + Medicao_1267 + Medicao_128 + Medicao_1283 + Medicao_1315
+ + Medicao_1359 + Medicao_136 + Medicao_1383 + Medicao_1399 + Medicao_1431
+ + Medicao_1495 + Medicao_152 + Medicao_1559 + Medicao_1687 + Medicao_18
+ + Medicao_1818 + Medicao_1822 + Medicao_1826 + Medicao_1834 + Medicao_184
+ + Medicao_1850 + Medicao_1866 + Medicao_1898 + Medicao_1938 + Medicao_1962
+ + Medicao_1978 + Medicao_2010 + Medicao_2074 + Medicao_2138 + Medicao_216
+ + Medicao_22 + Medicao_2266 + Medicao_2406 + Medicao_2422 + Medicao_2445
+ + Medicao_2453 + Medicao_2461 + Medicao_2483 + Medicao_2486 + Medicao_26
+ + Medicao_2639 + Medicao_2647 + Medicao_2663 + Medicao_2684 + Medicao_2708
+ + Medicao_2740 + Medicao_280 + Medicao_30 + Medicao_34 + Medicao_356
+ + Medicao_364 + Medicao_368 + Medicao_376 + Medicao_38 + Medicao_392
+ + Medicao_408 + Medicao_42 + Medicao_440 + Medicao_481 + Medicao_50
+ + Medicao_501 + Medicao_509 + Medicao_525 + Medicao_557 + Medicao_58
+ + Medicao_589 + Medicao_6 + Medicao_653 + Medicao_66 + Medicao_728
+ + Medicao_744 + Medicao_752 + Medicao_768 + Medicao_800 + Medicao_82
+ + Medicao_832 + Medicao_896 + Medicao_963 + Medicao_971 + Medicao_975
+ + Medicao_999 <= 100
+Max_Probes_Link14_15: Medicao_2485 + Medicao_2529 + Medicao_2531
+ + Medicao_2535 + Medicao_2543 + Medicao_2559 + Medicao_2575 + Medicao_2607
+ <= 100
+Max_Probes_Link15_16: Medicao_1100 + Medicao_112 + Medicao_1221 + Medicao_1367
+ + Medicao_1820 + Medicao_1946 + Medicao_2422 + Medicao_2453 + Medicao_2483
+ + Medicao_2528 + Medicao_26 + Medicao_2684 + Medicao_2708 + Medicao_2740
+ + Medicao_358 + Medicao_485 + Medicao_732 + Medicao_965 <= 100
+Max_Probes_Link17_18: Medicao_1063 + Medicao_1184 + Medicao_1315 + Medicao_14
+ + Medicao_1687 + Medicao_1898 + Medicao_2266 + Medicao_2398 + Medicao_2441
+ + Medicao_2475 + Medicao_2512 + Medicao_2607 + Medicao_2663 + Medicao_2679
+ + Medicao_2700 + Medicao_2708 + Medicao_280 + Medicao_440 + Medicao_653
+ + Medicao_896 <= 30
+Max_Probes_Link1_10: Medicao_100 + Medicao_1104 + Medicao_1235 + Medicao_1375
+ + Medicao_1816 + Medicao_1930 + Medicao_1934 + Medicao_1938 + Medicao_1946
+ + Medicao_1954 + Medicao_1962 + Medicao_1978 + Medicao_2010 + Medicao_2074
+ + Medicao_2138 + Medicao_2266 + Medicao_354 + Medicao_497 + Medicao_66
+ + Medicao_724 + Medicao_983 <= 2000
+Max_Probes_Link1_2: Medicao_101 + Medicao_1347 + Medicao_1375 + Medicao_352
+ + Medicao_354 + Medicao_475 + Medicao_497 <= 100
+Max_Probes_Link1_6: Medicao_102 + Medicao_104 + Medicao_108 + Medicao_1104
+ + Medicao_112 + Medicao_116 + Medicao_120 + Medicao_1235 + Medicao_124
+ + Medicao_128 + Medicao_136 + Medicao_152 + Medicao_184 + Medicao_1930
+ + Medicao_1934 + Medicao_1938 + Medicao_1946 + Medicao_1954 + Medicao_1962
+ + Medicao_1978 + Medicao_2010 + Medicao_2074 + Medicao_2138 + Medicao_216
+ + Medicao_2266 + Medicao_280 + Medicao_42 + Medicao_66 + Medicao_98
+ + Medicao_983 <= 100
+Max_Probes_Link1_9: Medicao_106 + Medicao_1816 + Medicao_352 + Medicao_724
+ + Medicao_99 <= 100
+Max_Probes_Link2_16: Medicao_18 + Medicao_345 + Medicao_348 + Medicao_356
+ + Medicao_358 + Medicao_360 + Medicao_362 + Medicao_364 + Medicao_368
+ + Medicao_376 + Medicao_392 + Medicao_408 + Medicao_440 <= 100
+Max_Probes_Link2_3: Medicao_1347 + Medicao_1375 + Medicao_344 + Medicao_346
+ + Medicao_350 + Medicao_475 + Medicao_497 <= 100
+Max_Probes_Link3_4: Medicao_1355 + Medicao_350 + Medicao_474 + Medicao_479
+ + Medicao_718 + Medicao_720 <= 100
+Max_Probes_Link3_6: Medicao_102 + Medicao_1106 + Medicao_124 + Medicao_1243
+ + Medicao_1351 + Medicao_1359 + Medicao_1367 + Medicao_1383 + Medicao_1399
+ + Medicao_1431 + Medicao_1495 + Medicao_1559 + Medicao_1687 + Medicao_1930
+ + Medicao_1954 + Medicao_473 + Medicao_477 + Medicao_481 + Medicao_485
+ + Medicao_489 + Medicao_493 + Medicao_50 + Medicao_501 + Medicao_509
+ + Medicao_525 + Medicao_557 + Medicao_589 + Medicao_653 + Medicao_720
+ + Medicao_82 + Medicao_991 <= 100
+Max_Probes_Link3_8: Medicao_1106 + Medicao_124 + Medicao_1243 + Medicao_1347
+ + Medicao_1351 + Medicao_1355 + Medicao_1359 + Medicao_1367 + Medicao_1375
+ + Medicao_1383 + Medicao_1399 + Medicao_1431 + Medicao_1495 + Medicao_1559
+ + Medicao_1687 + Medicao_1954 + Medicao_346 + Medicao_472 + Medicao_718
+ + Medicao_82 + Medicao_991 <= 100
+Max_Probes_Link4_9: Medicao_106 + Medicao_1355 + Medicao_479 + Medicao_58
+ + Medicao_717 + Medicao_722 + Medicao_724 + Medicao_728 + Medicao_732
+ + Medicao_736 + Medicao_740 + Medicao_744 + Medicao_752 + Medicao_768
+ + Medicao_800 + Medicao_832 + Medicao_896 <= 100
+Max_Probes_Link5_16: Medicao_1015 + Medicao_1031 + Medicao_1063 + Medicao_120
+ + Medicao_362 + Medicao_38 + Medicao_493 + Medicao_740 + Medicao_960
+ + Medicao_961 + Medicao_963 + Medicao_965 + Medicao_967 + Medicao_969
+ + Medicao_971 + Medicao_975 + Medicao_983 + Medicao_991 + Medicao_999 <= 200
+Max_Probes_Link6_16: Medicao_104 + Medicao_108 + Medicao_1095 + Medicao_1096
+ + Medicao_1098 + Medicao_1100 + Medicao_1102 + Medicao_1108 + Medicao_1112
+ + Medicao_112 + Medicao_1120 + Medicao_1136 + Medicao_1152 + Medicao_116
+ + Medicao_1184 + Medicao_120 + Medicao_1235 + Medicao_1243 + Medicao_128
+ + Medicao_1351 + Medicao_1359 + Medicao_136 + Medicao_1367 + Medicao_1383
+ + Medicao_1399 + Medicao_1431 + Medicao_1495 + Medicao_152 + Medicao_1559
+ + Medicao_1687 + Medicao_184 + Medicao_1934 + Medicao_1938 + Medicao_1946
+ + Medicao_1962 + Medicao_1978 + Medicao_2010 + Medicao_2074 + Medicao_2138
+ + Medicao_216 + Medicao_2266 + Medicao_280 + Medicao_34 + Medicao_348
+ + Medicao_42 + Medicao_477 + Medicao_481 + Medicao_485 + Medicao_489
+ + Medicao_493 + Medicao_50 + Medicao_501 + Medicao_509 + Medicao_525
+ + Medicao_557 + Medicao_589 + Medicao_653 + Medicao_66 + Medicao_82
+ + Medicao_969 + Medicao_983 + Medicao_991 <= 35
+Max_Probes_Link7_16: Medicao_1102 + Medicao_116 + Medicao_1216 + Medicao_1217
+ + Medicao_1219 + Medicao_1221 + Medicao_1223 + Medicao_1227 + Medicao_1235
+ + Medicao_1243 + Medicao_1251 + Medicao_1267 + Medicao_1283 + Medicao_1315
+ + Medicao_30 + Medicao_360 + Medicao_489 + Medicao_736 + Medicao_967 <= 15
+Max_Probes_Link9_16: Medicao_1096 + Medicao_1217 + Medicao_1815 + Medicao_1818
+ + Medicao_1820 + Medicao_1822 + Medicao_1826 + Medicao_1834 + Medicao_1850
+ + Medicao_1866 + Medicao_1898 + Medicao_22 + Medicao_58 + Medicao_722
+ + Medicao_728 + Medicao_732 + Medicao_736 + Medicao_740 + Medicao_744
+ + Medicao_752 + Medicao_768 + Medicao_800 + Medicao_832 + Medicao_896
+ + Medicao_961 <= 100
 Max_Probes_Router0: Medicao_11 + Medicao_12 + Medicao_13 + Medicao_15
  + Medicao_16 + Medicao_17 + Medicao_19 + Medicao_20 + Medicao_21 + Medicao_23
  + Medicao_24 + Medicao_25 + Medicao_2532 + Medicao_2533 + Medicao_2534
@@ -9979,7 +9626,7 @@ Max_Probes_Router0: Medicao_11 + Medicao_12 + Medicao_13 + Medicao_15
  + Medicao_79 + Medicao_80 + Medicao_81 + Medicao_83 + Medicao_84 + Medicao_85
  + Medicao_86 + Medicao_87 + Medicao_88 + Medicao_89 + Medicao_9 + Medicao_90
  + Medicao_91 + Medicao_92 + Medicao_93 + Medicao_94 + Medicao_95 + Medicao_96
- + Medicao_97 <= 6
+ + Medicao_97 <= 12
 Max_Probes_Router1: Medicao_103 + Medicao_105 + Medicao_107 + Medicao_109
  + Medicao_110 + Medicao_111 + Medicao_113 + Medicao_114 + Medicao_115
  + Medicao_117 + Medicao_118 + Medicao_119 + Medicao_121 + Medicao_122
@@ -10027,7 +9674,7 @@ Max_Probes_Router1: Medicao_103 + Medicao_105 + Medicao_107 + Medicao_109
  + Medicao_332 + Medicao_333 + Medicao_334 + Medicao_335 + Medicao_336
  + Medicao_337 + Medicao_338 + Medicao_339 + Medicao_340 + Medicao_341
  + Medicao_342 + Medicao_343 + Medicao_43 + Medicao_44 + Medicao_45
- + Medicao_46 + Medicao_47 + Medicao_476 + Medicao_48 + Medicao_49 <= 12
+ + Medicao_46 + Medicao_47 + Medicao_476 + Medicao_48 + Medicao_49 <= 24
 Max_Probes_Router10: Medicao_1105 + Medicao_1236 + Medicao_1237 + Medicao_1238
  + Medicao_1239 + Medicao_1240 + Medicao_1241 + Medicao_1242 + Medicao_1376
  + Medicao_1377 + Medicao_1378 + Medicao_1379 + Medicao_1380 + Medicao_1381
@@ -10127,7 +9774,7 @@ Max_Probes_Router10: Medicao_1105 + Medicao_1236 + Medicao_1237 + Medicao_1238
  + Medicao_725 + Medicao_726 + Medicao_727 + Medicao_73 + Medicao_74
  + Medicao_75 + Medicao_76 + Medicao_77 + Medicao_78 + Medicao_79 + Medicao_80
  + Medicao_81 + Medicao_984 + Medicao_985 + Medicao_986 + Medicao_987
- + Medicao_988 + Medicao_989 + Medicao_990 <= 3
+ + Medicao_988 + Medicao_989 + Medicao_990 <= 6
 Max_Probes_Router11: Medicao_1000 + Medicao_1001 + Medicao_1002 + Medicao_1003
  + Medicao_1004 + Medicao_1005 + Medicao_1006 + Medicao_1007 + Medicao_1008
  + Medicao_1009 + Medicao_1010 + Medicao_1011 + Medicao_1012 + Medicao_1013
@@ -10197,7 +9844,7 @@ Max_Probes_Router11: Medicao_1000 + Medicao_1001 + Medicao_1002 + Medicao_1003
  + Medicao_783 + Medicao_784 + Medicao_785 + Medicao_786 + Medicao_787
  + Medicao_788 + Medicao_789 + Medicao_790 + Medicao_791 + Medicao_792
  + Medicao_793 + Medicao_794 + Medicao_795 + Medicao_796 + Medicao_797
- + Medicao_798 + Medicao_799 <= 6
+ + Medicao_798 + Medicao_799 <= 12
 Max_Probes_Router12: Medicao_1113 + Medicao_1114 + Medicao_1115 + Medicao_1116
  + Medicao_1117 + Medicao_1118 + Medicao_1119 + Medicao_1228 + Medicao_1229
  + Medicao_1230 + Medicao_1231 + Medicao_1232 + Medicao_1233 + Medicao_1234
@@ -10231,7 +9878,7 @@ Max_Probes_Router12: Medicao_1113 + Medicao_1114 + Medicao_1115 + Medicao_1116
  + Medicao_759 + Medicao_760 + Medicao_761 + Medicao_762 + Medicao_763
  + Medicao_764 + Medicao_765 + Medicao_766 + Medicao_767 + Medicao_976
  + Medicao_977 + Medicao_978 + Medicao_979 + Medicao_980 + Medicao_981
- + Medicao_982 <= 9
+ + Medicao_982 <= 18
 Max_Probes_Router13: Medicao_109 + Medicao_1099 + Medicao_110 + Medicao_111
  + Medicao_1220 + Medicao_1360 + Medicao_1361 + Medicao_1362 + Medicao_1363
  + Medicao_1364 + Medicao_1365 + Medicao_1366 + Medicao_1819 + Medicao_1939
@@ -10242,7 +9889,7 @@ Max_Probes_Router13: Medicao_109 + Medicao_1099 + Medicao_110 + Medicao_111
  + Medicao_2476 + Medicao_2477 + Medicao_2478 + Medicao_2479 + Medicao_2480
  + Medicao_2481 + Medicao_2482 + Medicao_2484 + Medicao_2530 + Medicao_357
  + Medicao_482 + Medicao_483 + Medicao_484 + Medicao_729 + Medicao_730
- + Medicao_731 + Medicao_964 <= 9
+ + Medicao_731 + Medicao_964 <= 18
 Max_Probes_Router14: Medicao_1109 + Medicao_1110 + Medicao_1111 + Medicao_1224
  + Medicao_1225 + Medicao_1226 + Medicao_129 + Medicao_130 + Medicao_131
  + Medicao_132 + Medicao_133 + Medicao_134 + Medicao_135 + Medicao_1384
@@ -10266,7 +9913,7 @@ Max_Probes_Router14: Medicao_1109 + Medicao_1110 + Medicao_1111 + Medicao_1224
  + Medicao_504 + Medicao_505 + Medicao_506 + Medicao_507 + Medicao_508
  + Medicao_745 + Medicao_746 + Medicao_747 + Medicao_748 + Medicao_749
  + Medicao_750 + Medicao_751 + Medicao_9 + Medicao_972 + Medicao_973
- + Medicao_974 <= 6
+ + Medicao_974 <= 12
 Max_Probes_Router15: Medicao_1101 + Medicao_113 + Medicao_114 + Medicao_115
  + Medicao_1222 + Medicao_1368 + Medicao_1369 + Medicao_1370 + Medicao_1371
  + Medicao_1372 + Medicao_1373 + Medicao_1374 + Medicao_1821 + Medicao_1947
@@ -10313,7 +9960,7 @@ Max_Probes_Router15: Medicao_1101 + Medicao_113 + Medicao_114 + Medicao_115
  + Medicao_2762 + Medicao_2763 + Medicao_2764 + Medicao_2765 + Medicao_2766
  + Medicao_2767 + Medicao_2768 + Medicao_2769 + Medicao_2770 + Medicao_2771
  + Medicao_28 + Medicao_29 + Medicao_359 + Medicao_486 + Medicao_487
- + Medicao_488 + Medicao_733 + Medicao_734 + Medicao_735 + Medicao_966 <= 6
+ + Medicao_488 + Medicao_733 + Medicao_734 + Medicao_735 + Medicao_966 <= 12
 Max_Probes_Router16: Medicao_105 + Medicao_1352 + Medicao_1353 + Medicao_1354
  + Medicao_1935 + Medicao_1936 + Medicao_1937 + Medicao_2407 + Medicao_2408
  + Medicao_2409 + Medicao_2410 + Medicao_2411 + Medicao_2412 + Medicao_2413
@@ -10325,7 +9972,7 @@ Max_Probes_Router16: Medicao_105 + Medicao_1352 + Medicao_1353 + Medicao_1354
  + Medicao_2662 + Medicao_2664 + Medicao_2665 + Medicao_2666 + Medicao_2667
  + Medicao_2668 + Medicao_2669 + Medicao_2670 + Medicao_2671 + Medicao_2672
  + Medicao_2673 + Medicao_2674 + Medicao_2675 + Medicao_2676 + Medicao_2677
- + Medicao_2678 + Medicao_478 + Medicao_7 + Medicao_723 <= 21
+ + Medicao_2678 + Medicao_478 + Medicao_7 + Medicao_723 <= 42
 Max_Probes_Router17: Medicao_1016 + Medicao_1017 + Medicao_1018 + Medicao_1019
  + Medicao_1020 + Medicao_1021 + Medicao_1022 + Medicao_1023 + Medicao_1024
  + Medicao_1025 + Medicao_1026 + Medicao_1027 + Medicao_1028 + Medicao_1029
@@ -10395,7 +10042,7 @@ Max_Probes_Router17: Medicao_1016 + Medicao_1017 + Medicao_1018 + Medicao_1019
  + Medicao_815 + Medicao_816 + Medicao_817 + Medicao_818 + Medicao_819
  + Medicao_820 + Medicao_821 + Medicao_822 + Medicao_823 + Medicao_824
  + Medicao_825 + Medicao_826 + Medicao_827 + Medicao_828 + Medicao_829
- + Medicao_830 + Medicao_831 <= 6
+ + Medicao_830 + Medicao_831 <= 12
 Max_Probes_Router18: Medicao_1064 + Medicao_1065 + Medicao_1066 + Medicao_1067
  + Medicao_1068 + Medicao_1069 + Medicao_1070 + Medicao_1071 + Medicao_1072
  + Medicao_1073 + Medicao_1074 + Medicao_1075 + Medicao_1076 + Medicao_1077
@@ -10538,7 +10185,7 @@ Max_Probes_Router18: Medicao_1064 + Medicao_1065 + Medicao_1066 + Medicao_1067
  + Medicao_943 + Medicao_944 + Medicao_945 + Medicao_946 + Medicao_947
  + Medicao_948 + Medicao_949 + Medicao_950 + Medicao_951 + Medicao_952
  + Medicao_953 + Medicao_954 + Medicao_955 + Medicao_956 + Medicao_957
- + Medicao_958 + Medicao_959 <= 3
+ + Medicao_958 + Medicao_959 <= 6
 Max_Probes_Router19: Medicao_1032 + Medicao_1033 + Medicao_1034 + Medicao_1035
  + Medicao_1036 + Medicao_1037 + Medicao_1038 + Medicao_1039 + Medicao_1040
  + Medicao_1041 + Medicao_1042 + Medicao_1043 + Medicao_1044 + Medicao_1045
@@ -10681,7 +10328,7 @@ Max_Probes_Router19: Medicao_1032 + Medicao_1033 + Medicao_1034 + Medicao_1035
  + Medicao_879 + Medicao_880 + Medicao_881 + Medicao_882 + Medicao_883
  + Medicao_884 + Medicao_885 + Medicao_886 + Medicao_887 + Medicao_888
  + Medicao_889 + Medicao_890 + Medicao_891 + Medicao_892 + Medicao_893
- + Medicao_894 + Medicao_895 <= 3
+ + Medicao_894 + Medicao_895 <= 6
 Max_Probes_Router2: Medicao_19 + Medicao_20 + Medicao_21 + Medicao_347
  + Medicao_349 + Medicao_351 + Medicao_353 + Medicao_355 + Medicao_357
  + Medicao_359 + Medicao_361 + Medicao_363 + Medicao_365 + Medicao_366
@@ -10704,7 +10351,7 @@ Max_Probes_Router2: Medicao_19 + Medicao_20 + Medicao_21 + Medicao_347
  + Medicao_452 + Medicao_453 + Medicao_454 + Medicao_455 + Medicao_456
  + Medicao_457 + Medicao_458 + Medicao_459 + Medicao_460 + Medicao_461
  + Medicao_462 + Medicao_463 + Medicao_464 + Medicao_465 + Medicao_466
- + Medicao_467 + Medicao_468 + Medicao_469 + Medicao_470 + Medicao_471 <= 9
+ + Medicao_467 + Medicao_468 + Medicao_469 + Medicao_470 + Medicao_471 <= 18
 Max_Probes_Router3: Medicao_103 + Medicao_1931 + Medicao_1932 + Medicao_1933
  + Medicao_476 + Medicao_478 + Medicao_480 + Medicao_482 + Medicao_483
  + Medicao_484 + Medicao_486 + Medicao_487 + Medicao_488 + Medicao_490
@@ -10752,7 +10399,7 @@ Max_Probes_Router3: Medicao_103 + Medicao_1931 + Medicao_1932 + Medicao_1933
  + Medicao_697 + Medicao_698 + Medicao_699 + Medicao_700 + Medicao_701
  + Medicao_702 + Medicao_703 + Medicao_704 + Medicao_705 + Medicao_706
  + Medicao_707 + Medicao_708 + Medicao_709 + Medicao_710 + Medicao_711
- + Medicao_712 + Medicao_713 + Medicao_714 + Medicao_715 + Medicao_716 <= 12
+ + Medicao_712 + Medicao_713 + Medicao_714 + Medicao_715 + Medicao_716 <= 24
 Max_Probes_Router4: Medicao_107 + Medicao_351 + Medicao_59 + Medicao_60
  + Medicao_61 + Medicao_62 + Medicao_63 + Medicao_64 + Medicao_65
  + Medicao_719 + Medicao_721 + Medicao_723 + Medicao_725 + Medicao_726
@@ -10800,7 +10447,7 @@ Max_Probes_Router4: Medicao_107 + Medicao_351 + Medicao_59 + Medicao_60
  + Medicao_942 + Medicao_943 + Medicao_944 + Medicao_945 + Medicao_946
  + Medicao_947 + Medicao_948 + Medicao_949 + Medicao_950 + Medicao_951
  + Medicao_952 + Medicao_953 + Medicao_954 + Medicao_955 + Medicao_956
- + Medicao_957 + Medicao_958 + Medicao_959 <= 6
+ + Medicao_957 + Medicao_958 + Medicao_959 <= 12
 Max_Probes_Router5: Medicao_1000 + Medicao_1001 + Medicao_1002 + Medicao_1003
  + Medicao_1004 + Medicao_1005 + Medicao_1006 + Medicao_1007 + Medicao_1008
  + Medicao_1009 + Medicao_1010 + Medicao_1011 + Medicao_1012 + Medicao_1013
@@ -10827,7 +10474,7 @@ Max_Probes_Router5: Medicao_1000 + Medicao_1001 + Medicao_1002 + Medicao_1003
  + Medicao_977 + Medicao_978 + Medicao_979 + Medicao_980 + Medicao_981
  + Medicao_982 + Medicao_984 + Medicao_985 + Medicao_986 + Medicao_987
  + Medicao_988 + Medicao_989 + Medicao_990 + Medicao_992 + Medicao_993
- + Medicao_994 + Medicao_995 + Medicao_996 + Medicao_997 + Medicao_998 <= 3
+ + Medicao_994 + Medicao_995 + Medicao_996 + Medicao_997 + Medicao_998 <= 6
 Max_Probes_Router6: Medicao_1097 + Medicao_1099 + Medicao_1101 + Medicao_1103
  + Medicao_1105 + Medicao_1107 + Medicao_1109 + Medicao_1110 + Medicao_1111
  + Medicao_1113 + Medicao_1114 + Medicao_1115 + Medicao_1116 + Medicao_1117
@@ -10850,7 +10497,7 @@ Max_Probes_Router6: Medicao_1097 + Medicao_1099 + Medicao_1101 + Medicao_1103
  + Medicao_1202 + Medicao_1203 + Medicao_1204 + Medicao_1205 + Medicao_1206
  + Medicao_1207 + Medicao_1208 + Medicao_1209 + Medicao_1210 + Medicao_1211
  + Medicao_1212 + Medicao_1213 + Medicao_1214 + Medicao_1215 + Medicao_349
- + Medicao_35 + Medicao_36 + Medicao_37 + Medicao_721 + Medicao_970 <= 9
+ + Medicao_35 + Medicao_36 + Medicao_37 + Medicao_721 + Medicao_970 <= 18
 Max_Probes_Router7: Medicao_1103 + Medicao_117 + Medicao_118 + Medicao_119
  + Medicao_1218 + Medicao_1220 + Medicao_1222 + Medicao_1224 + Medicao_1225
  + Medicao_1226 + Medicao_1228 + Medicao_1229 + Medicao_1230 + Medicao_1231
@@ -10877,7 +10524,7 @@ Max_Probes_Router7: Medicao_1103 + Medicao_117 + Medicao_118 + Medicao_119
  + Medicao_1338 + Medicao_1339 + Medicao_1340 + Medicao_1341 + Medicao_1342
  + Medicao_1343 + Medicao_1344 + Medicao_1345 + Medicao_1346 + Medicao_31
  + Medicao_32 + Medicao_33 + Medicao_361 + Medicao_490 + Medicao_491
- + Medicao_492 + Medicao_737 + Medicao_738 + Medicao_739 + Medicao_968 <= 3
+ + Medicao_492 + Medicao_737 + Medicao_738 + Medicao_739 + Medicao_968 <= 6
 Max_Probes_Router8: Medicao_1107 + Medicao_1244 + Medicao_1245 + Medicao_1246
  + Medicao_1247 + Medicao_1248 + Medicao_1249 + Medicao_125 + Medicao_1250
  + Medicao_126 + Medicao_127 + Medicao_1348 + Medicao_1349 + Medicao_1350
@@ -10977,7 +10624,7 @@ Max_Probes_Router8: Medicao_1107 + Medicao_1244 + Medicao_1245 + Medicao_1246
  + Medicao_86 + Medicao_87 + Medicao_88 + Medicao_89 + Medicao_90 + Medicao_91
  + Medicao_92 + Medicao_93 + Medicao_94 + Medicao_95 + Medicao_96 + Medicao_97
  + Medicao_992 + Medicao_993 + Medicao_994 + Medicao_995 + Medicao_996
- + Medicao_997 + Medicao_998 <= 3
+ + Medicao_997 + Medicao_998 <= 6
 Max_Probes_Router9: Medicao_1097 + Medicao_1218 + Medicao_1356 + Medicao_1357
  + Medicao_1358 + Medicao_1817 + Medicao_1819 + Medicao_1821 + Medicao_1823
  + Medicao_1824 + Medicao_1825 + Medicao_1827 + Medicao_1828 + Medicao_1829
@@ -11001,7 +10648,7 @@ Max_Probes_Router9: Medicao_1097 + Medicao_1218 + Medicao_1356 + Medicao_1357
  + Medicao_1919 + Medicao_1920 + Medicao_1921 + Medicao_1922 + Medicao_1923
  + Medicao_1924 + Medicao_1925 + Medicao_1926 + Medicao_1927 + Medicao_1928
  + Medicao_1929 + Medicao_23 + Medicao_24 + Medicao_25 + Medicao_353
- + Medicao_480 + Medicao_962 <= 9
+ + Medicao_480 + Medicao_962 <= 18
 Minimo_Sondas_Medicao0: Medicao_0 >= 1
 Minimo_Sondas_Medicao1: Medicao_1 >= 1
 Minimo_Sondas_Medicao10: Medicao_26 + Medicao_27 + Medicao_28 + Medicao_29
