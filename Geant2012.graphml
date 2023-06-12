@@ -402,18 +402,6 @@
       <data key="d32">24.10589</data>
       <data key="d33">LV</data>
     </node>
-    <edge source="0" target="1">
-      <data key="d37">e59</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="0" target="2">
-      <data key="d37">e5</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="0" target="4">
-      <data key="d37">e6</data>
-      <data key="d38">0</data>
-    </edge>
     <edge source="0" target="34">
       <data key="d39">2.5</data>
       <data key="d40">2.5 Gbps</data>
@@ -428,10 +416,6 @@
       <data key="d42">2500000000.0</data>
       <data key="d38">0</data>
     </edge>
-    <edge source="1" target="33">
-      <data key="d37">e9</data>
-      <data key="d38">0</data>
-    </edge>
     <edge source="2" target="32">
       <data key="d39">10</data>
       <data key="d40">10 Gbps</data>
@@ -439,23 +423,11 @@
       <data key="d42">10000000000.0</data>
       <data key="d38">0</data>
     </edge>
-    <edge source="2" target="35">
-      <data key="d37">e4</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="2" target="4">
-      <data key="d37">e8</data>
-      <data key="d38">0</data>
-    </edge>
     <edge source="2" target="38">
       <data key="d39">10</data>
       <data key="d40">10 Gbps</data>
       <data key="d41">G</data>
       <data key="d42">10000000000.0</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="2" target="36">
-      <data key="d37">e3</data>
       <data key="d38">0</data>
     </edge>
     <edge source="2" target="31">
@@ -500,19 +472,11 @@
       <data key="d42">10000000000.0</data>
       <data key="d38">0</data>
     </edge>
-    <edge source="4" target="5">
-      <data key="d37">e7</data>
-      <data key="d38">0</data>
-    </edge>
     <edge source="4" target="6">
       <data key="d39">10</data>
       <data key="d40">10 Gbps</data>
       <data key="d41">G</data>
       <data key="d42">10000000000.0</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="4" target="8">
-      <data key="d37">e14</data>
       <data key="d38">0</data>
     </edge>
     <edge source="4" target="16">
@@ -543,10 +507,6 @@
       <data key="d42">10000000000.0</data>
       <data key="d38">0</data>
     </edge>
-    <edge source="5" target="23">
-      <data key="d37">e21</data>
-      <data key="d38">0</data>
-    </edge>
     <edge source="6" target="7">
       <data key="d39">10</data>
       <data key="d40">10 Gbps</data>
@@ -554,27 +514,11 @@
       <data key="d42">10000000000.0</data>
       <data key="d38">0</data>
     </edge>
-    <edge source="7" target="8">
-      <data key="d37">e11</data>
-      <data key="d38">0</data>
-    </edge>
     <edge source="7" target="25">
       <data key="d39">10</data>
       <data key="d40">10 Gbps</data>
       <data key="d41">G</data>
       <data key="d42">10000000000.0</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="7" target="34">
-      <data key="d37">e10</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="8" target="9">
-      <data key="d37">e13</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="8" target="25">
-      <data key="d37">e12</data>
       <data key="d38">0</data>
     </edge>
     <edge source="9" target="25">
@@ -589,10 +533,6 @@
       <data key="d40">1 Gbps</data>
       <data key="d41">G</data>
       <data key="d42">1000000000.0</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="9" target="29">
-      <data key="d37">e15</data>
       <data key="d38">0</data>
     </edge>
     <edge source="9" target="15">
@@ -693,18 +633,6 @@
       <data key="d42">10000000000.0</data>
       <data key="d38">0</data>
     </edge>
-    <edge source="22" target="27">
-      <data key="d37">e19</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="22" target="23">
-      <data key="d37">e18</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="23" target="29">
-      <data key="d37">e17</data>
-      <data key="d38">0</data>
-    </edge>
     <edge source="24" target="25">
       <data key="d39">10</data>
       <data key="d40">10 Gbps</data>
@@ -717,14 +645,6 @@
       <data key="d40">10 Gbps</data>
       <data key="d41">G</data>
       <data key="d42">10000000000.0</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="27" target="28">
-      <data key="d37">e20</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="28" target="29">
-      <data key="d37">e16</data>
       <data key="d38">0</data>
     </edge>
     <edge source="30" target="39">
@@ -746,16 +666,6 @@
       <data key="d40">10 Gbps</data>
       <data key="d41">G</data>
       <data key="d42">10000000000.0</data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="35" target="36">
-      <data key="d43">Fibre</data>
-      <data key="d40">Lit Fibre</data>
-      <data key="d44">Lit </data>
-      <data key="d38">0</data>
-    </edge>
-    <edge source="36" target="37">
-      <data key="d37">e2</data>
       <data key="d38">0</data>
     </edge>
     <edge source="38" target="39">

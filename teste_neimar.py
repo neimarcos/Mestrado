@@ -374,6 +374,21 @@ def Iguala_Sondas(Start, End, Measurements_List, Compose_List, SDMC_Dict, modelo
     
 
 
+def MaxSondaLink(paths, pairs, max_active_sondas_link, Count_Sondas_Link, id, SomenteVerificar):
+    for indice in range(1,len(paths[id])):
+        try:
+            index_uv = pairs.index((paths[id][indice-1], paths[id][indice]))
+        except ValueError:
+            try:
+                index_uv = pairs.index((paths[id][indice], paths[id][indice-1]))
+            except:
+                index_uv = -2
+        if Count_Sondas_Link[index_uv] >= max_active_sondas_link[index_uv] and SomenteVerificar:
+            return(False)
+        elif not SomenteVerificar:
+            Count_Sondas_Link[index_uv] +=1
+    return (True)
+
 if __name__ == '__main__':
     inicio_total= time.process_time()
     #rede = 'Geant2012.graphml'
@@ -382,7 +397,7 @@ if __name__ == '__main__':
     rede = 'exemplo.graphml'
     #rede = 'exemplo_pequeno.graphml'
     fatormultiplicacao_link = 10
-    fatormultiplicacao_router = 6
+    fatormultiplicacao_router = 3
 
     G = nx.read_graphml(rede)
     spf = nx.shortest_path(G, weight='LinkSpeedRaw')
@@ -438,134 +453,13 @@ if __name__ == '__main__':
     max_active_sondas_link = []
     for u, v in G.edges():
         pairs.append((u, v))
-        max_active_sondas_link.append (math.ceil(float(G[u] [v] [0] ['LinkSpeed'])*fatormultiplicacao_link))
+        if rede != 'Rnp.graphml' and rede != 'Geant2012.graphml':
+            max_active_sondas_link.append (math.ceil(float(G[u] [v] [0] ['LinkSpeed'])*fatormultiplicacao_link))
+        else:
+            max_active_sondas_link.append (math.ceil(float(G[u] [v] ['LinkSpeed'])*fatormultiplicacao_link))
 
-    Count_Sondas_Link = [0] * M
-    #print(pairs)
-    #pprint(compose_paths)
-    
-    # Imprimindo a matriz original e a matriz filtrada
-    #print("Matriz original:")
-    #print(compose_paths)
-    
+    Count_Sondas_Link = [0] * len (max_active_sondas_link)
 
-#    # Imprima a centralidade de proximidade para cada nó ordenado
-#    for node in sorted_nodes:
-#        print("Nó:", node)
-#        print("Centralidade de proximidade:", centralidade[node])
-#        print()
-#        lista_sonda = []
-#        for id_path, path in enumerate(paths):
-#            if node in path:
-#                if (path[len(path)-1] == node or path[0]==node) and Sonda_ativa[id_path] == 'NOT': 
-#                    lista_sonda.append(id_path)
-#        sorted_lista = sorted(lista_sonda, key=lambda id: path_cost[id], reverse=True)
-#        count = 0
-#        for id in sorted_lista:            
-#            if count < max_sondas[node]*2:
-#                Sonda_ativa[id] = int(node)
-#                count+=1
-#                #pprint(paths[id])
-#                for id_M in range(0,M):
-#                    if int(Measurements_Ativa[id_M]) == -1:
-#                        if (paths[id]==Measurements_List[id_M]) or (paths[id]==Measurements_List[id_M].reverse()):
-#                            Measurements_Ativa[id_M] = int(node)
-#                            Compose_Ativa[id_M] = int(node)
-#                        elif (paths[id] in Compose_List[id_M]) or (paths[id].reverse() in Compose_List[id_M]):
-#                            Compose_Ativa[id_M] += 1
-#                            if Compose_Ativa[id_M] == len(Compose_List[id_M]):
-#                                Compose_Ativa[id_M] = -2 
-#                                Sonda_ativa[paths.index(Measurements_List[id_M])] = -1 * id_M 
-#                                Measurements_Ativa[id_M] = -2 
-#                                for id_M2 in range(0,M):
-#                                    if Measurements_List[id_M2] == Compose_List[id] and id_M2 != id_M:
-#                                        Measurements_Ativa[id_M2] = int(id_M)
-#                                        Compose_Ativa[id_M] = -2 
-                                        
-
-
-
-#    for node in sorted_nodes:
-#        print("Nó:", node)
-#        print("Centralidade de proximidade:", centralidade[node])
-#        print()
-#        lista_sonda = []
-#        for id_path, path in enumerate(paths):
-#            if node in path:
-#                if (path[len(path)-1] == node or path[0]==node) and Sonda_ativa[id_path] == 'NOT': 
-#                    lista_sonda.append(id_path)
-#        sorted_lista = sorted(lista_sonda, key=lambda id: path_cost[id], reverse=True)
-#        #sorted_lista = sorted(lista_sonda, key=lambda id: len(paths[id]))
-#
-#        
-#        count = 0
-#        for id in sorted_lista:            
-#            if count < max_sondas[node]*fatormultiplicacao:
-#                Sonda_ativa[id] = int(node)
-#                count+=1
-#                #pprint(paths[id])
-#                for id_M in range(0,M):
-#                    if int(Measurements_Ativa[id_M]) == -1:
-#                        if (paths[id]==Measurements_List[id_M]) or (paths[id]==Measurements_List[id_M].reverse()):
-#                            Measurements_Ativa[id_M] = int(node)
-#                            Compose_Ativa[id_M] = int(node)
-#                        elif (paths[id] in Compose_List[id_M]) or (paths[id].reverse() in Compose_List[id_M]):
-#                            Compose_Ativa[id_M] += 1
-#                            if Compose_Ativa[id_M] == len(Compose_List[id_M]):
-#                                Compose_Ativa[id_M] = -2 
-#                                Sonda_ativa[paths.index(Measurements_List[id_M])] = -1 * id_M 
-#                                Measurements_Ativa[id_M] = -2 
-#                                for id_M2 in range(0,M):
-#                                    if Measurements_List[id_M2] == Compose_List[id_M] and id_M2 != id_M:
-#                                        Measurements_Ativa[id_M2] = int(id_M)
-#                                        Compose_Ativa[id_M] = -2
-
-#    for node in sorted_nodes:
-#        print(f"Nó: {node}\nCentralidade de proximidade: {centralidade[node]}\n")   
-#
-#        # Cria lista_sonda usando compreensão de lista
-#        lista_sonda = [
-#            id_path for id_path, path in enumerate(paths)
-#            if node in path and (path[-1] == node or path[0] == node) and Sonda_ativa[id_path] == 'NOT'
-#        ]   
-#
-#        # Ordena lista_sonda
-#        sorted_lista = sorted(lista_sonda, key=lambda id: path_cost[id], reverse=True)  
-#
-#        # Define o número máximo de sondas ativas para este nó
-#        max_active_sondas = min(len(sorted_lista), max_sondas[node]*fatormultiplicacao) 
-#
-#        # Ativa as sondas para este nó
-#        for id in sorted_lista[:max_active_sondas]:
-#            Sonda_ativa[id] = node  
-#
-#            # Ativa as medições correspondentes
-#            for id_M in range(M):
-#                if Measurements_Ativa[id_M] != -1:
-#                    continue    
-#
-#                path = paths[id]
-#                path_reverse = path[::-1]  # Armazena a lista invertida para evitar chamadas redundantes a reverse()
-#                measurement_list = Measurements_List[id_M]
-#                compose_list = Compose_List[id_M]   
-#
-#                if path == measurement_list or path == path_reverse:
-#                    Measurements_Ativa[id_M] = node
-#                    Compose_Ativa[id_M] = node
-#                elif path in compose_list or path_reverse in compose_list:
-#                    Compose_Ativa[id_M] += 1
-#                    if Compose_Ativa[id_M] == len(compose_list):
-#                        Compose_Ativa[id_M] = -2 
-#                        Sonda_ativa[paths.index(measurement_list)] = -1 * id_M 
-#                        Measurements_Ativa[id_M] = -2 
-#                        for id_M2 in range(M):
-#                            if Measurements_List[id_M2] == compose_list and id_M2 != id_M:
-#                                Measurements_Ativa[id_M2] = node
-#                                Compose_Ativa[id_M] = -2
-    
-    
-    
-    
 
     for node in sorted_nodes:
         print(f"Nó: {node}\nCentralidade de proximidade: {centralidade[node]}\n")
@@ -579,8 +473,8 @@ if __name__ == '__main__':
         
         max_active_sondas_node = max_sondas[node] * fatormultiplicacao_router
         for id in sorted_lista[:max_active_sondas_node]:  
-            if SondaLink(True):
-                SondaLink(False)
+            if MaxSondaLink(paths, pairs, max_active_sondas_link, Count_Sondas_Link, id, True):
+                MaxSondaLink(paths, pairs, max_active_sondas_link, Count_Sondas_Link, id, False)
                 Sonda_ativa[id] = node
                 for id_M in range(M):
                     if Measurements_Ativa[id_M] != -1:
@@ -604,7 +498,6 @@ if __name__ == '__main__':
                                 if Measurements_List[id_M2] == compose_list and id_M2 != id_M:
                                     Measurements_Ativa[id_M2] = node
                                     Compose_Ativa[id_M] = -2
-
 
     count_sondas = 0
     count_composicao = 0  
@@ -631,7 +524,8 @@ if __name__ == '__main__':
     pprint(f'Total de medições por Composicao: {count_composicao}')
     pprint(f'Total SEM medições: {count_SEM}')
     
-    pprint(Count_Sondas_Link)
+    #pprint(Count_Sondas_Link)
+    #pprint(max_active_sondas_link)
             
 #
 #    print ('####################################')
