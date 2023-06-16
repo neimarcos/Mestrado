@@ -1,11 +1,13 @@
 import pulp
+import random
+
 
 # Criar o problema de minimização
 problema = pulp.LpProblem("Problema de Alocação de Processos", pulp.LpMinimize)
 
 # Variáveis
-processadores = range(1, 6)  # Processadores numerados de 1 a 5
-processos = range(1, 11)  # Processos numerados de 1 a 10
+processadores = range(1, 10)  # Processadores numerados de 1 a 5
+processos = range(1, 50)  # Processos numerados de 1 a 10
 
 # Variáveis binárias para indicar se um processo é alocado em um processador
 alocado = {
@@ -20,13 +22,16 @@ diferenca_carga = {
 }
 
 # Dados
-carga_processos = {
-    1: 8, 2: 3, 3: 8, 4: 8, 5: 8, 6: 3, 7: 8, 8: 4, 9: 2, 10: 8
-}
+carga_processos = {i: (i % 11) + 1 for i in range(1, 201)}
+
+SDMC_Dict = {s: pulp.LpVariable(f"Medicao_{s}", 0, 1, pulp.LpContinuous) for s in carga_processos}
+
+for s in carga_processos:
+    SDMC_Dict[s] = carga_processos[s] * random.randint(1,3)
 
 # Função objetivo
 carga_total_processadores = {
-    pr: pulp.lpSum(carga_processos[p] * alocado[(p, pr)] for p in processos)
+    pr: pulp.lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in processos)
     for pr in processadores
 }
 carga_media_total = pulp.lpSum(carga_total_processadores.values()) / len(processadores)
@@ -35,14 +40,17 @@ problema += pulp.lpSum(diferenca_carga[pr] for pr in processadores)
 
 # Restrições
 for pr in processadores:
-    problema += pulp.lpSum(carga_processos[p] * alocado[(p, pr)] for p in processos) <= carga_media_total + diferenca_carga[pr]
-    problema += pulp.lpSum(carga_processos[p] * alocado[(p, pr)] for p in processos) >= carga_media_total - diferenca_carga[pr]
+    problema += pulp.lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in processos) <= carga_media_total + diferenca_carga[pr]
+    problema += pulp.lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in processos) >= carga_media_total - diferenca_carga[pr]
     
 for p in processos:
     problema += pulp.lpSum(alocado[(p, pr)] for pr in processadores) == 1
-
 # Resolva o problema
-problema.solve()
+#solver = pulp.GUROBI_CMD()
+#
+solver = pulp.CPLEX_CMD()
+problema.solve(solver)
+#problema.solve()
 
 # Verifique o status da solução
 status = pulp.LpStatus[problema.status]

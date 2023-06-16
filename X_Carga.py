@@ -11,7 +11,7 @@ from collections import defaultdict
 import math
 from collections import Counter
 import random
-
+from itertools import permutations
 
 node_dist_to_color = {
     1: "tab:red",
@@ -313,33 +313,19 @@ def grafico(G):
 
 
 def CompoeSonda(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao):
-    Start('Inicio Compoe sonda')
-    caminhos_processados = set()   
-    for idMedicao, Medicao in enumerate(Measurements_List):
+    Start('Inicio Compoe sonda') 
+    for idMedicao, _ in enumerate(Measurements_List):
         if Measurements_List[idMedicao]!=Probes_List[idMedicao]:
-            reverse_path = tuple(Medicao[::-1])
-            if tuple(Medicao) in caminhos_processados or reverse_path in caminhos_processados:
-                continue
-            caminhos_processados.add(tuple(Medicao))
             L_CompoeSonda = []
-            for idprobe, probe in enumerate (Probes_List[idMedicao]):
+            for probe in Probes_List[idMedicao]:
                 if probe[0] not in roteadores_sem_medicao:
                     L_CompoeSonda.append(Measurements_List.index(probe))                           
-                elif probe[-1] not in roteadores_sem_medicao:
-                    L_CompoeSonda.append(Measurements_List.index(probe[::-1]))
                 else:
                     L_CompoeSonda = []
                     break
             if L_CompoeSonda:
                 for i_Medicao_Compoe in L_CompoeSonda:
                     modelo_colocacao += SDMC_Dict[idMedicao] <= SDMC_Dict[i_Medicao_Compoe], "Composicao" + str(idMedicao) + "_" + str(i_Medicao_Compoe)       
-    End('Fim Minimo de uma medição por caminho')
-
-
-
-
-
-
     End('Fim Compoe sonda')
 
 def Bidirecional(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao):
@@ -404,6 +390,25 @@ def Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC
 
     End('Limita sondas por roteador')
     
+    
+    
+def Reversa(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao):
+    Start('Inicio do Iguala sonda')
+    
+    for i in range(len(Measurements_List)):
+        sublist = Measurements_List[i]
+
+        for j in range(i, len(Measurements_List)):
+            current_sublist = Measurements_List[j]
+
+            if sublist == current_sublist[::-1]:
+                #print("Sublist:", sublist)
+                #print("Current Sublist:", current_sublist)
+                modelo_colocacao += SDMC_Dict[i] == SDMC_Dict[j]
+
+    End('Final do Iguala') 
+    
+    
 #def Carga_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_Dict, modelo_colocacao, Carga_Media):
 #    Start('Limita sondas por roteador')
 #
@@ -429,7 +434,7 @@ def Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC
 #
 #    # Variáveis contínuas para representar a carga total de cada roteador
 #    carga_total_roteadores = {
-#        r: pulp.LpVariable(f'carga_total_roteador{r}', lowBound=0)
+#        r: LpVariable(f'carga_total_roteador{r}', lowBound=0)
 #        for r in routers
 #    }
 #
@@ -441,7 +446,7 @@ def Sondas_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC
 #        # Filtra as medições cujo primeiro elemento da lista Probes_List é igual ao roteador atual
 #        filtered_measurements = [s for s, probes in enumerate(Probes_List) if str(probes[0]) == str(r)]
 #        # Calcula a soma das cargas correspondentes às medições filtradas
-#        carga = pulp.lpSum(SDMC_Dict[s] for s in filtered_measurements)
+#        carga = lpSum(SDMC_Dict[s] for s in filtered_measurements)
 #        # Adiciona a restrição de carga total para o roteador atual
 #        modelo_colocacao += carga_total_roteadores[r] == carga
 #
@@ -461,7 +466,7 @@ def Carga_Roteador_funcional(Start, End, G, Measurements_List, Probes_List, rout
     
     # Variáveis binárias para indicar se um processo é alocado em um processador
     alocado = {
-        (m, r): pulp.LpVariable(f'medicao{m}_roteador{r}', cat=LpBinary)
+        (m, r): LpVariable(f'medicao{m}_roteador{r}', cat=LpBinary)
         for m, _ in enumerate(Measurements_List) for r, _ in enumerate(routers)
     }
     
@@ -512,7 +517,7 @@ def Carga_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_
     
     # Variáveis binárias para indicar se uma medição é alocada em um roteador
     alocado = {
-        (m, r): pulp.LpVariable(f'medicao{m}_roteador{r}', cat=LpBinary)
+        (m, r): LpVariable(f'medicao{m}_roteador{r}', cat=LpBinary)
         for m, _ in enumerate(Measurements_List) for r in routers
     }
     
@@ -571,21 +576,31 @@ def Carga_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_
 
 def MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict, modelo_colocacao):
     Start('Inicio Minimo de uma medição por caminho')
-    caminhos_processados = set()
-    for id_path, path in enumerate(paths):
-        reverse_path = tuple(path[::-1])
-        if tuple(path) in caminhos_processados or reverse_path in caminhos_processados:
-            continue
-        caminhos_processados.add(tuple(path))
-        Lista_Sondas = []
-        for indice, sonda in enumerate(Measurements_List):
-            #if Measurements_List[indice]==Probes_List[indice]:
-            if (path == sonda and path[0] not in roteadores_sem_medicao) or (reverse_path == sonda and reverse_path[0] not in roteadores_sem_medicao):
-                Lista_Sondas.append(indice)
-        if Lista_Sondas != []:
-            modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in Lista_Sondas]) >= 1 , "Minimo_Sondas_Medicao_" + str(id_path))
-               
+    Lista_Medicao_Path = []
+    sonda_anterior = Measurements_List[0]  
+    medicao_processada = set() 
+    for indice, sonda in enumerate(Measurements_List):
+        if sonda_anterior==sonda:
+            Lista_Medicao_Path.append(indice)
+            medicao_processada.add(indice)
+            indice_reverso = Measurements_List.index(Measurements_List[indice][::-1])
+            Lista_Medicao_Path.append(indice_reverso)
+            medicao_processada.add(indice_reverso)
+        elif Lista_Medicao_Path:
+            modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in Lista_Medicao_Path]) >= 1 , "Minimo_Sondas_Medicao_" + str(Lista_Medicao_Path[0]))
+            Lista_Medicao_Path = []
+            if tuple(sonda) not in medicao_processada:
+                Lista_Medicao_Path.append(indice)
+                medicao_processada.add(indice)
+                indice_reverso = Measurements_List.index(Measurements_List[indice][::-1])
+                Lista_Medicao_Path.append(indice_reverso)
+                medicao_processada.add(indice_reverso)
+        sonda_anterior=sonda
     End('Fim Minimo de uma medição por caminho')
+
+
+                
+                
 
 if __name__ == '__main__':
     inicio_total= time.process_time()
@@ -593,7 +608,7 @@ if __name__ == '__main__':
     #rede = 'Rnp_2020.graphml'
     #rede = 'Rnp.graphml'
     #rede = 'exemplo.graphml'
-    rede = 'exemplo_pequeno.graphml'
+    #rede = 'exemplo_pequeno.graphml'
     
 
     G = nx.read_graphml(rede)
@@ -652,75 +667,81 @@ if __name__ == '__main__':
     # Converta o array NumPy de volta em uma lista, se necessário
     Cost_List = Normalized_Cost_Array.tolist()
     #pprint(f'{Cost_List}')
-    
+    roteadores_sem_medicao = random.sample(routers,int(len(routers) *0 ))
+
     modelo_colocacao = LpProblem("Probes Placement Model", LpMinimize)
 
     Start('Inicia o modelo e cria a função LpMinimize')
 
-    SDMC_Dict = {s: LpVariable(f"Medicao_{s}", 0, 1, LpContinuous) for s in M_list}
-    Carga_Media = LpVariable("CargaMedia", 0, None,LpInteger)
-    
-    roteadores_sem_medicao = random.sample(routers,int(len(routers) *0 ))
+    SDMC_Dict = {s: LpVariable(f"Medicao_{s}", 0, 1, LpBinary) for s in M_list}
 
-
-    #modelo_colocacao += (lpSum([SDMC_Dict[i_M] * Cost_List[i_M] for i_M in M_list if Probes_List[i_M]==Measurements_List[i_M]]),"Total_Cost")
-    
-    Carga_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_Dict, modelo_colocacao, Carga_Media)
-    
-  
-    
-    
+#    # Variáveis
+#    processadores = len(routers) 
+#    processos = len(Measurements_List)  
+#
+#    # Variáveis binárias para indicar se um processo é alocado em um processador
+#    alocado = {}
+#    for p in range(len(Measurements_List)):
+#        for pr in range(len(routers)):
+#            alocado[(p, pr)] = LpVariable(f'processo{p}_processador{pr}', cat=LpBinary)
+#
+#
+#
+#    # Variáveis contínuas para representar a diferença entre a carga de cada processador e a carga média total
+#    diferenca_carga = {
+#        pr: LpVariable(f'diferenca_carga_processador{pr}', lowBound=0)
+#        for pr in range(processadores)
+#    }
+#
+#
+#    for p in range(processos):
+#        SDMC_Dict[p] = random.randint(0, 1)
+#        for pr in range(processadores):
+#            alocado[(p, pr)] = random.randint(0, 1)
+#        
+#    SDMC_Dict = {s: LpVariable(f"Medicao_{s}", 0, 1, LpBinary) for s in range(processos)}
+#
+#    #for s in carga_processos:
+#    #    SDMC_Dict[s] = carga_processos[s] * random.randint(1,3)
+#
+#    # Função objetivo
+#    carga_total_processadores = {
+#        pr: lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in range(processos))
+#        for pr in range(processadores)
+#    }
+#        
+#    carga_media_total = lpSum(carga_total_processadores.values()) / len(routers) 
+#
+#    modelo_colocacao += lpSum(diferenca_carga[pr] for pr in range(processadores))
+#
+#    # Restrições
+#    for pr in range(processadores):
+#        modelo_colocacao += lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in range(processos)) <= carga_media_total + diferenca_carga[pr]
+#        modelo_colocacao += lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in range(processos)) >= carga_media_total - diferenca_carga[pr]
+#    
+    modelo_colocacao += (lpSum([SDMC_Dict[i_M] for i_M in M_list if Probes_List[i_M]==Measurements_List[i_M]]),"Total_Cost")   
+    #Reversa(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
     MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict, modelo_colocacao)
-    CompoeSonda(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
-    #pSum([SDMC_Dict[i_M] for i_M in M_list if Probes_List[i_M]==Measurements_List[i_M]]),"Total_Cost")
-    #modelo_colocacao += (lpSum([SDMC_Dict[i_M] * Cost_List[i_M] for i_M in M_list ]),"Total_Cost")
-    #modelo_colocacao += (lpSum([SDMC_Dict[i_M] for i_M in M_list]),"Total_Cost")
-   
-   
-    End('Fim modelo e cria a função LpMinimize')
+   # CompoeSonda(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
+    #Bidirecional(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
+    #Iguala_Sondas(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
     
-   
- 
- 
-
-
+    # Resolva o problema
+    #solver = GUROBI_CMD()
     
-    # encontrar primeiro a solução buscando minimizar o número de sondas
-    # 1 sem composição = 1 sonda por link
-    # 2 com composição = 
-    # 3 alguns roteadores não pode ter medições
-    
-    # minimizar a media a carga dos roteadores (coloca no problema linear)
-    
-    
+    solver = CPLEX_CMD()
+    modelo_colocacao.solve(solver)
+    #modelo_colocacao.solve()
     Start('Salva o Modelo')
     modelo_colocacao.writeLP(rede.replace(".graphml", ".LP"))
     End('Salva o Modelo')
-
-    Start('Pulp Solve')
-    #modelo_colocacao.solve()
-    solver = pl.CPLEX_CMD()
-    modelo_colocacao.solve(solver)
-    
-    #modelo_colocacao.solve(pulp.PULP_CBC_CMD(maxSeconds=30))
-    
-    # Definindo o número máximo de iterações para 100
-    #max_iterations = 1000000
-
-    # Resolvendo o modelo
-    #for i in range(max_iterations):
-    #    status = modelo_colocacao.solve()
-    #    if status == LpStatusOptimal or status == LpStatusInfeasible:
-    #        break
-
-    End('Pulp Solve')
-
-
-    with open(rede.replace(".graphml", ".result"), 'w') as f:
+    with open(rede.replace(".graphml", ".result_CBC"), 'w') as f:
         for v in modelo_colocacao.variables():
             f.write(v.name + ' = ' + str(v.varValue) + '\n')
-    
-    print("Status:", LpStatus[modelo_colocacao.status])
+
+    # Verifique o status da solução
+    status = LpStatus[modelo_colocacao.status]
+    print("Status da solução:", status)
     Sondas_ativas = []
     if modelo_colocacao.status == 1:
         
@@ -728,11 +749,11 @@ if __name__ == '__main__':
         for v in modelo_colocacao.variables():
             x = v.name.split("_")
             if x[0] == "Medicao" and v.varValue > 0:
-                #print(v.name, "=", v.varValue)
-                #print(Probes_List[int(x[1])])
+                print(v.name, "=", v.varValue)
+                print(Probes_List[int(x[1])])
                 Sondas_ativas.append (int(x[1]))
-    #print("Custo = ", value(modelo_colocacao.objective))
-    #pprint(f'Total de sondas: {len(Sondas_ativas)}')
+    print("Custo = ", value(modelo_colocacao.objective))
+    pprint(f'Total de sondas: {len(Sondas_ativas)}')
 
 
 
@@ -742,23 +763,33 @@ if __name__ == '__main__':
     count_sondas = 0 
     count_composicao = 0
     sondas_por_roteador = [0 for _ in range(len(routers))]
+    medicao_processada = set()   
       
     for Sonda in Sondas_ativas:
         if Measurements_List[int(Sonda)] == Probes_List[int(Sonda)] :
-            pprint(f'Sonda - {Probes_List[int(Sonda)]}')
+            pprint(f'Sonda - {Measurements_List[int(Sonda)]}')
             count_sondas += 1
             sondas_por_roteador[int(Probes_List[int(Sonda)][0])] +=1
-        else:
-            #pprint(f'Composição - {Probes_List[int(Sonda)]}')
+            if tuple(Measurements_List[int(Sonda)]) not in medicao_processada:
+                medicao_processada.add(tuple(Measurements_List[int(Sonda)]))
+            elif Measurements_List[int(Sonda)] not in medicao_processada:
+                pprint(f'Composição - {Measurements_List[int(Sonda)]}')
+                medicao_processada.add(tuple(Measurements_List[int(Sonda)]))
+                count_composicao += 1
+        elif Measurements_List.index(Measurements_List[int(Sonda)][::-1]) not in medicao_processada:
+            pprint(f'Composição - {Measurements_List.index(Measurements_List[int(Sonda)][::-1])}')
+            medicao_processada.add(Measurements_List.index(Measurements_List[int(Sonda)][::-1]))
             count_composicao += 1
-    
-    
+   
          
     pprint('Relátorio')
     pprint(f'Total de Medições por Sondas: {count_sondas}')
     pprint(f'Total de Medições através de composiçôes: {count_composicao}')
-
+    
     pprint(f'Total de medições: {count_sondas+ count_composicao } = {len(paths)} ')
+    
+    pprint(f'Total de Medições possiveis: {len(Measurements_List)}')
+    
     
     
     pprint(f'#################################################################################')
@@ -776,4 +807,10 @@ if __name__ == '__main__':
     
     pprint(f'Sondas por roteadores: {sondas_por_roteador}')
     pprint(f'Routers sem medicão: {roteadores_sem_medicao}')
-   # pprint(paths)
+   
+  
+    #pprint(medicao_processada)
+    #pprint(tuple(paths))
+    
+    
+    
