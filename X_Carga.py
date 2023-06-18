@@ -1,17 +1,14 @@
-import pulp as pl
+from pulp import *
 import copy
 from pprint import pprint
 import networkx as nx
 import numpy as np
-from pulp import *
 import time
-import concurrent.futures
 import matplotlib.pyplot as plt
-from collections import defaultdict
 import math
 from collections import Counter
 import random
-from itertools import permutations
+
 
 node_dist_to_color = {
     1: "tab:red",
@@ -112,7 +109,7 @@ def Count_Subsegment_Occurrences(routes):
 #                Nexts.append(subpath)
 #                pprint(f"são igual - {subpath} {subpaths[subpath]}")   
 #    return (Nexts)                
-def Nexts_Paths(pos, paths, subpaths):
+def Nexts_Paths(pos, paths, subpaths, is_reversed=False):
     """
     Finds the next possible subpaths for composing the route
 
@@ -120,43 +117,102 @@ def Nexts_Paths(pos, paths, subpaths):
         pos (int): current position on the route to start the scan
         route(list): route to analyze possible compositions of subpaths
         (list): possible subpaths of the route
+        is_reversed (bool): flag indicating if the current segment is reversed
 
     ### Returns:
         list:list of next possible subpaths in the composition
     """    
     Nexts = []
+    
     if paths[pos] != paths[len(paths)-1]:
-        for subpath in range(len(subpaths)):
-            if paths[pos] == subpaths[subpath][0]:
-                Nexts.append(subpath)
-    return (Nexts)  
+        for subpath_index in range(len(subpaths)):
+            current_subpath = subpaths[subpath_index]
+            
+            # Check if the subpath needs to be reversed
+            if is_reversed:
+                current_subpath = current_subpath[::-1]
+            
+            if paths[pos] == current_subpath[0]:
+                Nexts.append(subpath_index)
+                
+    return Nexts
 
-def Compose_Subpaths(Path, SubPaths, pos = 0 , path_segment = []):
+
+def Compose_Subpaths(Path, SubPaths, pos=0, path_segment=[], is_reversed=False):
     """
-    Finds all possible subpath compositions of a path    
+    Finds all possible subpath compositions of a path
     
     ### Parameters:
         path_segment (list): current segment of path
         rota (list): path to finds possible compositions
         subrotas (list): all possibles subpaths 
         pos (int): initial position to find, default 0
+        is_reversed (bool): flag indicating if the current segment is reversed
         
     ### Returns:
         list: List of all possible subpath compositions of a path
     """    
-    positions = Nexts_Paths(pos, Path, SubPaths)
+    positions = Nexts_Paths(pos, Path, SubPaths, is_reversed)
     compose = []
+    
     if positions == []:
         compose.append(path_segment)
-        return (compose)
+        return compose
     else:
         compose_path = []
+    
     for pos in positions:
         compose_path = copy.deepcopy(path_segment)
-        compose_path.append(SubPaths[pos])
-        saltos = Compose_Subpaths( Path, SubPaths, Path.index(SubPaths[pos][(len(SubPaths[pos])-1)]), compose_path)
+        current_subpath = SubPaths[pos]
+        
+        # Check if the subpath needs to be reversed
+        if is_reversed:
+            current_subpath = current_subpath[::-1]
+        
+        compose_path.append(current_subpath)
+        
+        # Recursively find the next subpaths
+        index = Path.index(current_subpath[-1]) if not is_reversed else Path.index(current_subpath[0])
+        saltos = Compose_Subpaths(Path, SubPaths, index, compose_path, is_reversed)
         compose.extend(saltos)
-    return (compose)
+    
+    return compose
+def find_combinations(path, subpaths, current=[], start=0):
+    # Caso base: se a sequência atual termina no último nó do caminho
+    if current and current[-1][-1] == path[-1]:
+        yield current
+        return
+
+    # Procurar subcaminhos que podem ser anexados à sequência atual
+    for subpath in subpaths:
+        # Verificar se o subcaminho pode ser anexado à sequência atual
+        if start < len(path) and (subpath[0] == path[start] or subpath[-1] == path[start]):
+            # Determine o próximo nó do caminho principal a ser alcançado
+            next_node = subpath[-1] if subpath[0] == path[start] else subpath[0]
+            # Encontre o índice desse nó no caminho principal
+            if next_node in path:
+                next_index = path.index(next_node)
+                # Chamar a função recursivamente com o subcaminho adicionado à sequência atual
+                new_subpath = subpath if subpath[0] == path[start] else subpath[::-1]
+                yield from find_combinations(path, subpaths, current + [new_subpath], next_index + 1)
+
+
+def generate_combinations(path, subpaths, current_sequence, last_node, used_indices, combinations):
+    if last_node == path[-1]:  # Se o último nó do caminho foi atingido, adicione a sequência às combinações
+        combinations.append(current_sequence)
+        return
+    
+    for idx, subpath in enumerate(subpaths):
+        if idx not in used_indices:
+            if subpath[0] == last_node:  # Tente adicionar o subcaminho normal
+                new_sequence = current_sequence + [subpath]
+                new_last_node = subpath[-1]
+                generate_combinations(path, subpaths, new_sequence, new_last_node, used_indices | {idx}, combinations)
+            elif subpath[-1] == last_node:  # Tente adicionar o subcaminho invertido
+                new_sequence = current_sequence + [subpath[::-1]]
+                new_last_node = subpath[0]
+                generate_combinations(path, subpaths, new_sequence, new_last_node, used_indices | {idx}, combinations)
+
 
 def Find_Compose_Paths(path_count):
     """ 
@@ -167,13 +223,13 @@ def Find_Compose_Paths(path_count):
     ### Returns:
         list: all possible possible combinations of subpaths for all paths
     """
-    paths=tuple([k[0] for k in path_count])
+    paths = tuple([k[0] for k in path_count])
     ComposePaths = []
     global Measurements_List
     global Probes_List
     for path in paths:
         if len(path) > 2:
-            #pprint(f"Origem: {i}, destino: {k}, rota spf: {v} ")
+            # pprint(f"Origem: {i}, destino: {k}, rota spf: {v} ")
             subpaths = []
             for i in range(len(path)):
                 for j in range(i + 1, len(path) + 1):
@@ -184,7 +240,7 @@ def Find_Compose_Paths(path_count):
                         except ValueError as e:
                             pprint("Subcaminho não existente")
             retorno = (Compose_Subpaths(path, subpaths))
-            ComposePaths.append (retorno)
+            ComposePaths.append(retorno)
             # Medicao da propia sonda
             Measurements_List.append(path)
             Probes_List.append(path)
@@ -574,20 +630,30 @@ def Carga_Roteador(Start, End, G, Measurements_List, Probes_List, routers, SDMC_
 
 
 
-def MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict, modelo_colocacao):
+def MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict):
     Start('Inicio Minimo de uma medição por caminho')
-    Lista_Medicao_Path = []
-    sonda_anterior = Measurements_List[0]  
+    global modelo_colocacao
     medicao_processada = set() 
     for indice, sonda in enumerate(Measurements_List):
+        if indice not in medicao_processada:
+            Lista_Medicao_Path = [i for i, item in enumerate(Measurements_List) if item == sonda]
+            Lista_Medicao_Path_Reverso =  [i for i, item in enumerate(Measurements_List) if item == Measurements_List[indice][::-1]]
+            Lista_Medicoes_Iguais = Lista_Medicao_Path + Lista_Medicao_Path_Reverso
+            modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in Lista_Medicoes_Iguais]) >= 1 , "Minimo_Sondas_Medicao_" + str(Lista_Medicoes_Iguais[0]) + 'ou'+ str(Lista_Medicoes_Iguais[-1]))
+            for medicao in Lista_Medicoes_Iguais:
+                medicao_processada.add(medicao)
+                
+    End('Fim Minimo de uma medição por caminho')
+""" 
+        
         if sonda_anterior==sonda:
             Lista_Medicao_Path.append(indice)
             medicao_processada.add(indice)
-            indice_reverso = Measurements_List.index(Measurements_List[indice][::-1])
+            indice_reverso = Measurements_List.index()
             Lista_Medicao_Path.append(indice_reverso)
             medicao_processada.add(indice_reverso)
         elif Lista_Medicao_Path:
-            modelo_colocacao += (lpSum([SDMC_Dict[id_lista] for id_lista in Lista_Medicao_Path]) >= 1 , "Minimo_Sondas_Medicao_" + str(Lista_Medicao_Path[0]))
+            
             Lista_Medicao_Path = []
             if tuple(sonda) not in medicao_processada:
                 Lista_Medicao_Path.append(indice)
@@ -596,7 +662,8 @@ def MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict, modelo
                 Lista_Medicao_Path.append(indice_reverso)
                 medicao_processada.add(indice_reverso)
         sonda_anterior=sonda
-    End('Fim Minimo de uma medição por caminho')
+ """    
+    
 
 
                 
@@ -609,18 +676,21 @@ if __name__ == '__main__':
     #rede = 'Rnp.graphml'
     #rede = 'exemplo.graphml'
     #rede = 'exemplo_pequeno.graphml'
+    #G = nx.read_graphml(rede)
+    #spf = nx.shortest_path(G, weight='LinkSpeedRaw')
     
-
-    G = nx.read_graphml(rede)
-    spf = nx.shortest_path(G, weight='LinkSpeedRaw')
-    # Clear routes
-
-    inicio=time.process_time()
+    ## Criar um grafo não direcionado
+    G = nx.Graph()
+    G.add_nodes_from(['1', '2', '3', '4'])
+    G.add_edges_from([('1', '2'), ('2', '3'), ('2', '4')])
+    spf = dict(nx.all_pairs_shortest_path(G))
+    rede = 'manual.graphml'
 
     Start('ClearRoutes')
     paths = ClearRoutes (spf)
     #paths = copy.deepcopy(spf)
     End('ClearRoutes')
+    
     
     Start('Count_Subsegment_Occurrences')
     # counts how many times a subsegment/subpath occurs in the spf 
@@ -640,15 +710,15 @@ if __name__ == '__main__':
     End('Compose_Route_Cost')
 
     routers = G.nodes
-    total_roteadores = len(routers)
 
+    #pprint(Probes_List)
 
     M = len(Measurements_List)
     M_list = [*range(0, M,1)]
     medicao_anterior = ''
     id_M = 0
     
-    nodes_list = np.array(list(G.nodes()))
+    Router_list = list(G.nodes())
  
  
     max_cost = max(Cost_List)
@@ -673,55 +743,51 @@ if __name__ == '__main__':
 
     Start('Inicia o modelo e cria a função LpMinimize')
 
-    SDMC_Dict = {s: LpVariable(f"Medicao_{s}", 0, 1, LpBinary) for s in M_list}
+    SDMC_Dict = {s: LpVariable(f"Medicao_{s}", 0, 1, LpContinuous) for s in M_list}
+    # Variáveis
+    total_routers = len(routers) 
+    total_medicoes = len(Measurements_List)  
 
-#    # Variáveis
-#    processadores = len(routers) 
-#    processos = len(Measurements_List)  
-#
-#    # Variáveis binárias para indicar se um processo é alocado em um processador
-#    alocado = {}
-#    for p in range(len(Measurements_List)):
-#        for pr in range(len(routers)):
-#            alocado[(p, pr)] = LpVariable(f'processo{p}_processador{pr}', cat=LpBinary)
-#
-#
-#
-#    # Variáveis contínuas para representar a diferença entre a carga de cada processador e a carga média total
-#    diferenca_carga = {
-#        pr: LpVariable(f'diferenca_carga_processador{pr}', lowBound=0)
-#        for pr in range(processadores)
-#    }
-#
-#
-#    for p in range(processos):
-#        SDMC_Dict[p] = random.randint(0, 1)
-#        for pr in range(processadores):
-#            alocado[(p, pr)] = random.randint(0, 1)
-#        
-#    SDMC_Dict = {s: LpVariable(f"Medicao_{s}", 0, 1, LpBinary) for s in range(processos)}
-#
-#    #for s in carga_processos:
-#    #    SDMC_Dict[s] = carga_processos[s] * random.randint(1,3)
-#
-#    # Função objetivo
-#    carga_total_processadores = {
-#        pr: lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in range(processos))
-#        for pr in range(processadores)
-#    }
-#        
-#    carga_media_total = lpSum(carga_total_processadores.values()) / len(routers) 
-#
-#    modelo_colocacao += lpSum(diferenca_carga[pr] for pr in range(processadores))
-#
-#    # Restrições
-#    for pr in range(processadores):
-#        modelo_colocacao += lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in range(processos)) <= carga_media_total + diferenca_carga[pr]
-#        modelo_colocacao += lpSum(SDMC_Dict[p] * alocado[(p, pr)] for p in range(processos)) >= carga_media_total - diferenca_carga[pr]
-#    
-    modelo_colocacao += (lpSum([SDMC_Dict[i_M] for i_M in M_list if Probes_List[i_M]==Measurements_List[i_M]]),"Total_Cost")   
+    # Variáveis binárias para indicar se um medicao é alocado em um roteador
+    alocado = {}
+    medicao_atual = 0 
+        
+    for id_router in Router_list:
+        for id_medicao in range(medicao_atual, len(Measurements_List)):
+            SDMC_Dict[id_medicao] = random.randint(0, 1)
+            if Measurements_List[id_medicao][0] == id_router:
+                if Measurements_List[int(id_medicao)] ==  Probes_List[id_medicao]:
+                    alocado[(int(id_router),id_medicao)] = LpVariable(f'Roteador{int(id_router)}_medicao{id_medicao}', cat=LpBinary)
+                    alocado[(int(id_router),id_medicao)] = random.randint(0, 1)
+            else:
+                medicao_atual=id_medicao
+                break
+
+    # Variáveis contínuas para representar a diferença entre a carga de cada roteador e a carga média total
+    diferenca_carga = {
+        id_router: LpVariable(f'diferenca_carga_roteador{id_router}', lowBound=0)
+        for id_router in Router_list
+    }
+
+    # Função objetivo
+    carga_total_processadores = {
+        key: lpSum(SDMC_Dict[key[1]] * alocado[(key[0], key[1])])
+        for key in alocado
+    }
+        
+    carga_media_total = lpSum(carga_total_processadores.values()) / len(routers) 
+
+    modelo_colocacao += lpSum(diferenca_carga[id_router] for id_router in Router_list)
+
+    # Restrições
+    for key in alocado:
+        modelo_colocacao += lpSum(SDMC_Dict[key[1]] * alocado[(key[0], key[1])] ) <= carga_media_total + diferenca_carga[str(key[0])]
+        modelo_colocacao += lpSum(SDMC_Dict[key[1]] * alocado[(key[0], key[1])] ) >= carga_media_total - diferenca_carga[str(key[0])]
+    
+    #modelo_colocacao += (lpSum([SDMC_Dict[i_M] for i_M in M_list if Probes_List[i_M]==Measurements_List[i_M]]),"Total_Cost")   
+   
+    MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict)
     #Reversa(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
-    MinimoMedicaoCaminho(Start, End, paths, Measurements_List, SDMC_Dict, modelo_colocacao)
    # CompoeSonda(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
     #Bidirecional(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
     #Iguala_Sondas(Start, End, Measurements_List, Probes_List, SDMC_Dict, modelo_colocacao)
@@ -739,76 +805,78 @@ if __name__ == '__main__':
         for v in modelo_colocacao.variables():
             f.write(v.name + ' = ' + str(v.varValue) + '\n')
 
+    pprint(alocado)
+
+    pprint(SDMC_Dict)
+    for numsonda, sonda in SDMC_Dict.items():
+        if sonda == 1:
+            pprint(f'{numsonda} - {Measurements_List[numsonda]}')
     # Verifique o status da solução
     status = LpStatus[modelo_colocacao.status]
-    print("Status da solução:", status)
-    Sondas_ativas = []
-    if modelo_colocacao.status == 1:
-        
-        #pprint(modelo_colocacao)    
-        for v in modelo_colocacao.variables():
-            x = v.name.split("_")
-            if x[0] == "Medicao" and v.varValue > 0:
-                print(v.name, "=", v.varValue)
-                print(Probes_List[int(x[1])])
-                Sondas_ativas.append (int(x[1]))
-    print("Custo = ", value(modelo_colocacao.objective))
-    pprint(f'Total de sondas: {len(Sondas_ativas)}')
-
-
-
-    #pprint("###########################")
-    #pprint(paths)
-    #pprint(len(paths))
-    count_sondas = 0 
-    count_composicao = 0
-    sondas_por_roteador = [0 for _ in range(len(routers))]
-    medicao_processada = set()   
-      
-    for Sonda in Sondas_ativas:
-        if Measurements_List[int(Sonda)] == Probes_List[int(Sonda)] :
-            pprint(f'Sonda - {Measurements_List[int(Sonda)]}')
-            count_sondas += 1
-            sondas_por_roteador[int(Probes_List[int(Sonda)][0])] +=1
-            if tuple(Measurements_List[int(Sonda)]) not in medicao_processada:
-                medicao_processada.add(tuple(Measurements_List[int(Sonda)]))
-            elif Measurements_List[int(Sonda)] not in medicao_processada:
-                pprint(f'Composição - {Measurements_List[int(Sonda)]}')
-                medicao_processada.add(tuple(Measurements_List[int(Sonda)]))
-                count_composicao += 1
-        elif Measurements_List.index(Measurements_List[int(Sonda)][::-1]) not in medicao_processada:
-            pprint(f'Composição - {Measurements_List.index(Measurements_List[int(Sonda)][::-1])}')
-            medicao_processada.add(Measurements_List.index(Measurements_List[int(Sonda)][::-1]))
-            count_composicao += 1
-   
-         
-    pprint('Relátorio')
-    pprint(f'Total de Medições por Sondas: {count_sondas}')
-    pprint(f'Total de Medições através de composiçôes: {count_composicao}')
-    
-    pprint(f'Total de medições: {count_sondas+ count_composicao } = {len(paths)} ')
-    
-    pprint(f'Total de Medições possiveis: {len(Measurements_List)}')
-    
-    
-    
-    pprint(f'#################################################################################')
-    pprint(f'Concluiu tudo em {time.process_time() - inicio_total:.2f} segundos')
-    pprint(f'#################################################################################')
-    
-    
-    total_paths = sum(len(v) for k, v in spf.items() if k != '')
-
-    pprint(f'Total de arestas {G.number_of_edges()}')
-    pprint(f'Total de nos {G.number_of_nodes()}')
-    pprint(f'Total de routas SPF {len(paths)}')
-
-    #pprint(f'Total de : {i}')
-    
-    pprint(f'Sondas por roteadores: {sondas_por_roteador}')
-    pprint(f'Routers sem medicão: {roteadores_sem_medicao}')
-   
-  
+#    print("Status da solução:", status)
+#    Sondas_ativas = []
+#    if modelo_colocacao.status == 1:
+#        
+#        #pprint(modelo_colocacao)    
+#        for v in modelo_colocacao.variables():
+#            x = v.name.split("_")
+#            if x[0] == "Medicao" and v.varValue > 0:
+#                print(v.name, "=", v.varValue)
+#                print(Probes_List[int(x[1])])
+#                Sondas_ativas.append (int(x[1]))
+#    print("Custo = ", value(modelo_colocacao.objective))
+#    pprint(f'Total de sondas: {len(Sondas_ativas)}')
+#
+#
+#
+#    #pprint("###########################")
+#    #pprint(paths)
+#    #pprint(len(paths))
+#    count_sondas = 0 
+#    count_composicao = 0
+#    sondas_por_roteador = [0 for _ in range(len(routers))]
+#    medicao_processada = set()   
+#      
+#    for Sonda in Sondas_ativas:
+#        if Measurements_List[int(Sonda)] == Probes_List[int(Sonda)] :
+#            pprint(f'Sonda - {Measurements_List[int(Sonda)]}')
+#            count_sondas += 1
+#            sondas_por_roteador[int(Probes_List[int(Sonda)][0])-1] +=1
+#            medicao_processada.add(tuple(Measurements_List[int(Sonda)]))
+#        elif tuple(Measurements_List[int(Sonda)]) and tuple(Measurements_List[int(Sonda)][::-1]) not in medicao_processada:
+#            pprint(f'Composição - {Measurements_List.index(Measurements_List[int(Sonda)][::-1])} - {Measurements_List[int(Sonda)]}')
+#            medicao_processada.add(tuple(Measurements_List[int(Sonda)]))
+#            medicao_processada.add(tuple(Measurements_List[int(Sonda)][::-1]))
+#            count_composicao += 1
+#   
+#         
+#    pprint('Relátorio')
+#    pprint(f'Total de Medições por Sondas: {count_sondas}')
+#    pprint(f'Total de Medições através de composiçôes: {count_composicao}')
+#    
+#    pprint(f'Total de medições: {count_sondas+ count_composicao } = {len(paths)} ')
+#    
+#    pprint(f'Total de Medições/Composições de Sondas possiveis: {len(Measurements_List)}')
+#    
+#    
+#    
+#    pprint(f'#################################################################################')
+#    pprint(f'Concluiu tudo em {time.process_time() - inicio_total:.2f} segundos')
+#    pprint(f'#################################################################################')
+#    
+#    
+#    total_paths = sum(len(v) for k, v in spf.items() if k != '')
+#
+#    pprint(f'Total de arestas {G.number_of_edges()}')
+#    pprint(f'Total de nos {G.number_of_nodes()}')
+#    pprint(f'Total de routas SPF {len(paths)}')
+#
+#    #pprint(f'Total de : {i}')
+#    
+#    pprint(f'Sondas por roteadores: {sondas_por_roteador}')
+#    pprint(f'Routers sem medicão: {roteadores_sem_medicao}')
+#   
+#  
     #pprint(medicao_processada)
     #pprint(tuple(paths))
     
